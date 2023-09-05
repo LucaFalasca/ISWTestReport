@@ -6,6 +6,13 @@
 \usepackage[margin=1in]{geometry}
 \usepackage{lipsum}
 \usepackage{graphicx} % Required for inserting images
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,     % Abilita i collegamenti colorati
+    linkcolor=black,      % Colore dei collegamenti interni
+    citecolor=green,     % Colore dei collegamenti alle citazioni
+    urlcolor=magenta     % Colore dei collegamenti URL
+}
 
 
 \title{Bookkepper test}
@@ -15,13 +22,18 @@
 
 \maketitle
 \tableofcontents
+
+\listoffigures
+\listoftables
+
 \newpage
 
 \section{Introduction}
 
-\section{Journal}
-\subsection{listJournalIds}
-\subsubsection{Descrizione del metodo}
+\section{Bookkeeper}
+\subsection{Journal}
+\subsubsection{Descrizione}
+\paragraph{listJournalIds}
 Lists all journal IDs filtered by a specified journal ID filter.
 
 This method scans the given directory containing journal log files and extracts
@@ -88,57 +100,21 @@ Andiamo a definire per ogni partizione i Boundary values
     \item null
 \end{itemize}
 
+\paragraph{}
+\par
 Siccome i due parametri di input sono abbastanza scorrelati tra loro ha più senso adottare un approccio 
 unidimensionale piuttosto che uno multidimensionale che sarebbe più adatto quando ci sono delle interazioni forti
 e che portano alla necessità di testare tutte le combinazioni tra i parametri. Inoltre avendo un approccio multidimensionale
 si finirebbe probabilemente per avere molti test non rilevanti e vanno a coprire scenari già coperti, e quindi sarebbero inutili.
-ù
-Enumeriamo ora i casi di test
 
-\begin{table}[ht]
-\centering
-\begin{tabular}{|c|c|c|}
-\hline
-journalDir & JournalIdFilter & Risultato Atteso \\
-\hline
-{Directory contenente 1 file di log} & JournalRollingFilter & ... \\
-{Directory contenente 1 file di log} & Filtro sempre True & ... \\
-{Directory contenente 1 file di log} & Filtro sempre False & ... \\
-{Directory contenente 1 file di log} & MyFilter & ... \\
-{Directory contenente 1 file di log} & null & Exception \\
-{Directory contenente 1 file di log e 1 file di testo} & JournalRollingFilter & ... \\
-{Directory contenente 1 file di log e 1 file di testo} & Filtro sempre True & ... \\
-{Directory contenente 1 file di log e 1 file di testo} & Filtro sempre False & ... \\
-{Directory contenente 1 file di log e 1 file di testo} & MyFilter & ... \\
-{Directory contenente 1 file di log e 1 file di testo} & null & Exception \\
-{Directory contenente 1 file di testo} & JournalRollingFilter & ... \\
-{Directory contenente 1 file di testo} & Filtro sempre True & ... \\
-{Directory contenente 1 file di testo} & Filtro sempre False & ... \\
-{Directory contenente 1 file di testo} & MyFilter & ... \\
-{Directory contenente 1 file di testo} & null & Exception \\
-{path non esistente} & JournalRollingFilter & [ ] \\
-{path non esistente} & Filtro sempre True & [ ] \\
-{path non esistente} & Filtro sempre False & [ ] \\
-{path non esistente} & MyFilter & [ ] \\
-{path non esistente} & null & [ ] \\
-{Path di un file di log} & JournalRollingFilter & ... \\
-{Path di un file di log} & Filtro sempre True & ... \\
-{Path di un file di log} & Filtro sempre False & ... \\
-{Path di un file di log} & MyFilter & ... \\
-{Path di un file di log} & null & Exception \\
-null & JournalRollingFilter & Exception \\
-null & Filtro sempre True & Exception \\
-null & Filtro sempre False & Exception \\
-null & MyFilter & Exception \\
-null & null & Exception \\
-\hline
-\end{tabular}
-\end{table}
+Enumeriano ora i casi di test derivanti da quest prima analisi (Tabella \ref{tab:categoryPartition1ListJournalIds})
+
+
 
 \subsubsection{Adequacy Control Flow}
-Ora per verificare l'adeguatezza dei casi di test, vado a definire dei critedi di adeguatezza
-
-Criteri di adeguatezza black box:
+Ora per verificare l'adeguatezza dei casi di test, vado a definire dei critedi di adeguatezza.
+\paragraph{Criteri di adeguatezza black box} 
+\par
 documentazione a disposizione:
 
 javadoc
@@ -196,21 +172,14 @@ Arco (1,2)  -- textgreater Tutti i test che hanno almeno un file di log coprono 
 Arco (2,3)  - \> Tutti i test che hanno almeno un file di log e un filtro non null coprono questo caso, quindi non è necessario aggiungere ulteriori test
 Arco (2,4)  -\> 
 Questo arco non è coperto perchè manca un test che abbia almeno un file di log e il filtro null. Basta quindi aggiungere il 
-test necessario:
-\begin{table}[ht]
-  \centering
-  \begin{tabular}{|c|c|c|}
-  \hline
-    {Directory contenente 1 file di log} & null & Exception \\
-  \end{tabular}
-\end{table}
+test necessario (Figura \ref{tab:ACF1ListJournalIds})
+
 
 Arco (3,4)  -\> Tutti i test che hanno almeno un file di log e un filtro non null coprono questo caso, quindi non è necessario aggiungere ulteriori test
 
 
+è stato necessario quindi aggiungere un caso di test e quindi la attuale test suite è descritta nella Tabella \Ref{tab:ACF2ListJournalIds}
 
-Non è stato necessario aggiungere nè classi di equivalenza nè casi di test,
-in quanto quelli già definiti soddisfano i criteri di adeguatezza precedentemente definiti
 
 Ora andiamo a valutare la coverage ottenuta con jacoco con i casi di test definiti
 fino ad ora (Figura \ref{fig:JacocoCoveragelistJournalIds1.png})
@@ -233,17 +202,9 @@ questo è dovuto al fatto che il path non era esistente e quindi il metodo torna
 
 Andiamo quindi a definire un caso di test che copra questo branch
 Per farlo andiamo semplicemente basta aggiungere un category partition che copre il caso di una cartella esistente ma vuota
+(Tabella \ref{tab:ACF3ListJournalIds})
 
-\begin{table}[ht]
-\centering
-\begin{tabular}{|c|c|c|}
-  \hline
-  journalDir & JournalIdFilter & Risultato Atteso \\
-  \hline
-  {Directory vuota} & null & [ ] \\
-  \hline
-\end{tabular}
-\end{table}
+
 
 Ora quindi l'insieme dei test è il seguente
 
@@ -291,7 +252,7 @@ Ora quindi l'insieme dei test è il seguente
 e grazie a questo test anche la condition coverage è del 100\% (Figura \ref{fig:JacocoCoveragelistJournalIds2.png}),
  con un aumento del 9%.
 
- \subsubsection{Adequacy Control Flow}
+ \subsubsection{Adequacy Data Flow}
 
  Andiamo ora ad fare un lavoro di adeguatezza del dataflow utilizzando il framework badua per calcolare la all-uses coverage
 
@@ -394,11 +355,96 @@ Andiamo a definire per ogni partizione i Boundary values
 \subsubsection{Test Suit}
 Enumeriamo ora i casi di test
 
+\begin{table}[ht]
+  \centering
+  \caption[Journal: Test Suite - Category Partition]{Test Suite derivante dalla category partition e dalla boundary analysis}
+  \begin{tabular}{|c|c|c|}
+  \hline
+  journalDir & JournalIdFilter & Risultato Atteso \\
+  \hline
+  {Directory contenente 1 file di log} & JournalRollingFilter & [1] \\
+  {Directory contenente 1 file di log e 1 file di testo} & Filtro sempre True & [1] \\
+  {Directory contenente 1 file di testo} & Filtro sempre False & [ ] \\
+  {path non esistente} & MyFilter & [ ] \\
+  {Path di un file di log} & null & Exception \\
+  null & null & Exception \\
+  \hline
+  \end{tabular}
+  \label{tab:categoryPartition1ListJournalIds}
+\end{table}
+
+\begin{table}[ht]
+  \centering
+  \caption[Journal: Test Suite - Adequacy Control Flow 1]{Test per coprire l'arco (2,4)}
+  \begin{tabular}{|c|c|c|}
+    \hline
+journalDir & JournalIdFilter & Risultato Atteso \\
+  \hline
+    {Directory contenente 1 file di log} & null & Exception \\
+    \hline
+  \end{tabular}
+  \label{tab:ACF1ListJournalIds}
+\end{table}
+
+\begin{table}[ht]
+  \centering
+  \caption[Journal: Test Suite - Adequacy Control Flow 2]{Casi di test aggiornati per coprire l'arco (2,4)}
+  \begin{tabular}{|c|c|c|}
+  \hline
+  journalDir & JournalIdFilter & Risultato Atteso \\
+  \hline
+  {Directory contenente 1 file di log} & JournalRollingFilter & [1] \\
+  {Directory contenente 1 file di log e 1 file di testo} & Filtro sempre True & [1] \\
+  {Directory contenente 1 file di testo} & Filtro sempre False & [ ] \\
+  {path non esistente} & MyFilter & [ ] \\
+  {Path di un file di log} & null & Exception \\
+  null & null & Exception \\
+  {Directory contenente 1 file di log} & null & Exception \\
+  \hline
+  \end{tabular}
+  \label{tab:ACF2ListJournalIds}
+  \end{table}
+
+\begin{table}[ht]
+  \centering
+  \caption[Journal: Test Suite - Adequacy Control Flow 3]{Test per aumentare la condition coverage}
+  \begin{tabular}{|c|c|c|}
+    \hline
+    journalDir & JournalIdFilter & Risultato Atteso \\
+    \hline
+    {Directory vuota} & null & [ ] \\
+    \hline
+  \end{tabular}
+  \label{tab:ACF3ListJournalIds}
+  \end{table}
+
+\begin{table}[ht]
+  \centering
+  \caption[Journal: Test Suite - Adequacy Control Flow 4]{Casi di test aggiornati per aumentare la condition coverage}
+  \begin{tabular}{|c|c|c|}
+  \hline
+  journalDir & JournalIdFilter & Risultato Atteso \\
+  \hline
+  {Directory contenente 1 file di log} & JournalRollingFilter & [1] \\
+  {Directory contenente 1 file di log e 1 file di testo} & Filtro sempre True & [1] \\
+  {Directory contenente 1 file di testo} & Filtro sempre False & [ ] \\
+  {path non esistente} & MyFilter & [ ] \\
+  {Path di un file di log} & null & Exception \\
+  null & null & Exception \\
+  {Directory contenente 1 file di log} & null & Exception \\
+  {Directory vuota} & null & [ ] \\
+  \hline
+  \end{tabular}
+  \label{tab:ACF2ListJournalIds}
+  \end{table}
 
 
-\section{Resources}
-\subsection{Tables}
-\subsection{Images}
+
+
+
+
+
+
   \begin{figure}
     \includegraphics[width=\linewidth]{listJournalIds.jpg}
     \caption{Funcitonal diagram di listJournalId}
@@ -426,7 +472,6 @@ Enumeriamo ora i casi di test
     \includegraphics[width=\linewidth]{JacocoCoveragelistJournalIds2.png}
     \caption{Jacoco coverage dilistJournalIds}
     \label{fig:listJournalIdsCFG}
-
   \end{figure}
 
 \end{document}

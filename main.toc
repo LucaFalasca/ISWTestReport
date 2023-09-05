@@ -1,36 +1,36 @@
 \babel@toc {italian}{}\relax 
 \babel@toc {italian}{}\relax 
-\contentsline {section}{\numberline {1}Introduction}{2}{}%
-\contentsline {section}{\numberline {2}Journal}{2}{}%
-\contentsline {subsection}{\numberline {2.1}listJournalIds}{2}{}%
-\contentsline {subsubsection}{\numberline {2.1.1}Descrizione del metodo}{2}{}%
-\contentsline {paragraph}{Input:}{2}{}%
-\contentsline {paragraph}{Output:}{2}{}%
-\contentsline {subsubsection}{\numberline {2.1.2}Category Partition}{2}{}%
-\contentsline {paragraph}{journalDir}{2}{}%
-\contentsline {paragraph}{JournalIdFilter}{2}{}%
-\contentsline {subsubsection}{\numberline {2.1.3}Boundary Analysis}{3}{}%
-\contentsline {paragraph}{journalDir}{3}{}%
-\contentsline {paragraph}{JournalIdFilter}{3}{}%
-\contentsline {subsubsection}{\numberline {2.1.4}Adequacy Control Flow}{3}{}%
-\contentsline {subsubsection}{\numberline {2.1.5}Adequacy Control Flow}{6}{}%
-\contentsline {subsubsection}{\numberline {2.1.6}Mutation Testing}{6}{}%
-\contentsline {subsection}{\numberline {2.2}logAddEntry}{6}{}%
-\contentsline {subsubsection}{\numberline {2.2.1}Descrizione del metodo}{6}{}%
-\contentsline {paragraph}{Input:}{6}{}%
-\contentsline {paragraph}{Output:}{7}{}%
-\contentsline {subsubsection}{\numberline {2.2.2}Category Partition}{7}{}%
-\contentsline {paragraph}{journalId}{7}{}%
-\contentsline {subsubsection}{\numberline {2.2.3}Boundary Analysis}{7}{}%
-\contentsline {subsubsection}{\numberline {2.2.4}Test Suit}{7}{}%
-\contentsline {subsection}{\numberline {2.3}scanJournal}{7}{}%
-\contentsline {subsubsection}{\numberline {2.3.1}Descrizione del metodo}{7}{}%
-\contentsline {paragraph}{Input:}{7}{}%
-\contentsline {paragraph}{Output:}{8}{}%
-\contentsline {subsubsection}{\numberline {2.3.2}Category Partition}{8}{}%
-\contentsline {paragraph}{journalId}{8}{}%
-\contentsline {subsubsection}{\numberline {2.3.3}Boundary Analysis}{8}{}%
-\contentsline {subsubsection}{\numberline {2.3.4}Test Suit}{8}{}%
-\contentsline {section}{\numberline {3}Resources}{8}{}%
-\contentsline {subsection}{\numberline {3.1}Tables}{8}{}%
-\contentsline {subsection}{\numberline {3.2}Images}{8}{}%
+\contentsline {section}{\numberline {1}Introduction}{3}{section.1}%
+\contentsline {section}{\numberline {2}Bookkeeper}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Journal}{3}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Descrizione}{3}{subsubsection.2.1.1}%
+\contentsline {paragraph}{listJournalIds}{3}{section*.4}%
+\contentsline {paragraph}{Input:}{3}{section*.5}%
+\contentsline {paragraph}{Output:}{3}{section*.6}%
+\contentsline {subsubsection}{\numberline {2.1.2}Category Partition}{3}{subsubsection.2.1.2}%
+\contentsline {paragraph}{journalDir}{3}{section*.7}%
+\contentsline {paragraph}{JournalIdFilter}{3}{section*.8}%
+\contentsline {subsubsection}{\numberline {2.1.3}Boundary Analysis}{4}{subsubsection.2.1.3}%
+\contentsline {paragraph}{journalDir}{4}{section*.9}%
+\contentsline {paragraph}{JournalIdFilter}{4}{section*.10}%
+\contentsline {paragraph}{}{4}{section*.11}%
+\contentsline {subsubsection}{\numberline {2.1.4}Adequacy Control Flow}{4}{subsubsection.2.1.4}%
+\contentsline {paragraph}{Criteri di adeguatezza black box}{5}{section*.12}%
+\contentsline {subsubsection}{\numberline {2.1.5}Adequacy Data Flow}{7}{subsubsection.2.1.5}%
+\contentsline {subsubsection}{\numberline {2.1.6}Mutation Testing}{7}{subsubsection.2.1.6}%
+\contentsline {subsection}{\numberline {2.2}logAddEntry}{7}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Descrizione del metodo}{7}{subsubsection.2.2.1}%
+\contentsline {paragraph}{Input:}{7}{section*.13}%
+\contentsline {paragraph}{Output:}{7}{section*.14}%
+\contentsline {subsubsection}{\numberline {2.2.2}Category Partition}{7}{subsubsection.2.2.2}%
+\contentsline {paragraph}{journalId}{7}{section*.15}%
+\contentsline {subsubsection}{\numberline {2.2.3}Boundary Analysis}{7}{subsubsection.2.2.3}%
+\contentsline {subsubsection}{\numberline {2.2.4}Test Suit}{7}{subsubsection.2.2.4}%
+\contentsline {subsection}{\numberline {2.3}scanJournal}{8}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Descrizione del metodo}{8}{subsubsection.2.3.1}%
+\contentsline {paragraph}{Input:}{8}{section*.16}%
+\contentsline {paragraph}{Output:}{8}{section*.17}%
+\contentsline {subsubsection}{\numberline {2.3.2}Category Partition}{8}{subsubsection.2.3.2}%
+\contentsline {paragraph}{journalId}{8}{section*.18}%
+\contentsline {subsubsection}{\numberline {2.3.3}Boundary Analysis}{8}{subsubsection.2.3.3}%
+\contentsline {subsubsection}{\numberline {2.3.4}Test Suit}{8}{subsubsection.2.3.4}%

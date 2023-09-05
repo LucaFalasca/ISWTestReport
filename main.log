@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/CVE-2023-32700 patched) (preloaded format=pdflatex 2023.8.29)  5 SEP 2023 11:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/CVE-2023-32700 patched) (preloaded format=pdflatex 2023.8.29)  5 SEP 2023 13:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -95,8 +95,116 @@ File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen150
 \Gin@req@width=\dimen151
+) (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2022-11-13 v7.00u Hypertext links for LaTeX
+ (/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
+) (/usr/share/texlive/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+ (/usr/share/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 )
-LaTeX Font Info:    Trying to load font information for OT1+phv on input line 14.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+) (/usr/share/texlive/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+) (/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+) (/usr/share/texlive/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+) (/usr/share/texlive/texmf-dist/tex/latex/hycolor/hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+) (/usr/share/texlive/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
+Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
+) (/usr/share/texlive/texmf-dist/tex/latex/auxhook/auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+) (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2022-05-17 v2.50 Cross-referencing by name of section
+ (/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+) (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+ (/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+))
+\c@section@level=\count272
+)
+\@linkdim=\dimen152
+\Hy@linkcounter=\count273
+\Hy@pagecounter=\count274
+ (/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2022-11-13 v7.00u Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+) (/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+) (/usr/share/texlive/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+)
+\Hy@SavedSpaceFactor=\count275
+ (/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2022-11-13 v7.00u Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Hyper figures OFF on input line 4162.
+Package hyperref Info: Link nesting OFF on input line 4167.
+Package hyperref Info: Hyper index ON on input line 4170.
+Package hyperref Info: Plain pages OFF on input line 4177.
+Package hyperref Info: Backreferencing OFF on input line 4182.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4410.
+\c@Hy@tempcnt=\count276
+ (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip16
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4748.
+\XeTeXLinkMargin=\dimen153
+ (/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+ (/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
+))
+\Fld@menulength=\count277
+\Field@Width=\dimen154
+\Fld@charsize=\dimen155
+Package hyperref Info: Hyper figures OFF on input line 6027.
+Package hyperref Info: Link nesting OFF on input line 6032.
+Package hyperref Info: Hyper index ON on input line 6035.
+Package hyperref Info: backreferencing OFF on input line 6042.
+Package hyperref Info: Link coloring OFF on input line 6047.
+Package hyperref Info: Link coloring with OCG OFF on input line 6052.
+Package hyperref Info: PDF/A mode OFF on input line 6057.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/atbegshi-ltx.sty
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
+)
+\Hy@abspage=\count278
+\c@Item=\count279
+\c@Hfootnote=\count280
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+ (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2022-11-13 v7.00u Hyperref driver for pdfTeX
+ (/usr/share/texlive/texmf-dist/tex/latex/base/atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
+with kernel methods
+)
+\Fld@listcount=\count281
+\c@bookmark@seq@number=\count282
+ (/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
+ (/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
+)
+\Hy@SectionHShift=\skip49
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 15.
+LaTeX Font Info:    Trying to load font information for OT1+phv on input line 21.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
 ) (./main.aux
@@ -109,25 +217,32 @@ LaTeX Warning: Label `fig:listJournalIdsCFG' multiply defined.
 
 LaTeX Warning: Label `fig:listJournalIdsCFG' multiply defined.
 
+
+LaTeX Warning: Label `tab:ACF2ListJournalIds' multiply defined.
+
 )
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Info: Redefining \it@ocap on input line 14.
-LaTeX Info: Redefining \it@ccap on input line 14.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Info: Redefining \it@ocap on input line 21.
+LaTeX Info: Redefining \it@ccap on input line 21.
 
 
 File italian.ldf warning: 
@@ -135,7 +250,7 @@ italian.ldf    With OT1 encoding guillemets are poorly faked
 italian.ldf    Use T1 encoding
 italian.ldf    or specify a font with command \CaporaliFrom
 italian.ldf    See the documentation concerning the babel-italian typesetting 
-italian.ldf    on input line 14.
+italian.ldf    on input line 21.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -173,27 +288,38 @@ italian.ldf    on input line 14.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count272
-\scratchdimen=\dimen152
+\scratchcounter=\count283
+\scratchdimen=\dimen156
 \scratchbox=\box52
-\nofMPsegments=\count273
-\nofMParguments=\count274
+\nofMPsegments=\count284
+\nofMParguments=\count285
 \everyMPshowfont=\toks18
-\MPscratchCnt=\count275
-\MPscratchDim=\dimen153
-\MPnumerator=\count276
-\makeMPintoPDFobject=\count277
+\MPscratchCnt=\count286
+\MPscratchDim=\dimen157
+\MPnumerator=\count287
+\makeMPintoPDFobject=\count288
 \everyMPtoPDFconversion=\toks19
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
  (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
-))
+)) (/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2022/01/06 v1.3d Standard LaTeX Color (DPC)
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 149.
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+Package hyperref Info: Link coloring ON on input line 21.
+ (./main.out) (./main.out)
+\@outlinefile=\write3
+\openout3 = `main.out'.
+
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 16.
+(Font)              <14.4> on input line 24.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 16.
+(Font)              <7> on input line 24.
  (./main.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12> on input line 5.
@@ -202,99 +328,117 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 5.
 )
-\tf@toc=\write3
-\openout3 = `main.toc'.
+\tf@toc=\write4
+\openout4 = `main.toc'.
 
- [1
+ (./main.lof)
+\tf@lof=\write5
+\openout5 = `main.lof'.
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Trying to load font information for TS1+phv on input line 34.
+ (./main.lot [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}])
+\tf@lot=\write6
+\openout6 = `main.lot'.
+
+ [2]
+LaTeX Font Info:    Trying to load font information for TS1+phv on input line 46.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1phv.fd
 File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
 )
-LaTeX Font Info:    Trying to load font information for OMS+phv on input line 43.
+LaTeX Font Info:    Trying to load font information for OMS+phv on input line 55.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsphv.fd
 File: omsphv.fd 
 )
 LaTeX Font Info:    Font shape `OMS/phv/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 43.
- [2]
-Overfull \hbox (22.5258pt too wide) in paragraph at lines 100--136
- [][] 
- []
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 55.
+ [3] [4]
 
-[3] [4]
-
-LaTeX Warning: Reference `fig:JacocoCoveragelistJournalIds1.png' on page 5 undefined on input line 216.
+LaTeX Warning: Reference `fig:JacocoCoveragelistJournalIds1.png' on page 5 undefined on input line 185.
 
 
-LaTeX Warning: Reference `fig:JacocoCoveragelistJournalIds1.png' on page 5 undefined on input line 218.
+LaTeX Warning: Reference `fig:JacocoCoveragelistJournalIds1.png' on page 5 undefined on input line 187.
 
 
-LaTeX Warning: Reference `fig:MissedBranchListJournalIds.png' on page 5 undefined on input line 224.
+LaTeX Warning: Reference `fig:MissedBranchListJournalIds.png' on page 5 undefined on input line 193.
 
-
-Overfull \hbox (22.5258pt too wide) in paragraph at lines 252--289
+[5]
+Overfull \hbox (22.5258pt too wide) in paragraph at lines 213--250
  [][] 
  []
 
 
-LaTeX Warning: Reference `fig:JacocoCoveragelistJournalIds2.png' on page 5 undefined on input line 291.
+LaTeX Warning: Reference `fig:JacocoCoveragelistJournalIds2.png' on page 6 undefined on input line 252.
 
-[5] [6] [7]
-<listJournalIds.jpg, id=28, 282.05376pt x 483.8075pt>
+[6] [7]
+Overfull \hbox (22.5258pt too wide) in paragraph at lines 361--374
+ [][] 
+ []
+
+
+Overfull \hbox (22.5258pt too wide) in paragraph at lines 392--406
+ [][] 
+ []
+
+
+Overfull \hbox (22.5258pt too wide) in paragraph at lines 424--439
+ [][] 
+ []
+
+<listJournalIds.jpg, id=175, 282.05376pt x 483.8075pt>
 File: listJournalIds.jpg Graphic file (type jpg)
 <use listJournalIds.jpg>
-Package pdftex.def Info: listJournalIds.jpg  used on input line 403.
+Package pdftex.def Info: listJournalIds.jpg  used on input line 449.
 (pdftex.def)             Requested size: 452.9679pt x 777.03122pt.
 
+LaTeX Warning: Float too large for page by 103.69432pt on input line 452.
 
-LaTeX Warning: Float too large for page by 103.69432pt on input line 406.
-
-<CFGlistJournalIds.jpg, id=29, 282.05376pt x 483.8075pt>
+<CFGlistJournalIds.jpg, id=176, 282.05376pt x 483.8075pt>
 File: CFGlistJournalIds.jpg Graphic file (type jpg)
 <use CFGlistJournalIds.jpg>
-Package pdftex.def Info: CFGlistJournalIds.jpg  used on input line 408.
+Package pdftex.def Info: CFGlistJournalIds.jpg  used on input line 454.
 (pdftex.def)             Requested size: 452.9679pt x 777.03122pt.
 
-LaTeX Warning: Float too large for page by 103.69432pt on input line 411.
+LaTeX Warning: Float too large for page by 103.69432pt on input line 457.
 
-<JacocoCoveragelistJournalIds1.png, id=30, 1461.46pt x 55.20625pt>
+<JacocoCoveragelistJournalIds1.png, id=177, 1461.46pt x 55.20625pt>
 File: JacocoCoveragelistJournalIds1.png Graphic file (type png)
 <use JacocoCoveragelistJournalIds1.png>
-Package pdftex.def Info: JacocoCoveragelistJournalIds1.png  used on input line 414.
+Package pdftex.def Info: JacocoCoveragelistJournalIds1.png  used on input line 460.
 (pdftex.def)             Requested size: 452.9679pt x 17.11038pt.
-<MissedBranchListJournalIds.png, id=32, 753.81625pt x 443.6575pt>
+<MissedBranchListJournalIds.png, id=179, 753.81625pt x 443.6575pt>
 File: MissedBranchListJournalIds.png Graphic file (type png)
 <use MissedBranchListJournalIds.png>
-Package pdftex.def Info: MissedBranchListJournalIds.png  used on input line 420.
+Package pdftex.def Info: MissedBranchListJournalIds.png  used on input line 466.
 (pdftex.def)             Requested size: 452.9679pt x 266.58919pt.
-<JacocoCoveragelistJournalIds2.png, id=33, 1462.46375pt x 44.165pt>
+<JacocoCoveragelistJournalIds2.png, id=180, 1462.46375pt x 44.165pt>
 File: JacocoCoveragelistJournalIds2.png Graphic file (type png)
 <use JacocoCoveragelistJournalIds2.png>
-Package pdftex.def Info: JacocoCoveragelistJournalIds2.png  used on input line 426.
+Package pdftex.def Info: JacocoCoveragelistJournalIds2.png  used on input line 472.
 (pdftex.def)             Requested size: 452.9679pt x 13.67886pt.
-[8] [9 <./listJournalIds.jpg>] [10 <./CFGlistJournalIds.jpg>] [11 <./JacocoCoveragelistJournalIds1.png> <./MissedBranchListJournalIds.png> <./JacocoCoveragelistJournalIds2.png>] (./main.aux)
+[8] [9 <./listJournalIds.jpg>] [10 <./CFGlistJournalIds.jpg>] [11 <./JacocoCoveragelistJournalIds1.png> <./MissedBranchListJournalIds.png> <./JacocoCoveragelistJournalIds2.png>] [12] (./main.aux)
 
 LaTeX Warning: There were undefined references.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: E64138DAF536E5A9ED20159BFAE86D41;2676.
  ) 
 Here is how much of TeX's memory you used:
- 3927 strings out of 477277
- 68240 string characters out of 5816799
+ 10812 strings out of 477277
+ 176916 string characters out of 5816799
  1869793 words of memory out of 6000000
- 24020 multiletter control sequences out of 15000+600000
+ 30729 multiletter control sequences out of 15000+600000
  527034 words of font info for 58 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
- 72i,9n,77p,295b,224s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,8n,77p,295b,596s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on main.pdf (11 pages, 152817 bytes).
+Output written on main.pdf (12 pages, 157617 bytes).
 PDF statistics:
- 65 PDF objects out of 1000 (max. 8388607)
- 37 compressed objects within 1 object stream
- 0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 239 PDF objects out of 1000 (max. 8388607)
+ 208 compressed objects within 3 object streams
+ 60 named destinations out of 1000 (max. 500000)
+ 178 words of extra memory for PDF output out of 10000 (max. 10000000)
 
