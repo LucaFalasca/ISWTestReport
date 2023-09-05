@@ -4,8 +4,9 @@
 \renewcommand{\familydefault}{\sfdefault}
 \usepackage{setspace}
 \usepackage[margin=1in]{geometry}
-\usepackage{lipsum}
+\usepackage{lipsum} 
 \usepackage{graphicx} % Required for inserting images
+\usepackage{listings}
 \usepackage{hyperref}
 \hypersetup{
     colorlinks=true,     % Abilita i collegamenti colorati
@@ -13,7 +14,6 @@
     citecolor=green,     % Colore dei collegamenti alle citazioni
     urlcolor=magenta     % Colore dei collegamenti URL
 }
-
 
 \title{Bookkepper test}
 \author{Luca Falasca}
@@ -101,23 +101,22 @@ Andiamo a definire per ogni partizione i Boundary values
 \end{itemize}
 
 \paragraph{}
-\par
+
 Siccome i due parametri di input sono abbastanza scorrelati tra loro ha più senso adottare un approccio 
 unidimensionale piuttosto che uno multidimensionale che sarebbe più adatto quando ci sono delle interazioni forti
 e che portano alla necessità di testare tutte le combinazioni tra i parametri. Inoltre avendo un approccio multidimensionale
 si finirebbe probabilemente per avere molti test non rilevanti e vanno a coprire scenari già coperti, e quindi sarebbero inutili.
-
-Enumeriano ora i casi di test derivanti da quest prima analisi (Tabella \ref{tab:categoryPartition1ListJournalIds})
+\\ Enumeriano ora i casi di test derivanti da quest prima analisi (Tabella \ref{tab:categoryPartition1ListJournalIds})
 
 
 
 \subsubsection{Adequacy Control Flow}
-Ora per verificare l'adeguatezza dei casi di test, vado a definire dei critedi di adeguatezza.
-\paragraph{Criteri di adeguatezza black box} 
-\par
-documentazione a disposizione:
-
-javadoc
+Ora per verificare l'adeguatezza dei casi di test, vado a definire dei critedi di adeguatezza. \\ \\
+\textbf{Criteri di adeguatezza black box}
+\paragraph{} 
+documentazione a disposizione:  \\
+javadoc:
+\begin{verbatim}
 /**
 * List all journal ids by a specified journal id filer.
 *
@@ -125,29 +124,31 @@ javadoc
 * @param filter journal id filter
 * @return list of filtered ids
 */
+\end{verbatim}
 
  documentazione apache:
  Journals
 A journal file contains BookKeeper transaction logs. 
 Before any update to a ledger takes place, the bookie ensures that a transaction describing 
 the update is written to non-volatile storage. A new journal file is created once the bookie 
-starts or the older journal file reaches the journal file size threshold.
+starts or the older journal file reaches the journal file size threshold. \\
 
 Possiamo dedurre da queste documentazioni che questo metodo ricava gli id dei journal in una 
 determinata cartella, filtrandoli in base ad un filtro specificato, se non viene specificato 
 nessun filtro, allora vengono restituiti tutti gli id dei journal presenti nella cartella.
 
 La Figura \ref{fig:listJournalIdsDiagram} mostra un diagrammma 
-funzionale del metodo listJournalIds
-
+funzionale del metodo listJournalIds.
 A partire da questo definisco i seguenti criteri di adeguatezza:
-- almeno un test con un filtro
-- almeno un test senza filtro
-- almeno un test senza journal nella cartella
-- almeno un test con almeno un journal nella cartella
-
+\begin{itemize}
+  \item almeno un test con un filtro
+  \item almeno un test senza filtro
+  \item almeno un test senza journal nella cartella
+  \item almeno un test con almeno un journal nella cartella
+\end{itemize}
 In questo caso i criteri di adeguatezza sono già stati soddisfatti 
-dai casi di test precedentemente descritti
+dai casi di test precedentemente descritti. \\
+
 
 
 Dal diagramma precedente (Figura \ref{fig:listJournalIdsDiagram}) possiamo 
@@ -156,19 +157,16 @@ utilizzare dei criteri di copertura basati sul control flow
 
 Dato che ho un approccio black box e quindi non sto utilizzando il codice sorgente per verificare l'adeguatezza dei casi di test,
 ipotizzo in base agli input se un caso di test andrà a coprire un certo arco del CFG o meno.
-
 Dato che in questa fase sto avendo un approccio black box, e quindi basato sulla funzionalità del metodo, 
 eviterò di utilizzare la coverage come parametro di adeguatezza, in quanto non è possibile ricavare
 dall'output del metodo se un certo arco è stato coperto o meno, ma solo se il risultato è corretto oppure no.
 Quindi valuterò la copertura del CFG solo in una fase successiva, quando prenderò in considerazione
 anche il codice sorgente (approccio whitebox), utilizzando la coverage come parametro di adeguatezza.
-
 Quello che farò in questa fase è quindi valutare se i casi di test che ho definito in precedenza
 coprono tutti gli archi del CFG, in base alla mia conoscenza del metodo e dei suoi input, e nel caso
 aggiungere quelli mancanti.
 
-
-Arco (1,2)  -- textgreater Tutti i test che hanno almeno un file di log coprono questo caso, quindi non è necessario aggiungere ulteriori test
+Arco (1,2)  $\rightarrow$ textgreater Tutti i test che hanno almeno un file di log coprono questo caso, quindi non è necessario aggiungere ulteriori test
 Arco (2,3)  - \> Tutti i test che hanno almeno un file di log e un filtro non null coprono questo caso, quindi non è necessario aggiungere ulteriori test
 Arco (2,4)  -\> 
 Questo arco non è coperto perchè manca un test che abbia almeno un file di log e il filtro null. Basta quindi aggiungere il 
@@ -259,101 +257,43 @@ e grazie a questo test anche la condition coverage è del 100\% (Figura \ref{fig
  \subsubsection{Mutation Testing}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{logAddEntry}
-\subsubsection{Descrizione del metodo}
-record an add entry operation in journal.
-\paragraph{Input:}
-\begin{itemize}
-  \item long ledgerId
-  \item long entryId
-  \item ByteBuf entry
-  \item boolean ackBeforeSync
-  \item WriteCallback cb
-  \item Object ctx
-  \item journalStats
-  \item memoryLimitController
-  \item queue
-  \item callbackTime
-\end{itemize}
-\paragraph{Output:}
-niente
-
+\subsection{Classe 2}
+\subsubsection{Descrizione}
 \subsubsection{Category Partition}
-
-\paragraph{journalId}
-\begin{itemize}
-  \item 
-\end{itemize}
-
-
-
 \subsubsection{Boundary Analysis}
-Andiamo a definire per ogni partizione i Boundary values
+\subsubsection{Adequacy Control Flow}
+\subsubsection{Adequacy Data Flow}
+\subsubsection{Mutation Testing}
 
-\subsubsection{Test Suit}
-Enumeriamo ora i casi di test
-
-
-
-
-
-
-
-
-\subsection{scanJournal}
-\subsubsection{Descrizione del metodo}
- * Scan the journal.
- *
- * @param journalId Journal Log Id
- * @param journalPos Offset to start scanning
- * @param scanner Scanner to handle entries
- * @return scanOffset - represents the byte till which journal was read
- * @throws IOException
-\paragraph{Input:}
-\begin{itemize}
-  \item journalId
-  \item journalPos
-  \item journalDirecotry
-  \item journalPreAllocSize
-  \item journalWriteBufferSize
-  \item conf
-  \item fileChannelProvider
-\end{itemize}
-\paragraph{Output:}
-Il byte fino a dove è stato letto il journal
-
+\section{Avro}
+\subsection{Classe 1}
+\subsubsection{Descrizione}
 \subsubsection{Category Partition}
-
-\paragraph{journalId}
-\begin{itemize}
-  \item 
-\end{itemize}
-
-
-
 \subsubsection{Boundary Analysis}
-Andiamo a definire per ogni partizione i Boundary values
+\subsubsection{Adequacy Control Flow}
+\subsubsection{Adequacy Data Flow}
+\subsubsection{Mutation Testing}
 
-\subsubsection{Test Suit}
-Enumeriamo ora i casi di test
+\subsection{Classe 2}
+\subsubsection{Descrizione}
+\subsubsection{Category Partition}
+\subsubsection{Boundary Analysis}
+\subsubsection{Adequacy Control Flow}
+\subsubsection{Adequacy Data Flow}
+\subsubsection{Mutation Testing}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \begin{table}[ht]
   \centering
