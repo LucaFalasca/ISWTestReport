@@ -3,7 +3,9 @@
 \usepackage{helvet}
 \renewcommand{\familydefault}{\sfdefault}
 \usepackage{setspace}
+\usepackage{amsmath}
 \usepackage[margin=1in]{geometry}
+\usepackage{subcaption}
 \usepackage{lipsum} 
 \usepackage{graphicx} % Required for inserting images
 \usepackage{listings}
@@ -33,6 +35,8 @@
 \section{Bookkeeper}
 \subsection{Journal}
 \subsubsection{Descrizione}
+Path: org.apache.bookkeeper.bookie.Journal.java
+
 \paragraph{listJournalIds}
 Lists all journal IDs filtered by a specified journal ID filter.
 
@@ -108,7 +112,7 @@ e che portano alla necessità di testare tutte le combinazioni tra i parametri. 
 si finirebbe probabilemente per avere molti test non rilevanti e vanno a coprire scenari già coperti, e quindi sarebbero inutili.
 \\ Enumeriano ora i casi di test derivanti da quest prima analisi (Tabella \ref{tab:categoryPartition1ListJournalIds})
 
-
+Codice sorgente di JournalTest (Figura \ref{fig:code1})
 
 \subsubsection{Adequacy Control Flow}
 Ora per verificare l'adeguatezza dei casi di test, vado a definire dei critedi di adeguatezza. \\ \\
@@ -137,7 +141,7 @@ Possiamo dedurre da queste documentazioni che questo metodo ricava gli id dei jo
 determinata cartella, filtrandoli in base ad un filtro specificato, se non viene specificato 
 nessun filtro, allora vengono restituiti tutti gli id dei journal presenti nella cartella.
 
-La Figura \ref{fig:listJournalIdsDiagram} mostra un diagrammma 
+La Figura \ref{fig:listJournalIdsCFG} mostra un diagrammma 
 funzionale del metodo listJournalIds.
 A partire da questo definisco i seguenti criteri di adeguatezza:
 \begin{itemize}
@@ -151,7 +155,7 @@ dai casi di test precedentemente descritti. \\
 
 
 
-Dal diagramma precedente (Figura \ref{fig:listJournalIdsDiagram}) possiamo 
+Dal diagramma precedente possiamo 
 ricavare un control flow graph (Figura \ref{fig:listJournalIdsCFG}), per poi
 utilizzare dei criteri di copertura basati sul control flow
 
@@ -184,77 +188,61 @@ fino ad ora (Figura \ref{fig:JacocoCoveragelistJournalIds1.png})
 
 Come si può vedere dalla figura \ref{fig:JacocoCoveragelistJournalIds1.png},
 la statement coverage è del 100\% (colonna missed instruction), 
-e quindi tutte le linee di codice del metodo sono state eseguite
-
-Invece la condition coverage (colonna missed branches) e del 91\%, ed è quindi migliorabile.
-Andando a vedere in dettaglio il report, si può notare che la condizione che non è stata coperta
+e quindi tutte le linee di codice del metodo sono state eseguite. \\
+Invece la condition coverage (colonna missed branches) e del 83\%, ed è quindi migliorabile.
+Andando a vedere in dettaglio il report, si può notare che una condizione che non è stata coperta
 è una delle 4 combinazioni dell'if a riga 106 come si vede dalla figura \ref{fig:MissedBranchListJournalIds.png}
-
+\\
 La condizione presa in esame è la seguente:
+\begin{verbatim}
 logFiles == null || logFiles.length == 0
+\end{verbatim}
 
-il branch mancato è quello dove logFiles == null, questo perchè se il parametro di input journalDir è null non esegue proprio il metodo listFiles()
-
-
-questo è dovuto al fatto che il path non era esistente e quindi il metodo tornava null
-
+il branch mancato è quello dove logFiles == null, questo perchè se il parametro di input journalDir
+ è null non esegue proprio il metodo listFiles().
+questo è dovuto al fatto che il path non era esistente e quindi il metodo tornava null.
 Andiamo quindi a definire un caso di test che copra questo branch
 Per farlo andiamo semplicemente basta aggiungere un category partition che copre il caso di una cartella esistente ma vuota
 (Tabella \ref{tab:ACF3ListJournalIds})
 
-
-
-Ora quindi l'insieme dei test è il seguente
-
-\begin{table}[ht]
-  \centering
-  \begin{tabular}{|c|c|c|}
-  \hline
-  journalDir & JournalIdFilter & Risultato Atteso \\
-  \hline
-  {Directory contenente 1 file di log} & JournalRollingFilter & ... \\
-  {Directory contenente 1 file di log} & Filtro sempre True & ... \\
-  {Directory contenente 1 file di log} & Filtro sempre False & ... \\
-  {Directory contenente 1 file di log} & MyFilter & ... \\
-  {Directory contenente 1 file di log} & null & Exception \\
-  {Directory contenente 1 file di log e 1 file di testo} & JournalRollingFilter & ... \\
-  {Directory contenente 1 file di log e 1 file di testo} & Filtro sempre True & ... \\
-  {Directory contenente 1 file di log e 1 file di testo} & Filtro sempre False & ... \\
-  {Directory contenente 1 file di log e 1 file di testo} & MyFilter & ... \\
-  {Directory contenente 1 file di log e 1 file di testo} & null & Exception \\
-  {Directory contenente 1 file di testo} & JournalRollingFilter & ... \\
-  {Directory contenente 1 file di testo} & Filtro sempre True & ... \\
-  {Directory contenente 1 file di testo} & Filtro sempre False & ... \\
-  {Directory contenente 1 file di testo} & MyFilter & ... \\
-  {Directory contenente 1 file di testo} & null & Exception \\
-  {path non esistente} & JournalRollingFilter & [ ] \\
-  {path non esistente} & Filtro sempre True & [ ] \\
-  {path non esistente} & Filtro sempre False & [ ] \\
-  {path non esistente} & MyFilter & [ ] \\
-  {path non esistente} & null & [ ] \\
-  {Path di un file di log} & JournalRollingFilter & ... \\
-  {Path di un file di log} & Filtro sempre True & ... \\
-  {Path di un file di log} & Filtro sempre False & ... \\
-  {Path di un file di log} & MyFilter & ... \\
-  {Path di un file di log} & null & Exception \\
-  null & JournalRollingFilter & Exception \\
-  null & Filtro sempre True & Exception \\
-  null & Filtro sempre False & Exception \\
-  null & MyFilter & Exception \\
-  null & null & Exception \\
-  {Directory vuota} & null & [ ] \\
-  \hline
-  \end{tabular}
-  \end{table}
-
-e grazie a questo test anche la condition coverage è del 100\% (Figura \ref{fig:JacocoCoveragelistJournalIds2.png}),
- con un aumento del 9%.
+Ora quindi l'insieme dei test è quello mostrato nella tabella \ref{tab:ACF4ListJournalIds}, 
+e grazie a questo test la condition coverage è salita al 91\% (Figura \ref{fig:JacocoCoveragelistJournalIds2.png}),
+con un aumento del 8%.
 
  \subsubsection{Adequacy Data Flow}
 
- Andiamo ora ad fare un lavoro di adeguatezza del dataflow utilizzando il framework badua per calcolare la all-uses coverage
+ Andiamo ora ad fare un lavoro di adeguatezza del dataflow utilizzando il framework badua per calcolare la all-uses coverage. \\
+Dalla Figura \ref{fig:listJournalIds_badua} possiamo calcolare la all uses coverage. \\
+\(CU_c + PU_c = 18\) \\
+\( (CU + PU) - (CU\textsubscript{f} + PU\textsubscript{f}) = 18 + 2 = 20\) \\ \\
+\[\frac{{CU\textsubscript{c} + PU\textsubscript{c}}}{{(CU + PU) - (CU\textsubscript{f} + PU\textsubscript{f})}} = \frac{{18}}{{20}} = 0.9\]
 
- \subsubsection{Mutation Testing}
+Ci sono quindi 2 coppie def-use che non sono state coperte, e quindi la all uses coverage è del 90\%.
+Per aumentare la coverage è necessario aggiungere un caso di test che copra almeno una di queste coppie.
+Prendiamo in considerazione la coppia def-use sulla variabile filter non coperta. Si tratta di una coppia c-use 
+dove il target è il continuo del ciclo for in cui è contenuto lo statement. In effetti non c'è nessun caso di test
+che va a coprire il caso in cui la coppia def-use è coperta e successivamente continua il ciclo.
+Per fare ciò vado ad aggiungere un caso di test che continua il ciclo for una volta rifiutata 
+l'espressione booleana in cui è contentuto il comando. Per fare ciò basta aggiungere una cartella in cui controlla
+un altro id di journal dopo averne rifiutato uno. Effettivamente badua è servito a migliorare la qualità dei 
+test perchè nonostante la coverage
+coprisse già queste righe di codice non era stata in grado di intercettare la mancanza
+di test su questo comportamento. \\W
+Il caso di test è descritto nella Tabella \ref{tab:ADF1ListJournalIds}. Quello che ho fatto è creare una nuova
+cartella che contiene due file di log e un filtro con condizione >1, il primo dei due file viene rifiutato 
+e il secondo invece viene accettato. In questo modo il metodo dopo aver scartato il primo file di log, continua
+con la sua ricerca e trova il secondo file di log che viene accettato. In questo modo la coppia
+def-use sulla variabile filter viene coperta e la all uses coverage sale (Figura \Ref{fig:listJournalIds_badua2})
+
+Con questo caso di test vado a coprire anche l'altra coppia def-use che non era stata coperta.
+Questo succede perchè anche a lei mancava il caso in cui una volta che il filtro rifiutava un id il
+metodo continuava la sua ricerca e trovava un id successivo.
+
+Così la all-use coverage riesce a raggiungere il 100\%
+
+\subsubsection{Mutation Testing}
+Andiamo ora a fare un lavoro di adeguatezza utilizzando il framework pitest per calcolare la mutation coverage. \\
+
 
 
 \subsection{Classe 2}
@@ -343,7 +331,7 @@ journalDir & JournalIdFilter & Risultato Atteso \\
   \hline
   \end{tabular}
   \label{tab:ACF2ListJournalIds}
-  \end{table}
+\end{table}
 
 \begin{table}[ht]
   \centering
@@ -356,7 +344,7 @@ journalDir & JournalIdFilter & Risultato Atteso \\
     \hline
   \end{tabular}
   \label{tab:ACF3ListJournalIds}
-  \end{table}
+\end{table}
 
 \begin{table}[ht]
   \centering
@@ -375,7 +363,20 @@ journalDir & JournalIdFilter & Risultato Atteso \\
   {Directory vuota} & null & [ ] \\
   \hline
   \end{tabular}
-  \label{tab:ACF2ListJournalIds}
+  \label{tab:ACF4ListJournalIds}
+\end{table}
+
+  \begin{table}[ht]
+    \centering
+    \caption[Journal: Test Suite - Adequacy Data Flow 1]{Test per aumentare la all-use coverage}
+    \begin{tabular}{|c|c|c|}
+      \hline
+      journalDir & JournalIdFilter & Risultato Atteso \\
+      \hline
+      {Directory con 1 file con id 1 e un file con id 2} & {Filtro con condizione >1} & [ ] \\
+      \hline
+    \end{tabular}
+    \label{tab:ADF1ListJournalIds}
   \end{table}
 
 
@@ -385,33 +386,56 @@ journalDir & JournalIdFilter & Risultato Atteso \\
 
 
 
+
+
   \begin{figure}
-    \includegraphics[width=\linewidth]{listJournalIds.jpg}
-    \caption{Funcitonal diagram di listJournalId}
-    \label{fig:listJournalIdsDiagram}
-  \end{figure}
-  \begin{figure}
-    \includegraphics[width=\linewidth]{CFGlistJournalIds.jpg}
-    \caption{Control Flow Graph di listJournalIds}
+    \centering
+    \begin{subfigure}[a]{0.4\linewidth}
+      \includegraphics[width=\linewidth]{./images/listJournalIds.jpg}
+      \caption{Functional diagram}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.4\linewidth}
+      \includegraphics[width=\linewidth]{./images/CFGlistJournalIds.jpg}
+    \caption{Control Flow Graph}
+    \end{subfigure}
+    \caption{Diagrammi di listJournalIds}
     \label{fig:listJournalIdsCFG}
   \end{figure}
 
   \begin{figure}
-    \includegraphics[width=\linewidth]{JacocoCoveragelistJournalIds1.png}
+    \includegraphics[width=\linewidth]{./images/JacocoCoveragelistJournalIds1.png}
     \caption{Jacoco coverage dilistJournalIds}
-    \label{fig:listJournalIdsCFG}
+    \label{fig:listJournalIds_jacoco}
   \end{figure}
 
   \begin{figure}
-    \includegraphics[width=\linewidth]{MissedBranchListJournalIds.png}
+    \includegraphics[width=\linewidth]{./images/MissedBranchListJournalIds.png}
     \caption{Jacoco coverage dilistJournalIds}
-    \label{fig:listJournalIdsCFG}
+    \label{fig:listJournalIds_jacoco2}
   \end{figure}
 
   \begin{figure}
-    \includegraphics[width=\linewidth]{JacocoCoveragelistJournalIds2.png}
+    \includegraphics[width=\linewidth]{./images/JacocoCoveragelistJournalIds2.png}
     \caption{Jacoco coverage dilistJournalIds}
-    \label{fig:listJournalIdsCFG}
+    \label{fig:listJournalIds_jacoco3}
+  \end{figure}
+
+  \begin{figure}
+    \includegraphics[width=\linewidth]{./images/code1.png}
+    \caption{Codice sorgente di JournalTest}
+    \label{fig:code1}
+  \end{figure}
+
+  \begin{figure}
+    \includegraphics[width=\linewidth]{./images/BaduaCoveragelistJournalIds1.png}
+    \caption{Badua coverage dilistJournalIds}
+    \label{fig:listJournalIds_badua}
+  \end{figure}
+
+  \begin{figure}
+    \includegraphics[width=\linewidth]{./images/BaduaCoveragelistJournalIds2.png}
+    \caption{Badua coverage dilistJournalIds}
+    \label{fig:listJournalIds_badua2}
   \end{figure}
 
 \end{document}
