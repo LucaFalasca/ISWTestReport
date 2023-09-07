@@ -238,12 +238,31 @@ Con questo caso di test vado a coprire anche l'altra coppia def-use che non era 
 Questo succede perchè anche a lei mancava il caso in cui una volta che il filtro rifiutava un id il
 metodo continuava la sua ricerca e trovava un id successivo.
 
-Così la all-use coverage riesce a raggiungere il 100\%
+Così la all-use coverage riesce a raggiungere il 100\% \\ 
+
+Inoltre come effetto secondario si può notare che anche
+la condition coverage è salita al 100\% (Figura \ref{fig:listJournalIds_jacoco4})
 
 \subsubsection{Mutation Testing}
 Andiamo ora a fare un lavoro di adeguatezza utilizzando il framework pitest per calcolare la mutation coverage. \\
+Come si può notare dalla Figura \ref{fig:listJournalIds_pitest} la mutation coverage è dello 0\%, ad una prima occhiata
+sembrerebbe perchè tutte le mutazioni create da pit non sono state rilevate. Tuttavia se andiamo a verificare 
+ogni mutazione manualmente in realtà i test falliscono e quindi in realtà sembrerebbe che ci sia un bug su pit. \\
+Indagando meglio ho scoperto che questo comportamento è probabilemente dovuto ad fatto che il metodo listJournalIds
+è un metodo statico e per il modo in cui pit inserisce le mutazione può creare problemi. Purtroppo non sono riuscito a 
+risolvere questo problema, quindi calcolerò la coverage a mano andando a verificare mutazione per mutazione. \\
 
+Ad esempio prendiamo la mutazione a riga 112, se andiamo nel codice di Bookkeeper e lo modifichiamo per inserire
+la mutazione (Figura \Ref{fig:PitMutation1}) e poi eseguiamo i test, possiamo notare che più di un test fallisce, quindi
+in realtà la mutazione è stata rilevata dalla test suite. (Figura \ref{fig:PitMutation2})
 
+Questo succede per tutte le mutazioni, tranne per quella a riga 125, che non viene rilevata dalla test suite.
+
+Quindi possiamo calcolare la mutation coverage come segue:
+\[\frac{{Mutazioni rilevate}}{{Mutazioni totali}} = \frac{{6}}{{7}} = 0.85\]
+
+Per aumentare la coverage vado quindi a modificare la test suite per coprire anche la mutazione a riga 125.
+il
 
 \subsection{Classe 2}
 \subsubsection{Descrizione}
@@ -436,6 +455,30 @@ journalDir & JournalIdFilter & Risultato Atteso \\
     \includegraphics[width=\linewidth]{./images/BaduaCoveragelistJournalIds2.png}
     \caption{Badua coverage dilistJournalIds}
     \label{fig:listJournalIds_badua2}
+  \end{figure}
+
+  \begin{figure}
+    \includegraphics[width=\linewidth]{./images/JacocoCoveragelistJournalIds3.png}
+    \caption{Jacoco coverage dilistJournalIds}
+    \label{fig:listJournalIds_jacoco4}
+  \end{figure}
+
+  \begin{figure}
+    \includegraphics[width=\linewidth]{./images/PitCoverageListJournalIds1.png}
+    \caption{Pitest coverage dilistJournalIds}
+    \label{fig:listJournalIds_pitest}
+  \end{figure}
+
+  \begin{figure}
+    \includegraphics[width=\linewidth]{./images/PitMutation1.png}
+    \caption{Mutazione inserita nel codice sorgente di Bookkeeper}
+    \label{fig:PitMutation1}
+  \end{figure}
+
+  \begin{figure}
+    \includegraphics[width=\linewidth]{./images/PitTestFails.png}
+    \caption{Mutazione inserita nel codice sorgente di Bookkeeper}
+    \label{fig:PitMutation2}
   \end{figure}
 
 \end{document}
