@@ -256,13 +256,42 @@ Ad esempio prendiamo la mutazione a riga 112, se andiamo nel codice di Bookkeepe
 la mutazione (Figura \Ref{fig:PitMutation1}) e poi eseguiamo i test, possiamo notare che più di un test fallisce, quindi
 in realtà la mutazione è stata rilevata dalla test suite. (Figura \ref{fig:PitMutation2})
 
-Questo succede per tutte le mutazioni, tranne per quella a riga 125, che non viene rilevata dalla test suite.
+Questo succede per tutte le mutazioni, tranne per quella a riga 125, che non viene rilevata dalla test suite. Si tratta 
+di una mutazione che omette la riga che si occupa di ordinare la lista di file di log. \\
 
 Quindi possiamo calcolare la mutation coverage come segue:
 \[\frac{{Mutazioni rilevate}}{{Mutazioni totali}} = \frac{{6}}{{7}} = 0.85\]
 
 Per aumentare la coverage vado quindi a modificare la test suite per coprire anche la mutazione a riga 125.
-il
+Siccome la copertura manca perchè nei test correnti non viene mai ritornato un log con dimensione >1, e 
+quindi non c'è niente da ordinare. In particolare nel test che andrò ad aggiungere andrò a creare una cartella con 2 file
+di log che hanno id descrescente, in questo modo il metodo ordina i file di log e quindi la mutazione viene rilevata.
+Tuttavia ciò non è possibile perchè quando si vanno ad inserire dei file in una cartella essi vengono ordinati già in ordinare
+alfabetico e quindi quando vengono presi sono già ordinati. Non è quindi possibile naturalmente creare una situazione 
+in cui i file che vengono presi dalla cartella tramite il metodo listFiles\(\) non siano già ordinati. \\
+Quindi ci sono due strade da poter percorrere:
+\begin{itemize}
+  \item Andare ad etichettare l'implementazione del metodo senza la riga 112 (la riga che si occupa di ordinare la lista) 
+  come equivalente a quella senza la riga, e quindi non considerare la mutazione valida perchè è un codice che non
+  comporta nessun cambiamento.
+  \item Ipotizzare che in futuro possa esserci un caso in cui la lista non è ordinata, dovuto ad un cambiamento del codice
+  della libreria, oppure ad un sistema operativo diverso. Quindi andare a creare una situazione impossibile tramite mock per
+  verificare questa eventualità.
+\end{itemize}
+
+Ho scelto di intraprendere la seconda strada perchè mi sembra la più manutenibile, vado quindi a mockare 
+il metodo listFiles\(\), in modo tale che una volta aver recuperato i file li vada a 
+ordinare in modo decrescente (Figura \ref{fig:code2}) \\
+
+Ora effettivamente il test non passa se commentiano la linea 125, e quindi la mutazione viene rilevata.
+Quindi tutte le mutazioni sono state rilevate e quindi la mutation coverage è del 100\% 
+
+\subsection{Risultati}
+
+
+  
+
+
 
 \subsection{Classe 2}
 \subsubsection{Descrizione}
@@ -392,7 +421,20 @@ journalDir & JournalIdFilter & Risultato Atteso \\
       \hline
       journalDir & JournalIdFilter & Risultato Atteso \\
       \hline
-      {Directory con 1 file con id 1 e un file con id 2} & {Filtro con condizione >1} & [ ] \\
+      {Directory con un log con id 2 e un file con id 1} & {Filtro con condizione >1} & [2] \\
+      \hline
+    \end{tabular}
+    \label{tab:ADF1ListJournalIds}
+  \end{table}
+
+  \begin{table}[ht]
+    \centering
+    \caption[Journal: Test Suite - Adequacy Data Flow 1]{Test per aumentare la all-use coverage}
+    \begin{tabular}{|c|c|c|}
+      \hline
+      journalDir & JournalIdFilter & Risultato Atteso \\
+      \hline
+      {Directory con un log con id 2 e un log con id 1} & {Filtro sempre true} & [1, 2] \\
       \hline
     \end{tabular}
     \label{tab:ADF1ListJournalIds}
@@ -479,6 +521,12 @@ journalDir & JournalIdFilter & Risultato Atteso \\
     \includegraphics[width=\linewidth]{./images/PitTestFails.png}
     \caption{Mutazione inserita nel codice sorgente di Bookkeeper}
     \label{fig:PitMutation2}
+  \end{figure}
+
+  \begin{figure}
+    \includegraphics[width=\linewidth]{./images/code2.png}
+    \caption{Codice sorgente di JournalTest aggiornato con il mock}
+    \label{fig:code2}
   \end{figure}
 
 \end{document}

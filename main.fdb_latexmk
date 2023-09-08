@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1694105907 "/home/luca-fedora/Documents/latex/main.tex" "main.pdf" "main" 1694105908 0
-  "/home/luca-fedora/Documents/latex/main.tex" 1694105907 19686 9c07c33296c40930fcdfbb2a6db36667 ""
+["pdflatex"] 1694165439 "/home/luca-fedora/Documents/latex/main.tex" "main.pdf" "main" 1694165440 0
+  "/home/luca-fedora/Documents/latex/main.tex" 1694165438 22199 9eb7d23a17e054574440a57c851131e5 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1684972800 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/helvetic/phvb7t.tfm" 1136768653 2240 eb56c13537f4d8a0bd3fafc25572b1bd ""
@@ -117,13 +117,14 @@
   "images/PitMutation1.png" 1694103245 55673 376bbbcb6505773db155c8546de37904 ""
   "images/PitTestFails.png" 1694103557 14974 1fc96de5dbf9335a2066dcb0cac38761 ""
   "images/code1.png" 1693925385 193797 1dc0a5517f009347bd90661767dda73b ""
+  "images/code2.png" 1694164937 178104 89c8a41164370b23df2d94baffde2d61 ""
   "images/listJournalIds.jpg" 1693403093 19958 6d68f2b2b0d55f8ae538dea20fe1a8d0 ""
-  "main.aux" 1694105908 10168 d99c5e4f1bff9135543e57c1e3248b1e "pdflatex"
-  "main.lof" 1694105908 1400 b9fd55eb632b4e884cdbea8033e3ac12 "pdflatex"
-  "main.lot" 1694105908 789 1d1018d1e3ff9d0edbd7e52053e752b7 "pdflatex"
-  "main.out" 1694105908 4385 8e0212b74d867b327582c94473e1ff2c "pdflatex"
-  "main.tex" 1694105907 19686 9c07c33296c40930fcdfbb2a6db36667 ""
-  "main.toc" 1694105908 3253 f96490ba16ba93cbf3874b942e26f2fe "pdflatex"
+  "main.aux" 1694165440 10854 f11d94b0898c798f07c9131fbbed8e2a "pdflatex"
+  "main.lof" 1694165440 1543 91f3262ea74250d2bd61c502b41cdc74 "pdflatex"
+  "main.lot" 1694165440 910 d30952b7891cc94fda49d299dce0f785 "pdflatex"
+  "main.out" 1694165440 4488 8149cc86ad52ae98201003253df09235 "pdflatex"
+  "main.tex" 1694165438 22199 9eb7d23a17e054574440a57c851131e5 ""
+  "main.toc" 1694165440 3328 6ee477dae32ac30a875a8d54039bda14 "pdflatex"
   (generated)
   "main.aux"
   "main.lof"
