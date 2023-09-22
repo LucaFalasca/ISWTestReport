@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/CVE-2023-32700 patched) (preloaded format=pdflatex 2023.8.29)  8 SEP 2023 11:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/CVE-2023-32700 patched) (preloaded format=pdflatex 2023.8.29)  12 SEP 2023 16:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -314,11 +314,7 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 18.
 LaTeX Font Info:    Trying to load font information for OT1+phv on input line 23.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
-) (./main.aux
-
-LaTeX Warning: Label `tab:ADF1ListJournalIds' multiply defined.
-
-)
+) (./main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
@@ -416,27 +412,31 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 Package color Info: Driver file: pdftex.def on input line 149.
  (/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx))
 Package hyperref Info: Link coloring ON on input line 23.
- (./main.out) (./main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
- (./main.toc)
+
+No file main.toc.
 \tf@toc=\write4
 \openout4 = `main.toc'.
 
- (./main.lof [1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}])
+No file main.lof.
 \tf@lof=\write5
 \openout5 = `main.lof'.
 
- (./main.lot)
+No file main.lot.
 \tf@lot=\write6
 \openout6 = `main.lot'.
 
- [2]
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+Underfull \hbox (badness 10000) in paragraph at lines 38--39
+
+ []
+
 LaTeX Font Info:    Trying to load font information for TS1+phv on input line 50.
- (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1phv.fd
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1phv.fd
 File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
 )
 LaTeX Font Info:    Trying to load font information for OMS+phv on input line 59.
@@ -445,48 +445,96 @@ File: omsphv.fd
 )
 LaTeX Font Info:    Font shape `OMS/phv/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 59.
- [3]
+ [2]
+
+LaTeX Warning: Reference `tab:categoryPartition1ListJournalIds' on page 3 undefined on input line 113.
+
+[3]
+
+LaTeX Warning: Reference `fig:code1' on page 4 undefined on input line 115.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 118--120
 
  []
 
-[4]
+
 Underfull \hbox (badness 10000) in paragraph at lines 133--139
 
  []
+
+
+LaTeX Warning: Reference `fig:listJournalIdsCFG' on page 4 undefined on input line 144.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 153--155
 
  []
 
+
+LaTeX Warning: Reference `fig:listJournalIdsCFG' on page 4 undefined on input line 159.
+
+[4]
+
+LaTeX Warning: Reference `tab:ACF1ListJournalIds' on page 5 undefined on input line 177.
+
+
+LaTeX Warning: Hyper reference `tab:ACF2ListJournalIds' on page 5 undefined on input line 183.
+
+
+LaTeX Warning: Reference `tab:ACF2ListJournalIds' on page 5 undefined on input line 183.
+
+
+LaTeX Warning: Reference `fig:JacocoCoveragelistJournalIds1.png' on page 5 undefined on input line 187.
+
+
+LaTeX Warning: Reference `fig:JacocoCoveragelistJournalIds1.png' on page 5 undefined on input line 189.
+
+
+LaTeX Warning: Reference `fig:MissedBranchListJournalIds.png' on page 5 undefined on input line 194.
+
+
+LaTeX Warning: Reference `tab:ACF3ListJournalIds' on page 5 undefined on input line 206.
+
+
+LaTeX Warning: Reference `tab:ACF4ListJournalIds' on page 5 undefined on input line 208.
+
+
+LaTeX Warning: Reference `fig:JacocoCoveragelistJournalIds2.png' on page 5 undefined on input line 209.
+
+
+LaTeX Warning: Reference `fig:listJournalIds_badua' on page 5 undefined on input line 215.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 214--218
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 214--218
+
+ []
+
 [5]
 
-LaTeX Warning: Reference `fig:JacocoCoveragelistJournalIds1.png' on page 6 undefined on input line 187.
+LaTeX Warning: Reference `tab:ADF1ListJournalIds' on page 6 undefined on input line 231.
 
 
-LaTeX Warning: Reference `fig:JacocoCoveragelistJournalIds1.png' on page 6 undefined on input line 189.
+LaTeX Warning: Hyper reference `fig:listJournalIds_badua2' on page 6 undefined on input line 235.
 
 
-LaTeX Warning: Reference `fig:MissedBranchListJournalIds.png' on page 6 undefined on input line 194.
+LaTeX Warning: Reference `fig:listJournalIds_badua2' on page 6 undefined on input line 235.
 
 
-LaTeX Warning: Reference `fig:JacocoCoveragelistJournalIds2.png' on page 6 undefined on input line 209.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 214--218
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 214--218
-
- []
-
-[6]
 Underfull \hbox (badness 10000) in paragraph at lines 241--242
 
  []
+
+
+LaTeX Warning: Reference `fig:listJournalIds_jacoco4' on page 6 undefined on input line 244.
+
+
+LaTeX Warning: Reference `fig:listJournalIds_pitest' on page 6 undefined on input line 248.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 247--254
@@ -494,128 +542,184 @@ Underfull \hbox (badness 10000) in paragraph at lines 247--254
  []
 
 
+LaTeX Warning: Hyper reference `fig:PitMutation1' on page 6 undefined on input line 256.
+
+
+LaTeX Warning: Reference `fig:PitMutation1' on page 6 undefined on input line 256.
+
+
+LaTeX Warning: Reference `fig:PitMutation2' on page 6 undefined on input line 257.
+
+[6]
 Underfull \hbox (badness 10000) in paragraph at lines 259--261
 
  []
 
-[7]
+
+LaTeX Warning: Reference `fig:code2' on page 7 undefined on input line 284.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 282--285
 
  []
 
 
-Overfull \hbox (22.5258pt too wide) in paragraph at lines 337--350
- [][] 
+Underfull \hbox (badness 10000) in paragraph at lines 291--292
+
+ []
+
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 316--317
+
+ []
+
+
+Overfull \hbox (10.31335pt too wide) in paragraph at lines 318--323
+\OT1/phv/m/n/12 Per an-da-re a te-sta-re que-sta clas-se mi so-no sof-fer-ma-to sul me-to-do \OT1/cmtt/m/n/12 createNewLog()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 318--323
+
  []
 
 [8]
-Overfull \hbox (22.5258pt too wide) in paragraph at lines 368--382
+Overfull \hbox (22.5258pt too wide) in paragraph at lines 397--410
+ [][] 
+ []
+
+[9]
+Overfull \hbox (22.5258pt too wide) in paragraph at lines 428--442
  [][] 
  []
 
 
-Overfull \hbox (22.5258pt too wide) in paragraph at lines 400--415
+Overfull \hbox (22.5258pt too wide) in paragraph at lines 460--475
  [][] 
  []
 
 
-Overfull \hbox (37.58574pt too wide) in paragraph at lines 420--428
+Overfull \hbox (37.58574pt too wide) in paragraph at lines 480--488
  [][] 
  []
 
 
-Overfull \hbox (5.07782pt too wide) in paragraph at lines 433--441
+Overfull \hbox (5.07782pt too wide) in paragraph at lines 493--501
  [][] 
  []
 
-<./images/listJournalIds.jpg, id=272, 282.05376pt x 483.8075pt>
+<./images/listJournalIds.jpg, id=88, 282.05376pt x 483.8075pt>
 File: ./images/listJournalIds.jpg Graphic file (type jpg)
 <use ./images/listJournalIds.jpg>
-Package pdftex.def Info: ./images/listJournalIds.jpg  used on input line 455.
+Package pdftex.def Info: ./images/listJournalIds.jpg  used on input line 515.
 (pdftex.def)             Requested size: 181.18439pt x 310.78738pt.
-<./images/CFGlistJournalIds.jpg, id=273, 282.05376pt x 483.8075pt>
+<./images/CFGlistJournalIds.jpg, id=89, 282.05376pt x 483.8075pt>
 File: ./images/CFGlistJournalIds.jpg Graphic file (type jpg)
 <use ./images/CFGlistJournalIds.jpg>
-Package pdftex.def Info: ./images/CFGlistJournalIds.jpg  used on input line 459.
+Package pdftex.def Info: ./images/CFGlistJournalIds.jpg  used on input line 519.
 (pdftex.def)             Requested size: 181.18439pt x 310.78738pt.
-<./images/JacocoCoveragelistJournalIds1.png, id=274, 1456.44125pt x 51.19125pt>
+<./images/JacocoCoveragelistJournalIds1.png, id=90, 1456.44125pt x 51.19125pt>
 File: ./images/JacocoCoveragelistJournalIds1.png Graphic file (type png)
 <use ./images/JacocoCoveragelistJournalIds1.png>
-Package pdftex.def Info: ./images/JacocoCoveragelistJournalIds1.png  used on input line 467.
+Package pdftex.def Info: ./images/JacocoCoveragelistJournalIds1.png  used on input line 527.
 (pdftex.def)             Requested size: 452.9679pt x 15.92067pt.
-<./images/MissedBranchListJournalIds.png, id=276, 788.9475pt x 450.68375pt>
+<./images/MissedBranchListJournalIds.png, id=92, 788.9475pt x 450.68375pt>
 File: ./images/MissedBranchListJournalIds.png Graphic file (type png)
 <use ./images/MissedBranchListJournalIds.png>
-Package pdftex.def Info: ./images/MissedBranchListJournalIds.png  used on input line 473.
+Package pdftex.def Info: ./images/MissedBranchListJournalIds.png  used on input line 533.
 (pdftex.def)             Requested size: 452.9679pt x 258.75603pt.
-<./images/JacocoCoveragelistJournalIds2.png, id=277, 1458.44875pt x 45.16875pt>
+<./images/JacocoCoveragelistJournalIds2.png, id=93, 1458.44875pt x 45.16875pt>
 File: ./images/JacocoCoveragelistJournalIds2.png Graphic file (type png)
 <use ./images/JacocoCoveragelistJournalIds2.png>
-Package pdftex.def Info: ./images/JacocoCoveragelistJournalIds2.png  used on input line 479.
+Package pdftex.def Info: ./images/JacocoCoveragelistJournalIds2.png  used on input line 539.
 (pdftex.def)             Requested size: 452.9679pt x 14.02835pt.
-<./images/code1.png, id=278, 1611.01875pt x 1056.94875pt>
+<./images/code1.png, id=94, 1611.01875pt x 1056.94875pt>
 File: ./images/code1.png Graphic file (type png)
 <use ./images/code1.png>
-Package pdftex.def Info: ./images/code1.png  used on input line 485.
+Package pdftex.def Info: ./images/code1.png  used on input line 545.
 (pdftex.def)             Requested size: 452.9679pt x 297.16934pt.
-<./images/BaduaCoveragelistJournalIds1.png, id=279, 1035.87pt x 556.0775pt>
+<./images/BaduaCoveragelistJournalIds1.png, id=95, 1035.87pt x 556.0775pt>
 File: ./images/BaduaCoveragelistJournalIds1.png Graphic file (type png)
 <use ./images/BaduaCoveragelistJournalIds1.png>
-Package pdftex.def Info: ./images/BaduaCoveragelistJournalIds1.png  used on input line 491.
+Package pdftex.def Info: ./images/BaduaCoveragelistJournalIds1.png  used on input line 551.
 (pdftex.def)             Requested size: 452.9679pt x 243.16452pt.
-<./images/BaduaCoveragelistJournalIds2.png, id=280, 1025.8325pt x 529.98pt>
+<./images/BaduaCoveragelistJournalIds2.png, id=96, 1025.8325pt x 529.98pt>
 File: ./images/BaduaCoveragelistJournalIds2.png Graphic file (type png)
 <use ./images/BaduaCoveragelistJournalIds2.png>
-Package pdftex.def Info: ./images/BaduaCoveragelistJournalIds2.png  used on input line 497.
+Package pdftex.def Info: ./images/BaduaCoveragelistJournalIds2.png  used on input line 557.
 (pdftex.def)             Requested size: 452.9679pt x 234.01677pt.
-<./images/JacocoCoveragelistJournalIds3.png, id=281, 1470.49374pt x 93.34875pt>
+<./images/JacocoCoveragelistJournalIds3.png, id=97, 1470.49374pt x 93.34875pt>
 File: ./images/JacocoCoveragelistJournalIds3.png Graphic file (type png)
 <use ./images/JacocoCoveragelistJournalIds3.png>
-Package pdftex.def Info: ./images/JacocoCoveragelistJournalIds3.png  used on input line 503.
+Package pdftex.def Info: ./images/JacocoCoveragelistJournalIds3.png  used on input line 563.
 (pdftex.def)             Requested size: 452.9679pt x 28.75406pt.
-<./images/PitCoverageListJournalIds1.png, id=282, 1318.9275pt x 494.84875pt>
+<./images/PitCoverageListJournalIds1.png, id=98, 1318.9275pt x 494.84875pt>
 File: ./images/PitCoverageListJournalIds1.png Graphic file (type png)
 <use ./images/PitCoverageListJournalIds1.png>
-Package pdftex.def Info: ./images/PitCoverageListJournalIds1.png  used on input line 509.
+Package pdftex.def Info: ./images/PitCoverageListJournalIds1.png  used on input line 569.
 (pdftex.def)             Requested size: 452.9679pt x 169.94527pt.
-<./images/PitMutation1.png, id=283, 714.67pt x 537.00626pt>
+<./images/PitMutation1.png, id=99, 714.67pt x 537.00626pt>
 File: ./images/PitMutation1.png Graphic file (type png)
 <use ./images/PitMutation1.png>
-Package pdftex.def Info: ./images/PitMutation1.png  used on input line 515.
+Package pdftex.def Info: ./images/PitMutation1.png  used on input line 575.
 (pdftex.def)             Requested size: 452.9679pt x 340.36424pt.
-<./images/PitTestFails.png, id=284, 354.32375pt x 235.88126pt>
+<./images/PitTestFails.png, id=100, 354.32375pt x 235.88126pt>
 File: ./images/PitTestFails.png Graphic file (type png)
 <use ./images/PitTestFails.png>
-Package pdftex.def Info: ./images/PitTestFails.png  used on input line 521.
+Package pdftex.def Info: ./images/PitTestFails.png  used on input line 581.
 (pdftex.def)             Requested size: 452.9679pt x 301.55624pt.
-<./images/code2.png, id=285, 1633.10126pt x 851.18pt>
+<./images/code2.png, id=101, 1633.10126pt x 851.18pt>
 File: ./images/code2.png Graphic file (type png)
 <use ./images/code2.png>
-Package pdftex.def Info: ./images/code2.png  used on input line 527.
+Package pdftex.def Info: ./images/code2.png  used on input line 587.
 (pdftex.def)             Requested size: 452.9679pt x 236.08185pt.
-[9] [10 <./images/listJournalIds.jpg> <./images/CFGlistJournalIds.jpg> <./images/JacocoCoveragelistJournalIds1.png>] [11 <./images/MissedBranchListJournalIds.png> <./images/JacocoCoveragelistJournalIds2.png> <./images/code1.png>] [12 <./images/BaduaCoveragelistJournalIds1.png> <./images/BaduaCoveragelistJournalIds2.png> <./images/JacocoCoveragelistJournalIds3.png>] [13 <./images/PitCoverageListJournalIds1.png> <./images/PitMutation1.png>] [14 <./images/PitTestFails.png> <./images/code2.png>] [15] [16] (./main.aux)
+
+/home/luca-fedora/Documents/latex/main.tex:592: LaTeX Error: \begin{itemize} on input line 328 ended by \end{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.592 \end{document}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[10] [11 <./images/listJournalIds.jpg> <./images/CFGlistJournalIds.jpg> <./images/JacocoCoveragelistJournalIds1.png>] [12 <./images/MissedBranchListJournalIds.png> <./images/JacocoCoveragelistJournalIds2.png> <./images/code1.png>] [13 <./images/BaduaCoveragelistJournalIds1.png> <./images/BaduaCoveragelistJournalIds2.png> <./images/JacocoCoveragelistJournalIds3.png>] [14 <./images/PitCoverageListJournalIds1.png> <./images/PitMutation1.png>] [15 <./images/PitTestFails.png> <./images/code2.png>] [16] (./main.aux)
 
 LaTeX Warning: There were undefined references.
 
 
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 8149CC86AD52AE98201003253DF09235;4488.
- ) 
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  4CA45101D1CF2D23FB358DD40FFB1714;5474.
+ )
+(\end occurred inside a group at level 2)
+
+### semi simple group (level 2) entered at line 328 (\begingroup)
+### semi simple group (level 1) entered at line 297 (\begingroup)
+### bottom level 
 Here is how much of TeX's memory you used:
- 14363 strings out of 477277
- 236370 string characters out of 5816799
- 1872793 words of memory out of 6000000
- 34210 multiletter control sequences out of 15000+600000
+ 14336 strings out of 477277
+ 235873 string characters out of 5816799
+ 1873793 words of memory out of 6000000
+ 34178 multiletter control sequences out of 15000+600000
  531848 words of font info for 68 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
- 72i,8n,77p,332b,601s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,8n,77p,332b,709s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on main.pdf (16 pages, 854779 bytes).
+Output written on main.pdf (16 pages, 854556 bytes).
 PDF statistics:
- 384 PDF objects out of 1000 (max. 8388607)
- 324 compressed objects within 4 object streams
- 80 named destinations out of 1000 (max. 500000)
- 322 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 235 PDF objects out of 1000 (max. 8388607)
+ 177 compressed objects within 2 object streams
+ 95 named destinations out of 1000 (max. 500000)
+ 66 words of extra memory for PDF output out of 10000 (max. 10000000)
 

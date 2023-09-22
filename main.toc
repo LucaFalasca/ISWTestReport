@@ -1,43 +1,53 @@
 \babel@toc {italian}{}\relax 
 \babel@toc {italian}{}\relax 
-\contentsline {section}{\numberline {1}Introduction}{3}{section.1}%
-\contentsline {section}{\numberline {2}Bookkeeper}{3}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Journal}{3}{subsection.2.1}%
-\contentsline {subsubsection}{\numberline {2.1.1}Descrizione}{3}{subsubsection.2.1.1}%
-\contentsline {paragraph}{listJournalIds}{3}{section*.4}%
-\contentsline {paragraph}{Input:}{3}{section*.5}%
-\contentsline {paragraph}{Output:}{3}{section*.6}%
-\contentsline {subsubsection}{\numberline {2.1.2}Category Partition}{3}{subsubsection.2.1.2}%
-\contentsline {paragraph}{journalDir}{3}{section*.7}%
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}%
+\contentsline {section}{\numberline {2}Bookkeeper}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Journal}{2}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Descrizione}{2}{subsubsection.2.1.1}%
+\contentsline {paragraph}{listJournalIds}{2}{section*.4}%
+\contentsline {paragraph}{Input:}{2}{section*.5}%
+\contentsline {paragraph}{Output:}{2}{section*.6}%
+\contentsline {subsubsection}{\numberline {2.1.2}Category Partition}{2}{subsubsection.2.1.2}%
+\contentsline {paragraph}{journalDir}{2}{section*.7}%
 \contentsline {paragraph}{JournalIdFilter}{3}{section*.8}%
-\contentsline {subsubsection}{\numberline {2.1.3}Boundary Analysis}{4}{subsubsection.2.1.3}%
-\contentsline {paragraph}{journalDir}{4}{section*.9}%
-\contentsline {paragraph}{JournalIdFilter}{4}{section*.10}%
+\contentsline {subsubsection}{\numberline {2.1.3}Boundary Analysis}{3}{subsubsection.2.1.3}%
+\contentsline {paragraph}{journalDir}{3}{section*.9}%
+\contentsline {paragraph}{JournalIdFilter}{3}{section*.10}%
 \contentsline {paragraph}{}{4}{section*.11}%
 \contentsline {subsubsection}{\numberline {2.1.4}Adequacy Control Flow}{4}{subsubsection.2.1.4}%
-\contentsline {paragraph}{}{5}{section*.12}%
-\contentsline {subsubsection}{\numberline {2.1.5}Adequacy Data Flow}{6}{subsubsection.2.1.5}%
-\contentsline {subsubsection}{\numberline {2.1.6}Mutation Testing}{7}{subsubsection.2.1.6}%
-\contentsline {subsection}{\numberline {2.2}Risultati}{9}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Classe 2}{9}{subsection.2.3}%
-\contentsline {subsubsection}{\numberline {2.3.1}Descrizione}{9}{subsubsection.2.3.1}%
-\contentsline {subsubsection}{\numberline {2.3.2}Category Partition}{9}{subsubsection.2.3.2}%
-\contentsline {subsubsection}{\numberline {2.3.3}Boundary Analysis}{9}{subsubsection.2.3.3}%
-\contentsline {subsubsection}{\numberline {2.3.4}Adequacy Control Flow}{9}{subsubsection.2.3.4}%
-\contentsline {subsubsection}{\numberline {2.3.5}Adequacy Data Flow}{9}{subsubsection.2.3.5}%
-\contentsline {subsubsection}{\numberline {2.3.6}Mutation Testing}{9}{subsubsection.2.3.6}%
-\contentsline {section}{\numberline {3}Avro}{9}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Classe 1}{9}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}Descrizione}{9}{subsubsection.3.1.1}%
-\contentsline {subsubsection}{\numberline {3.1.2}Category Partition}{9}{subsubsection.3.1.2}%
-\contentsline {subsubsection}{\numberline {3.1.3}Boundary Analysis}{9}{subsubsection.3.1.3}%
-\contentsline {subsubsection}{\numberline {3.1.4}Adequacy Control Flow}{9}{subsubsection.3.1.4}%
-\contentsline {subsubsection}{\numberline {3.1.5}Adequacy Data Flow}{9}{subsubsection.3.1.5}%
-\contentsline {subsubsection}{\numberline {3.1.6}Mutation Testing}{9}{subsubsection.3.1.6}%
-\contentsline {subsection}{\numberline {3.2}Classe 2}{9}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Descrizione}{9}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}Category Partition}{9}{subsubsection.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.3}Boundary Analysis}{9}{subsubsection.3.2.3}%
-\contentsline {subsubsection}{\numberline {3.2.4}Adequacy Control Flow}{9}{subsubsection.3.2.4}%
-\contentsline {subsubsection}{\numberline {3.2.5}Adequacy Data Flow}{9}{subsubsection.3.2.5}%
-\contentsline {subsubsection}{\numberline {3.2.6}Mutation Testing}{9}{subsubsection.3.2.6}%
+\contentsline {paragraph}{}{4}{section*.12}%
+\contentsline {subsubsection}{\numberline {2.1.5}Adequacy Data Flow}{5}{subsubsection.2.1.5}%
+\contentsline {subsubsection}{\numberline {2.1.6}Mutation Testing}{6}{subsubsection.2.1.6}%
+\contentsline {subsection}{\numberline {2.2}FileInfo}{7}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Descrizione}{7}{subsubsection.2.2.1}%
+\contentsline {paragraph}{readHeader}{8}{section*.13}%
+\contentsline {paragraph}{Input:}{8}{section*.14}%
+\contentsline {subsubsection}{\numberline {2.2.2}Category Partition}{8}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}Boundary Analysis}{8}{subsubsection.2.2.3}%
+\contentsline {subsubsection}{\numberline {2.2.4}Adequacy Control Flow}{8}{subsubsection.2.2.4}%
+\contentsline {subsubsection}{\numberline {2.2.5}Adequacy Data Flow}{8}{subsubsection.2.2.5}%
+\contentsline {subsubsection}{\numberline {2.2.6}Mutation Testing}{8}{subsubsection.2.2.6}%
+\contentsline {subsection}{\numberline {2.3}EntryLoggerAllocator}{8}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Descrizione}{8}{subsubsection.2.3.1}%
+\contentsline {paragraph}{createNewLog}{8}{section*.15}%
+\contentsline {paragraph}{Input:}{9}{section*.16}%
+\contentsline {subsubsection}{\numberline {2.3.2}Category Partition}{10}{subsubsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.3}Boundary Analysis}{10}{subsubsection.2.3.3}%
+\contentsline {subsubsection}{\numberline {2.3.4}Adequacy Control Flow}{10}{subsubsection.2.3.4}%
+\contentsline {subsubsection}{\numberline {2.3.5}Adequacy Data Flow}{10}{subsubsection.2.3.5}%
+\contentsline {subsubsection}{\numberline {2.3.6}Mutation Testing}{10}{subsubsection.2.3.6}%
+\contentsline {section}{\numberline {3}Avro}{10}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Classe 1}{10}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Descrizione}{10}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Category Partition}{10}{subsubsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.3}Boundary Analysis}{10}{subsubsection.3.1.3}%
+\contentsline {subsubsection}{\numberline {3.1.4}Adequacy Control Flow}{10}{subsubsection.3.1.4}%
+\contentsline {subsubsection}{\numberline {3.1.5}Adequacy Data Flow}{10}{subsubsection.3.1.5}%
+\contentsline {subsubsection}{\numberline {3.1.6}Mutation Testing}{10}{subsubsection.3.1.6}%
+\contentsline {subsection}{\numberline {3.2}Classe 2}{10}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Descrizione}{10}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Category Partition}{10}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Boundary Analysis}{10}{subsubsection.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.4}Adequacy Control Flow}{10}{subsubsection.3.2.4}%
+\contentsline {subsubsection}{\numberline {3.2.5}Adequacy Data Flow}{10}{subsubsection.3.2.5}%
+\contentsline {subsubsection}{\numberline {3.2.6}Mutation Testing}{10}{subsubsection.3.2.6}%

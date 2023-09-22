@@ -35,7 +35,7 @@
 \section{Bookkeeper}
 \subsection{Journal}
 \subsubsection{Descrizione}
-Path: org.apache.bookkeeper.bookie.Journal.java
+Path: org.apache.bookkeeper.bookie.Journal.java \\
 
 \paragraph{listJournalIds}
 Lists all journal IDs filtered by a specified journal ID filter.
@@ -286,16 +286,76 @@ ordinare in modo decrescente (Figura \ref{fig:code2}) \\
 Ora effettivamente il test non passa se commentiano la linea 125, e quindi la mutazione viene rilevata.
 Quindi tutte le mutazioni sono state rilevate e quindi la mutation coverage è del 100\% 
 
-\subsection{Risultati}
-
-
-  
-
-
-
-\subsection{Classe 2}
+\subsection{FileInfo}
 \subsubsection{Descrizione}
+Path: org.apache.bookkeeper.bookie.EntryLoggerAllocator.java \\
+
+\paragraph{readHeader}
+Creates a new log file and returns a BufferedLogChannel for it.
+
+\paragraph{Input:}
+\begin{itemize}
+  \item File dirForNextEntryLog: 
+  \item bool entryLogPreAllocationEnabled
+  \item long logId
+  \item logFilePrefix log file prefix
+  \item logFileSuffix log file suffix
+  \item forcePreAlloc force pre allocation
+
+
 \subsubsection{Category Partition}
+
+\subsubsection{Boundary Analysis}
+\subsubsection{Adequacy Control Flow}
+\subsubsection{Adequacy Data Flow}
+\subsubsection{Mutation Testing}
+
+
+\subsection{EntryLoggerAllocator}
+\subsubsection{Descrizione}
+Path: org.apache.bookkeeper.bookie.EntryLoggerAllocator.java \\
+
+Questa classe fa parte della suit di classi che si occumato della scrittura 
+delle entry di bookkeeer. In particolare questa classe si occupa di allocare
+i file di log in cui scrivere le entry. \\
+Per andare a testare questa classe mi sono soffermato sul metodo \texttt{createNewLog()} che è il metodo esportato
+principale della classe che si occupa appunto allocare un nuovo file di log. \\
+
+\paragraph{createNewLog}
+Creates a new log file and returns a BufferedLogChannel for it.
+
+\paragraph{Input:}
+\begin{itemize}
+  \item File dirForNextEntryLog: 
+  \item bool entryLogPreAllocationEnabled
+  \item long logId
+  \item logFilePrefix log file prefix
+  \item logFileSuffix log file suffix
+  \item forcePreAlloc force pre allocation
+
+
+Un oggetto \texttt{BufferedLogChannel} che rappresenta il nuovo file di log creato o preallocato.
+
+\begin{itemize}
+    \item \texttt{IOException}: Viene sollevata se si verifica un errore durante la creazione o la preallocazione del file di log.
+\end{itemize}
+
+\begin{enumerate}
+    \item Il metodo è sincronizzato per garantire che solo un thread alla volta possa creare o preallocare un file di log.
+    \item Se l'opzione di preallocazione dei file di log è disabilitata, il metodo crea direttamente un nuovo file di log nella directory specificata.
+    \item Se l'opzione di preallocazione dei file di log è abilitata, il metodo verifica se è già stato preallocato un file di log per l'uso futuro. Se sì, restituisce il file di log preallocato.
+    \item Se non è stato preallocato un file di log, il metodo avvia la preallocazione in background per un nuovo file di log.
+    \item Il metodo restituisce il nuovo file di log creato o preallocato.
+\end{enumerate}
+
+\begin{itemize}
+    \item Questo metodo è progettato per gestire la complessità della gestione dei file di log all'interno di un sistema e offre un'opzione per preallocare file di log futuri per migliorare le prestazioni e l'efficienza.
+    \item La sincronizzazione è utilizzata per evitare la creazione simultanea di più file di log da parte di thread concorrenti.
+    \item L'uso del metodo può essere configurato attraverso le opzioni del sistema per abilitare o disabilitare la preallocazione dei file di log.
+\end{itemize}
+
+\subsubsection{Category Partition}
+
 \subsubsection{Boundary Analysis}
 \subsubsection{Adequacy Control Flow}
 \subsubsection{Adequacy Data Flow}
