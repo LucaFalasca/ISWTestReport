@@ -23,13 +23,17 @@
 \begin{document}
 
 \maketitle
+
+\thispagestyle{empty}
 \tableofcontents
 
 \listoffigures
 \listoftables
 
-\newpage
 
+\thispagestyle{empty}
+\newpage
+\setcounter{page}{1}
 \section{Introduction}
 
 \section{Bookkeeper}
@@ -289,21 +293,48 @@ Quindi tutte le mutazioni sono state rilevate e quindi la mutation coverage è d
 \subsection{FileInfo}
 \subsubsection{Descrizione}
 Path: org.apache.bookkeeper.bookie.EntryLoggerAllocator.java \\
+\begin{verbatim}
+/**
+ * This is the file handle for a ledger's index file that maps entry ids to location.
+ * It is used by LedgerCache.
+ *
+ * <p>
+ * Ledger index file is made of a header and several fixed-length index pages, which records the offsets of data stored
+ * in entry loggers
+ * <pre>&lt;header&gt;&lt;index pages&gt;</pre>
+ * <b>Header</b> is formated as below:
+ * <pre>&lt;magic bytes&gt;&lt;len of master key&gt;&lt;master key&gt;</pre>
+ * <ul>
+ * <li>magic bytes: 4 bytes, 'BKLE', version: 4 bytes
+ * <li>len of master key: indicates length of master key. -1 means no master key stored in header.
+ * <li>master key: master key
+ * <li>state: bit map to indicate the state, 32 bits.
+ * </ul>
+ * <b>Index page</b> is a fixed-length page, which contains serveral entries which point to the offsets of data stored
+ * in entry loggers.
+ * </p>
+ */
+\end{verbatim}
 
 \paragraph{readHeader}
-Creates a new log file and returns a BufferedLogChannel for it.
+Legge l'header di un ledger index file per verificarne la correttezza.
+Lancia una eccezione se l'header non è corretto, altrimenti non ritorna nulla.
 
+Come input prende ovviamente il file di cui deve leggere l'header. Tuttavia per rendere la category partition più sensata
+vado a considerare l'input come le componenti di cui è formato l'header, ovvero:
 \paragraph{Input:}
 \begin{itemize}
-  \item File dirForNextEntryLog: 
-  \item bool entryLogPreAllocationEnabled
-  \item long logId
-  \item logFilePrefix log file prefix
-  \item logFileSuffix log file suffix
-  \item forcePreAlloc force pre allocation
-
+  \item magic bytes
+  \item len of master key
+  \item master key
+\end{itemize}
 
 \subsubsection{Category Partition}
+Magic Bytes: {valido}, {non valido}, {null}
+Master key: {null}, {master key di 0 byte}, {master key di > 0 byte}
+Len of master key: { = len master key} {< len master key} {> len master key} {null}
+
+
 
 \subsubsection{Boundary Analysis}
 \subsubsection{Adequacy Control Flow}
@@ -332,6 +363,7 @@ Creates a new log file and returns a BufferedLogChannel for it.
   \item logFilePrefix log file prefix
   \item logFileSuffix log file suffix
   \item forcePreAlloc force pre allocation
+\end{itemize}
 
 
 Un oggetto \texttt{BufferedLogChannel} che rappresenta il nuovo file di log creato o preallocato.
