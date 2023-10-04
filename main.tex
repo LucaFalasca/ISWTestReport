@@ -333,65 +333,60 @@ vado a considerare l'input come le componenti di cui è formato l'header, ovvero
 Magic Bytes: {valido}, {non valido}, {null}
 Master key: {null}, {master key di 0 byte}, {master key di > 0 byte}
 Len of master key: { = len master key} {< len master key} {> len master key} {null}
-
+state: {null} {fenced} {non fenced}
+Siccome in documentazione non c'è scritto niente su questo stato dell'header, ho lasciato 
+l'approccio black box sulla category partition di questo parametro, e andando a controllare nel codice
+ho scoperto che nella classe viene solamente controllato se lo stato è fenced o non fenced, quindi ho descritto 
+la category partition in questo modo
 
 
 \subsubsection{Boundary Analysis}
+Andiamo a definire per ogni partizione i Boundary values
+
+\paragraph{Magic Bytes}
+\begin{itemize}
+  \item \{valido\} = BKLE
+  \item \{non valido\} = BKLU 
+\end{itemize}
+
+\paragraph{Master key}
+\begin{itemize}
+  \item \{master key di 0 byte\} = new byte[]
+  \item \{master key di > 0 byte\} = new byte[1]
+  \item null
+\end{itemize}
+
+\paragraph{Len of master key}
+\begin{itemize}
+  \item \{ = len master key\} = len master key
+  \item \{< len master key\} = len master key - 1
+  \item \{> len master key\} = len master key + 1
+\end{itemize}
+
+\paragraph{state}
+\begin{itemize}
+  \item \{fenced\} = 1
+  \item \{non fenced\} = 0
+\end{itemize}
+
+Andrò ad utilizzare un approccio unidimensionale nella stesura dei casi 
+di test, tranne per le coppie di parametri master key e len of master key,
+che essendo strettamente correlate ho ritenuto opportuno testare tutte le 
+combinazioni tra loro.
+
+I casi di test sono specificati nella Tabella \ref{tab:categoryPartition1ReadHeader}
+
+
 \subsubsection{Adequacy Control Flow}
+Ora per verificare l'adeguatezza dei casi di test, vado ad utilizzare
+Jacoco per calcolare la coverage.
+
+Come si può vedere della figura \ref{fig:JacocoCoveragereadHeader1}
+
 \subsubsection{Adequacy Data Flow}
 \subsubsection{Mutation Testing}
 
 
-\subsection{EntryLoggerAllocator}
-\subsubsection{Descrizione}
-Path: org.apache.bookkeeper.bookie.EntryLoggerAllocator.java \\
-
-Questa classe fa parte della suit di classi che si occumato della scrittura 
-delle entry di bookkeeer. In particolare questa classe si occupa di allocare
-i file di log in cui scrivere le entry. \\
-Per andare a testare questa classe mi sono soffermato sul metodo \texttt{createNewLog()} che è il metodo esportato
-principale della classe che si occupa appunto allocare un nuovo file di log. \\
-
-\paragraph{createNewLog}
-Creates a new log file and returns a BufferedLogChannel for it.
-
-\paragraph{Input:}
-\begin{itemize}
-  \item File dirForNextEntryLog: 
-  \item bool entryLogPreAllocationEnabled
-  \item long logId
-  \item logFilePrefix log file prefix
-  \item logFileSuffix log file suffix
-  \item forcePreAlloc force pre allocation
-\end{itemize}
-
-
-Un oggetto \texttt{BufferedLogChannel} che rappresenta il nuovo file di log creato o preallocato.
-
-\begin{itemize}
-    \item \texttt{IOException}: Viene sollevata se si verifica un errore durante la creazione o la preallocazione del file di log.
-\end{itemize}
-
-\begin{enumerate}
-    \item Il metodo è sincronizzato per garantire che solo un thread alla volta possa creare o preallocare un file di log.
-    \item Se l'opzione di preallocazione dei file di log è disabilitata, il metodo crea direttamente un nuovo file di log nella directory specificata.
-    \item Se l'opzione di preallocazione dei file di log è abilitata, il metodo verifica se è già stato preallocato un file di log per l'uso futuro. Se sì, restituisce il file di log preallocato.
-    \item Se non è stato preallocato un file di log, il metodo avvia la preallocazione in background per un nuovo file di log.
-    \item Il metodo restituisce il nuovo file di log creato o preallocato.
-\end{enumerate}
-
-\begin{itemize}
-    \item Questo metodo è progettato per gestire la complessità della gestione dei file di log all'interno di un sistema e offre un'opzione per preallocare file di log futuri per migliorare le prestazioni e l'efficienza.
-    \item La sincronizzazione è utilizzata per evitare la creazione simultanea di più file di log da parte di thread concorrenti.
-    \item L'uso del metodo può essere configurato attraverso le opzioni del sistema per abilitare o disabilitare la preallocazione dei file di log.
-\end{itemize}
-
-\subsubsection{Category Partition}
-
-\subsubsection{Boundary Analysis}
-\subsubsection{Adequacy Control Flow}
-\subsubsection{Adequacy Data Flow}
-\subsubsection{Mutation Testing}
 
 \section{Avro}
 \subsection{Classe 1}
@@ -422,7 +417,7 @@ Un oggetto \texttt{BufferedLogChannel} che rappresenta il nuovo file di log crea
 
 
 
-
+%Tabelle Journal --------------------------------------------------------
 \begin{table}[ht]
   \centering
   \caption[Journal: Test Suite - Category Partition]{Test Suite derivante dalla category partition e dalla boundary analysis}
@@ -532,23 +527,34 @@ journalDir & JournalIdFilter & Risultato Atteso \\
     \label{tab:ADF1ListJournalIds}
   \end{table}
 
+%Tabelle FileInfo --------------------------------------------------------
+
+\begin{table}[ht]
+  \centering
+  \caption[Test Suite - Category Partition]{Test Suite derivante dalla category partition e dalla boundary analysis}
+  \begin{tabular}{|l|l|l|l|}
+    \hline
+    \textbf{Magic Bytes} & \textbf{Master key} & \textbf{Len of master key} & \textbf{Risultato Atteso} \\
+    \hline
+    BKLE &  & new byte[] &  1 \\
+    \hline
+  \end{tabular}
+  \label{tab:categoryPartition1ReadHeader}
+\end{table}
 
 
 
 
-
-
-
-
+%Figure Journal --------------------------------------------------------
 
   \begin{figure}
     \centering
     \begin{subfigure}[a]{0.4\linewidth}
-      \includegraphics[width=\linewidth]{./images/listJournalIds.jpg}
+      \includegraphics[width=\linewidth]{./images/journal/listJournalIds.jpg}
       \caption{Functional diagram}
     \end{subfigure}
     \begin{subfigure}[b]{0.4\linewidth}
-      \includegraphics[width=\linewidth]{./images/CFGlistJournalIds.jpg}
+      \includegraphics[width=\linewidth]{./images/journal/CFGlistJournalIds.jpg}
     \caption{Control Flow Graph}
     \end{subfigure}
     \caption{Diagrammi di listJournalIds}
@@ -556,69 +562,75 @@ journalDir & JournalIdFilter & Risultato Atteso \\
   \end{figure}
 
   \begin{figure}
-    \includegraphics[width=\linewidth]{./images/JacocoCoveragelistJournalIds1.png}
+    \includegraphics[width=\linewidth]{./images/journal/JacocoCoveragelistJournalIds1.png}
     \caption{Jacoco coverage dilistJournalIds}
     \label{fig:listJournalIds_jacoco}
   \end{figure}
 
   \begin{figure}
-    \includegraphics[width=\linewidth]{./images/MissedBranchListJournalIds.png}
+    \includegraphics[width=\linewidth]{./images/journal/MissedBranchListJournalIds.png}
     \caption{Jacoco coverage dilistJournalIds}
     \label{fig:listJournalIds_jacoco2}
   \end{figure}
 
   \begin{figure}
-    \includegraphics[width=\linewidth]{./images/JacocoCoveragelistJournalIds2.png}
+    \includegraphics[width=\linewidth]{./images/journal/JacocoCoveragelistJournalIds2.png}
     \caption{Jacoco coverage dilistJournalIds}
     \label{fig:listJournalIds_jacoco3}
   \end{figure}
 
   \begin{figure}
-    \includegraphics[width=\linewidth]{./images/code1.png}
+    \includegraphics[width=\linewidth]{./images/journal/code1.png}
     \caption{Codice sorgente di JournalTest}
     \label{fig:code1}
   \end{figure}
 
   \begin{figure}
-    \includegraphics[width=\linewidth]{./images/BaduaCoveragelistJournalIds1.png}
+    \includegraphics[width=\linewidth]{./images/journal/BaduaCoveragelistJournalIds1.png}
     \caption{Badua coverage dilistJournalIds}
     \label{fig:listJournalIds_badua}
   \end{figure}
 
   \begin{figure}
-    \includegraphics[width=\linewidth]{./images/BaduaCoveragelistJournalIds2.png}
+    \includegraphics[width=\linewidth]{./images/journal/BaduaCoveragelistJournalIds2.png}
     \caption{Badua coverage dilistJournalIds}
     \label{fig:listJournalIds_badua2}
   \end{figure}
 
   \begin{figure}
-    \includegraphics[width=\linewidth]{./images/JacocoCoveragelistJournalIds3.png}
+    \includegraphics[width=\linewidth]{./images/journal/JacocoCoveragelistJournalIds3.png}
     \caption{Jacoco coverage dilistJournalIds}
     \label{fig:listJournalIds_jacoco4}
   \end{figure}
 
   \begin{figure}
-    \includegraphics[width=\linewidth]{./images/PitCoverageListJournalIds1.png}
+    \includegraphics[width=\linewidth]{./images/journal/PitCoverageListJournalIds1.png}
     \caption{Pitest coverage dilistJournalIds}
     \label{fig:listJournalIds_pitest}
   \end{figure}
 
   \begin{figure}
-    \includegraphics[width=\linewidth]{./images/PitMutation1.png}
+    \includegraphics[width=\linewidth]{./images/journal/PitMutation1.png}
     \caption{Mutazione inserita nel codice sorgente di Bookkeeper}
     \label{fig:PitMutation1}
   \end{figure}
 
   \begin{figure}
-    \includegraphics[width=\linewidth]{./images/PitTestFails.png}
+    \includegraphics[width=\linewidth]{./images/journal/PitTestFails.png}
     \caption{Mutazione inserita nel codice sorgente di Bookkeeper}
     \label{fig:PitMutation2}
   \end{figure}
 
   \begin{figure}
-    \includegraphics[width=\linewidth]{./images/code2.png}
+    \includegraphics[width=\linewidth]{./images/journal/code2.png}
     \caption{Codice sorgente di JournalTest aggiornato con il mock}
     \label{fig:code2}
+  \end{figure}
+
+  \begin{figure}
+    \includegraphics[width=\linewidth]{./images/file_info/JacocoCoveragereadHeader1.png}
+    \caption{Jacoco coverage readHeader}
+    \label{fig:JacocoCoveragereadHeader1}
   \end{figure}
 
 \end{document}

@@ -23,19 +23,14 @@
 \contentsline {paragraph}{readHeader}{7}{section*.13}%
 \contentsline {paragraph}{Input:}{7}{section*.14}%
 \contentsline {subsubsection}{\numberline {2.2.2}Category Partition}{7}{subsubsection.2.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.3}Boundary Analysis}{8}{subsubsection.2.2.3}%
+\contentsline {subsubsection}{\numberline {2.2.3}Boundary Analysis}{7}{subsubsection.2.2.3}%
+\contentsline {paragraph}{Magic Bytes}{8}{section*.15}%
+\contentsline {paragraph}{Master key}{8}{section*.16}%
+\contentsline {paragraph}{Len of master key}{8}{section*.17}%
+\contentsline {paragraph}{state}{8}{section*.18}%
 \contentsline {subsubsection}{\numberline {2.2.4}Adequacy Control Flow}{8}{subsubsection.2.2.4}%
-\contentsline {subsubsection}{\numberline {2.2.5}Adequacy Data Flow}{8}{subsubsection.2.2.5}%
-\contentsline {subsubsection}{\numberline {2.2.6}Mutation Testing}{8}{subsubsection.2.2.6}%
-\contentsline {subsection}{\numberline {2.3}EntryLoggerAllocator}{8}{subsection.2.3}%
-\contentsline {subsubsection}{\numberline {2.3.1}Descrizione}{8}{subsubsection.2.3.1}%
-\contentsline {paragraph}{createNewLog}{8}{section*.15}%
-\contentsline {paragraph}{Input:}{8}{section*.16}%
-\contentsline {subsubsection}{\numberline {2.3.2}Category Partition}{9}{subsubsection.2.3.2}%
-\contentsline {subsubsection}{\numberline {2.3.3}Boundary Analysis}{9}{subsubsection.2.3.3}%
-\contentsline {subsubsection}{\numberline {2.3.4}Adequacy Control Flow}{9}{subsubsection.2.3.4}%
-\contentsline {subsubsection}{\numberline {2.3.5}Adequacy Data Flow}{9}{subsubsection.2.3.5}%
-\contentsline {subsubsection}{\numberline {2.3.6}Mutation Testing}{9}{subsubsection.2.3.6}%
+\contentsline {subsubsection}{\numberline {2.2.5}Adequacy Data Flow}{9}{subsubsection.2.2.5}%
+\contentsline {subsubsection}{\numberline {2.2.6}Mutation Testing}{9}{subsubsection.2.2.6}%
 \contentsline {section}{\numberline {3}Avro}{9}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Classe 1}{9}{subsection.3.1}%
 \contentsline {subsubsection}{\numberline {3.1.1}Descrizione}{9}{subsubsection.3.1.1}%
