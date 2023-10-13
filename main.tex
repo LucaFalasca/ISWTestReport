@@ -353,20 +353,29 @@ Andiamo a definire per ogni partizione i Boundary values
 \begin{itemize}
   \item \{master key di 0 byte\} = new byte[]
   \item \{master key di > 0 byte\} = new byte[1]
-  \item null
 \end{itemize}
 
 \paragraph{Len of master key}
 \begin{itemize}
-  \item \{ = len master key\} = len master key
-  \item \{< len master key\} = len master key - 1
-  \item \{> len master key\} = len master key + 1
+  \item \{= len effettiva \} = len effettiva
+  \item \{\textless len effettiva\} = len effettiva - 1
+  \item \{\textgreater len effettiva\} = len effettiva + 1
 \end{itemize}
 
 \paragraph{state}
 \begin{itemize}
   \item \{fenced\} = 1
   \item \{non fenced\} = 0
+\end{itemize}
+
+Inoltre nell'header c'è un campo che indica la versione, non specificato nella documentazione, ma
+analizzando il codice si può notare che ne esistono due tipi, la versione 0 e la versione 1. Per questo motivo
+vado a specificare una category partition per questo campo, in modo tale da poter testare entrambe le versioni.
+
+\paragraph{Version}
+\begin{itemize}
+  \item \{versione 0\} = 0
+  \item \{versione 1\} = 1
 \end{itemize}
 
 Andrò ad utilizzare un approccio unidimensionale nella stesura dei casi 
