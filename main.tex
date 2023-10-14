@@ -385,12 +385,39 @@ combinazioni tra loro.
 
 I casi di test sono specificati nella Tabella \ref{tab:categoryPartition1ReadHeader}
 
+Codice implementato Figura \ref{fig:Code1ReadHeader}
+
+
+Andando ad eseguire questi test molti di questi falliscono (Figura \Ref{fig:TestFailsReadHeader}), andiamo a documentare perchè reputo 
+dei bug i fallimenti di questi test.
+
+Il primo test che fallisce è il secondo. Fallisce perchè ho ritenuto opportuno che se il campo dell'header 
+che indica la lunghezza della master key mandi un eccezione nel caso in cui non coincida con la lunghezza effettiva 
+della masterkey inserita, invece il metodo non si accorge di niente.
+Anche il terzo e il quinto test falliscono per la stessa motivazione. 
+Invece per quanto riguarda il quarto test, questo fallisce perchè ritorna un eccezione anche se non dovrebbe. 
+L'eccezione descrive il fatto che -1 non è una lunghezza accettata per la masterkey, tuttavia nella documentazione è
+esplecitamente speicificato che -1 indica il fatto che non viene specificata nessuna master key, esattamente come viene 
+fatto nel caso di test considerato.
+
+Nonostante questi casi falliscano per andare avanti con l'analisi e per non falsare i dati di coverage calcolati
+dai framework li andrò a modificare facendoli passare (anche se non dovrebbero).
+
 
 \subsubsection{Adequacy Control Flow}
 Ora per verificare l'adeguatezza dei casi di test, vado ad utilizzare
 Jacoco per calcolare la coverage.
 
-Come si può vedere della figura \ref{fig:JacocoCoveragereadHeader1}
+Come si può vedere della figura \ref{fig:JacocoCoveragereadHeader1} con questa test suite otteniao
+una statement coverage del 61\% e una condition coverage del 59\%.
+
+Andando a vedere in maniera più speifica quali sono le parti non coperte (Figura \ref{fig:JacocoCoveragereadHeader2})
+si può notare a riga 243 che se si usa la versione V1 dell'header è possibile specificare una parte aggiuntiva dell'header
+chiamata explicitLacBufLength.
+
+Sono andato quindi ad aggiungere un valore di input ai test e due casi di test per coprire questo input aggiuntivo \\
+Category Partition explicitLacBufLength -> $\{ >= LAC_METADATA_LENGTH $\},$\{ <  LAC_METADATA_LENGTH $\}, $\{ null $\}
+
 
 \subsubsection{Adequacy Data Flow}
 \subsubsection{Mutation Testing}
@@ -541,11 +568,17 @@ journalDir & JournalIdFilter & Risultato Atteso \\
 \begin{table}[ht]
   \centering
   \caption[Test Suite - Category Partition]{Test Suite derivante dalla category partition e dalla boundary analysis}
-  \begin{tabular}{|l|l|l|l|}
+  \begin{tabular}{|l|l|l|l|l|l|}
     \hline
-    \textbf{Magic Bytes} & \textbf{Master key} & \textbf{Len of master key} & \textbf{Risultato Atteso} \\
+    \textbf{Magic Bytes} & \textbf{Master key} & \textbf{Len of master key}  & \textbf{State} & \textbf{Version} & \textbf{Risultato Atteso} \\
     \hline
-    BKLE &  & new byte[] &  1 \\
+    BKLE & new byte[1] & 1 & 0 & 1 & Success \\
+    BKLE & new byte[1] & 2 & 0 & 1 & Exception \\
+    BKLE & new byte[1] & 0 & 0 & 1 & Exception \\
+    BKLE & new byte[0] & -1 & 0 & 0 & Success \\
+    BKLE & new byte[0] & 0 & 0 & 0 & Success \\
+    BKLE & new byte[0] & 1 & 0 & 0 & Exception \\
+    BKLU & new byte[1] & 1 & 0 & 1 & Exception \\
     \hline
   \end{tabular}
   \label{tab:categoryPartition1ReadHeader}
@@ -640,6 +673,18 @@ journalDir & JournalIdFilter & Risultato Atteso \\
     \includegraphics[width=\linewidth]{./images/file_info/JacocoCoveragereadHeader1.png}
     \caption{Jacoco coverage readHeader}
     \label{fig:JacocoCoveragereadHeader1}
+  \end{figure}
+
+  \begin{figure}
+    \includegraphics[width=\linewidth]{./images/file_info/TestCasesFails.png}
+    \caption{Test fails on readHeader}
+    \label{fig:TestFailsReadHeader}
+  \end{figure}
+
+  \begin{figure}
+    \includegraphics[width=\linewidth]{./images/file_info/Code1ReadHeader.png}
+    \caption{Codice sorgente di FileInfoTest}
+    \label{fig:Code1ReadHeader}
   \end{figure}
 
 \end{document}

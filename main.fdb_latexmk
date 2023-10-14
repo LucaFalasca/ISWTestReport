@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1697030416 "/home/luca-fedora/Documents/latex/main.tex" "main.pdf" "main" 1697030417 0
-  "/home/luca-fedora/Documents/latex/main.tex" 1697030414 26778 3982f6c05272b8c90ae6c7d70848967a ""
+["pdflatex"] 1697303162 "/home/luca-fedora/Documents/latex/main.tex" "main.pdf" "main" 1697303163 0
+  "/home/luca-fedora/Documents/latex/main.tex" 1697303162 29302 1fc974e0e9c3e7da55f4c3acb5af7096 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1684972800 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/helvetic/phvb7t.tfm" 1136768653 2240 eb56c13537f4d8a0bd3fafc25572b1bd ""
@@ -107,7 +107,9 @@
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1684972800 40326 aba987258e6d6b6da5dec3a727ea174b ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1693311438 534650 e1f586943c9a5721b8b95436a1249427 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1696434925 7676158 cb6b00d47e3778dfb0d1ff4641c7d9e6 ""
-  "images/file_info/JacocoCoveragereadHeader1.png" 1696434153 10561 c16e5566c24bc37ee0f5110bcae34323 ""
+  "images/file_info/Code1ReadHeader.png" 1697300532 165841 0682adf40c77606b38527b55af56df73 ""
+  "images/file_info/JacocoCoveragereadHeader1.png" 1697301305 10658 902b600351fc544c053a5dcd8ced99cd ""
+  "images/file_info/TestCasesFails.png" 1697298330 11112 baeed3e3607a5a0e5b0abeadcbd4f369 ""
   "images/journal/BaduaCoveragelistJournalIds1.png" 1693925886 187841 dc20bcc137bd517d3b4ea57906308906 ""
   "images/journal/BaduaCoveragelistJournalIds2.png" 1694015032 185291 2cc7e58420cb57601a68a9b95a7e7ed3 ""
   "images/journal/CFGlistJournalIds.jpg" 1693405412 17006 1d96348843a6b7cc3c223ff58c7e1baa ""
@@ -121,12 +123,12 @@
   "images/journal/code1.png" 1693925385 193797 1dc0a5517f009347bd90661767dda73b ""
   "images/journal/code2.png" 1694164937 178104 89c8a41164370b23df2d94baffde2d61 ""
   "images/journal/listJournalIds.jpg" 1693403093 19958 6d68f2b2b0d55f8ae538dea20fe1a8d0 ""
-  "main.aux" 1697030417 11920 bbb6a2028afdc60bfb9179d32bf88f7b "pdflatex"
-  "main.lof" 1697030417 1657 183409a25e857356a7544fc206ab1dcb "pdflatex"
-  "main.lot" 1697030417 1017 e1a42f105497886ebf447ac47cb40ddf "pdflatex"
-  "main.out" 1697030417 4382 f5fb2948fe26dcd7c7393b82c89b29d9 "pdflatex"
-  "main.tex" 1697030414 26778 3982f6c05272b8c90ae6c7d70848967a ""
-  "main.toc" 1697030417 3634 c277736b7974adbf67750ce9ee3f88f9 "pdflatex"
+  "main.aux" 1697303163 12455 4c3334e51a5429d20134be9a67c6cdfa "pdflatex"
+  "main.lof" 1697303163 1888 a1028795953443b9ac16d25e61ada496 "pdflatex"
+  "main.lot" 1697303163 1019 87eb1ba05eb72ad1bbae5f30de32f765 "pdflatex"
+  "main.out" 1697303163 4382 f5fb2948fe26dcd7c7393b82c89b29d9 "pdflatex"
+  "main.tex" 1697303162 29302 1fc974e0e9c3e7da55f4c3acb5af7096 ""
+  "main.toc" 1697303163 3651 be0a4b878fcfa69b76e7a2112006c720 "pdflatex"
   (generated)
   "main.aux"
   "main.lof"
