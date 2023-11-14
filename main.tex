@@ -10,6 +10,7 @@
 \usepackage{graphicx} % Required for inserting images
 \usepackage{listings}
 \usepackage{hyperref}
+\usepackage{amsmath, amssymb}
 \hypersetup{
     colorlinks=true,     % Abilita i collegamenti colorati
     linkcolor=black,      % Colore dei collegamenti interni
@@ -397,7 +398,7 @@ della masterkey inserita, invece il metodo non si accorge di niente.
 Anche il terzo e il quinto test falliscono per la stessa motivazione. 
 Invece per quanto riguarda il quarto test, questo fallisce perchè ritorna un eccezione anche se non dovrebbe. 
 L'eccezione descrive il fatto che -1 non è una lunghezza accettata per la masterkey, tuttavia nella documentazione è
-esplecitamente speicificato che -1 indica il fatto che non viene specificata nessuna master key, esattamente come viene 
+esplecitamente specificato che -1 indica il fatto che non viene specificata nessuna master key, esattamente come viene 
 fatto nel caso di test considerato.
 
 Nonostante questi casi falliscano per andare avanti con l'analisi e per non falsare i dati di coverage calcolati
@@ -411,15 +412,38 @@ Jacoco per calcolare la coverage.
 Come si può vedere della figura \ref{fig:JacocoCoveragereadHeader1} con questa test suite otteniao
 una statement coverage del 61\% e una condition coverage del 59\%.
 
-Andando a vedere in maniera più speifica quali sono le parti non coperte (Figura \ref{fig:JacocoCoveragereadHeader2})
+Andando a vedere in maniera più specifica quali sono le parti non coperte (Figura \ref{fig:JacocoCoveragereadHeader2})
 si può notare a riga 243 che se si usa la versione V1 dell'header è possibile specificare una parte aggiuntiva dell'header
 chiamata explicitLacBufLength.
 
 Sono andato quindi ad aggiungere un valore di input ai test e due casi di test per coprire questo input aggiuntivo \\
-Category Partition explicitLacBufLength -> $\{ >= LAC_METADATA_LENGTH $\},$\{ <  LAC_METADATA_LENGTH $\}, $\{ null $\}
+Category Partition explicitLacBufLength $\rightarrow.
+\{ >= \text{LAC\_METADATA\_LENGTH} \},
+\{ <  \text{LAC\_METADATA\_LENGTH} AND >= 0\}, 
+\{ < 0 \}$ 
+
+Essendo il campo specificato come length, mi è sembrato opportuno descrivere anhe il caso in cui la lunghezza è negativa.
+Nel caso d'uso del programma $\text{LAC\_METADATA\_LENGTH}$ è impostato in maniera final come 16, quindi andando a fare una boundary
+analysis su questo parametro ottengo i seguenti valori:
+
+\paragraph{explicitLacBufLength}
+\begin{itemize}
+  \item \{ \textgreater= 16 \} = 16
+  \item \{ \textless 16 AND \textgreater= 0 \} = 15, 0
+  \item \{ \textless 0 \} = -1
+\end{itemize}
+
+La test suite ora è composta in questo modo: (Tabella \ref{tab:ACF1ReadHeader2})
+
+Grazie a questo incremento la statement coverage è salita al 82\% (Figura \ref{fig:JacocoCoveragereadHeader3}) 
+e la condition coverage al 77\% (Figura \ref{fig:JacocoCoveragereadHeader4})
 
 
 \subsubsection{Adequacy Data Flow}
+
+Andiamo ora a fare un lavoro di adeguatezza del dataflow utilizzando il framework badua per calcolare la all-uses coverage. \\
+Dalla Figura \ref{fig:readHeader_badua} possiamo calcolare la all uses coverage. \\
+
 \subsubsection{Mutation Testing}
 
 
@@ -585,6 +609,29 @@ journalDir & JournalIdFilter & Risultato Atteso \\
 \end{table}
 
 
+\begin{table}[ht]
+  \centering
+  \caption[Test Suite - Category Partition]{Test Suite derivante dall'incremento dopo Jacoco}
+  \begin{tabular}{|l|l|l|l|l|l|l|}
+    \hline
+    \textbf{Magic Bytes} & \textbf{Master key} & \textbf{Len of master key}  & \textbf{State} & \textbf{Version} & \textbf{BufLength} & \textbf{Risultato Atteso} \\
+    \hline
+    BKLE & new byte[1] & 1 & 0 & 1 & 0 & Success \\
+    BKLE & new byte[1] & 2 & 0 & 1 & 0 & Exception \\
+    BKLE & new byte[1] & 0 & 0 & 1 & 0 & Exception \\
+    BKLE & new byte[0] & -1 & 0 & 0 & 0 & Success \\
+    BKLE & new byte[0] & 0 & 0 & 0 & 0 & Success \\
+    BKLE & new byte[0] & 1 & 0 & 0 & 0 & Exception \\
+    BKLU & new byte[1] & 1 & 0 & 1 & 0 & Exception \\
+    BKLE & new byte[1] & 1 & 0 & 1 & 16 & Success \\
+    BKLE & new byte[1] & 1 & 0 & 1 & 15 & Success \\
+    BKLE & new byte[1] & 1 & 0 & 1 & -1 & Success \\
+    \hline
+  \end{tabular}
+  \label{tab:categoryPartition1ReadHeader2}
+\end{table}
+
+
 
 
 %Figure Journal --------------------------------------------------------
@@ -685,6 +732,12 @@ journalDir & JournalIdFilter & Risultato Atteso \\
     \includegraphics[width=\linewidth]{./images/file_info/Code1ReadHeader.png}
     \caption{Codice sorgente di FileInfoTest}
     \label{fig:Code1ReadHeader}
+  \end{figure}
+
+  \begin{figure}
+    \includegraphics[width=\linewidth]{./images/file_info/JacocoCoveragereadHeader2.png}
+    \caption{Jacoco coverage readHeader}
+    \label{fig:JacocoCoveragereadHeader2}
   \end{figure}
 
 \end{document}
