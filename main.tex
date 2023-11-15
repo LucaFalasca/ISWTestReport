@@ -435,14 +435,31 @@ analysis su questo parametro ottengo i seguenti valori:
 
 La test suite ora è composta in questo modo: (Tabella \ref{tab:ACF1ReadHeader2})
 
-Grazie a questo incremento la statement coverage è salita al 82\% (Figura \ref{fig:JacocoCoveragereadHeader3}) 
-e la condition coverage al 77\% (Figura \ref{fig:JacocoCoveragereadHeader4})
+Grazie a questo incremento la statement coverage è salita al 82\%
+e la condition coverage al 77\% (Figura \ref{fig:JacocoCoveragereadHeader3})
 
 
 \subsubsection{Adequacy Data Flow}
 
 Andiamo ora a fare un lavoro di adeguatezza del dataflow utilizzando il framework badua per calcolare la all-uses coverage. \\
-Dalla Figura \ref{fig:readHeader_badua} possiamo calcolare la all uses coverage. \\
+Dalla Figura \ref{fig:BaduaCoverageReadHeader1} possiamo calcolare la all uses coverage. \\
+
+\(CU_c + PU_c = 66\) \\
+\( (CU + PU) - (CU\textsubscript{f} + PU\textsubscript{f}) = 66 + 16 = 82\) \\ \\
+\[\frac{{CU\textsubscript{c} + PU\textsubscript{c}}}{{(CU + PU) - (CU\textsubscript{f} + PU\textsubscript{f})}} = \frac{{66}}{{82}} = 0.8\]
+
+Prendendo in considerazione le coppie def-use in Figura \ref{fig:BaduaCoverageReadHeader2} possiamo notare che
+effettivamente la test suite non copre la coppia def-use sulla variabile version dalla riga 226 alla riga 228.
+Andiamo quindi a generare un caso di test che copra questa coppia def-use. \\
+
+Per fare ciò andiamo a modificare il test che copre la versione 0 dell'header, aggiungendo un caso in cui la versione
+è 2. Rifacendo la build con Badua si può notare che la coppia def-use ora risulta coperta (Figura \ref{fig:BaduaCoverageReadHeader3})
+e c'è stato un incremento delle coppie def-use coperte (Figura \ref{fig:BaduaCoverageReadHeader4}). Ricalcolando
+la all-uses coverage 
+\(CU_c + PU_c = 69\) \\
+\( (CU + PU) - (CU\textsubscript{f} + PU\textsubscript{f}) = 69 + 12 = 82\) \\ \\
+\[\frac{{CU\textsubscript{c} + PU\textsubscript{c}}}{{(CU + PU) - (CU\textsubscript{f} + PU\textsubscript{f})}} = \frac{{69}}{{82}} = 0.84\]
+si può notare che la all-uses coverage è salita al 84\% \\
 
 \subsubsection{Mutation Testing}
 
@@ -738,6 +755,12 @@ journalDir & JournalIdFilter & Risultato Atteso \\
     \includegraphics[width=\linewidth]{./images/file_info/JacocoCoveragereadHeader2.png}
     \caption{Jacoco coverage readHeader}
     \label{fig:JacocoCoveragereadHeader2}
+  \end{figure}
+
+  \begin{figure}
+    \includegraphics[width=\linewidth]{./images/file_info/BaduaCoverageReadHeader1.png}
+    \caption{Badua coverage readHeader}
+    \label{fig:BaduaCoverageReadHeader1}
   \end{figure}
 
 \end{document}
