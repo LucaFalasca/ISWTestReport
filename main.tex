@@ -453,7 +453,7 @@ effettivamente la test suite non copre la coppia def-use sulla variabile version
 Andiamo quindi a generare un caso di test che copra questa coppia def-use. \\
 
 Per fare ciò andiamo a modificare il test che copre la versione 0 dell'header, aggiungendo un caso in cui la versione
-è 2. Rifacendo la build con Badua si può notare che la coppia def-use ora risulta coperta (Figura \ref{fig:BaduaCoverageReadHeader3})
+è 2 (Tabella \ref{tab:ADF1ReadHeader}).  Rifacendo la build con Badua si può notare che la coppia def-use ora risulta coperta (Figura \ref{fig:BaduaCoverageReadHeader3})
 e c'è stato un incremento delle coppie def-use coperte (Figura \ref{fig:BaduaCoverageReadHeader4}). Ricalcolando
 la all-uses coverage 
 \(CU_c + PU_c = 69\) \\
@@ -641,11 +641,34 @@ journalDir & JournalIdFilter & Risultato Atteso \\
     BKLE & new byte[0] & 1 & 0 & 0 & 0 & Exception \\
     BKLU & new byte[1] & 1 & 0 & 1 & 0 & Exception \\
     BKLE & new byte[1] & 1 & 0 & 1 & 16 & Success \\
-    BKLE & new byte[1] & 1 & 0 & 1 & 15 & Success \\
-    BKLE & new byte[1] & 1 & 0 & 1 & -1 & Success \\
+    BKLE & new byte[1] & 1 & 0 & 1 & 15 & Exception \\
+    BKLE & new byte[1] & 1 & 0 & 1 & -1 & Exception \\
     \hline
   \end{tabular}
   \label{tab:categoryPartition1ReadHeader2}
+\end{table}
+
+\begin{table}[ht]
+  \centering
+  \caption[Test Suite - Category Partition]{Test Suite derivante dall'incremento dopo Badua}
+  \begin{tabular}{|l|l|l|l|l|l|l|}
+    \hline
+    \textbf{Magic Bytes} & \textbf{Master key} & \textbf{Len of master key}  & \textbf{State} & \textbf{Version} & \textbf{BufLength} & \textbf{Risultato Atteso} \\
+    \hline
+    BKLE & new byte[1] & 1 & 0 & 1 & 0 & Success \\
+    BKLE & new byte[1] & 2 & 0 & 1 & 0 & Exception \\
+    BKLE & new byte[1] & 0 & 0 & 1 & 0 & Exception \\
+    BKLE & new byte[0] & -1 & 0 & 0 & 0 & Success \\
+    BKLE & new byte[0] & 0 & 0 & 0 & 0 & Success \\
+    BKLE & new byte[0] & 1 & 0 & 0 & 0 & Exception \\
+    BKLU & new byte[1] & 1 & 0 & 1 & 0 & Exception \\
+    BKLE & new byte[1] & 1 & 0 & 1 & 16 & Success \\
+    BKLE & new byte[1] & 1 & 0 & 1 & 15 & Exception \\
+    BKLE & new byte[1] & 1 & 0 & 1 & -1 & Exception \\
+    BKLE & new byte[1] & 1 & 0 & 2 & -1 & Exception \\
+    \hline
+  \end{tabular}
+  \label{tab:ADF1ReadHeader}
 \end{table}
 
 
@@ -761,6 +784,24 @@ journalDir & JournalIdFilter & Risultato Atteso \\
     \includegraphics[width=\linewidth]{./images/file_info/BaduaCoverageReadHeader1.png}
     \caption{Badua coverage readHeader}
     \label{fig:BaduaCoverageReadHeader1}
+  \end{figure}
+
+  \begin{figure}
+    \includegraphics[width=\linewidth]{./images/file_info/BaduaCoverageReadHeader2.png}
+    \caption{Def-use not covered}
+    \label{fig:BaduaCoverageReadHeader2}
+  \end{figure}
+
+  \begin{figure}
+    \includegraphics[width=\linewidth]{./images/file_info/BaduaCoverageReadHeader3.png}
+    \caption{Def-use covered}
+    \label{fig:BaduaCoverageReadHeader3}
+  \end{figure}
+
+  \begin{figure}
+    \includegraphics[width=\linewidth]{./images/file_info/BaduaCoverageReadHeader4.png}
+    \caption{Badua coverage readHeader after test update}
+    \label{fig:BaduaCoverageReadHeader4}
   \end{figure}
 
 \end{document}
