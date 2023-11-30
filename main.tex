@@ -250,22 +250,12 @@ la condition coverage è salita al 100\% (Figura \ref{fig:listJournalIds_jacoco4
 
 \subsubsection{Mutation Testing}
 Andiamo ora a fare un lavoro di adeguatezza utilizzando il framework pitest per calcolare la mutation coverage. \\
-Come si può notare dalla Figura \ref{fig:listJournalIds_pitest} la mutation coverage è dello 0\%, ad una prima occhiata
-sembrerebbe perchè tutte le mutazioni create da pit non sono state rilevate. Tuttavia se andiamo a verificare 
-ogni mutazione manualmente in realtà i test falliscono e quindi in realtà sembrerebbe che ci sia un bug su pit. \\
-Indagando meglio ho scoperto che questo comportamento è probabilemente dovuto ad fatto che il metodo listJournalIds
-è un metodo statico e per il modo in cui pit inserisce le mutazione può creare problemi. Purtroppo non sono riuscito a 
-risolvere questo problema, quindi calcolerò la coverage a mano andando a verificare mutazione per mutazione. \\
-
-Ad esempio prendiamo la mutazione a riga 112, se andiamo nel codice di Bookkeeper e lo modifichiamo per inserire
-la mutazione (Figura \Ref{fig:PitMutation1}) e poi eseguiamo i test, possiamo notare che più di un test fallisce, quindi
-in realtà la mutazione è stata rilevata dalla test suite. (Figura \ref{fig:PitMutation2})
-
-Questo succede per tutte le mutazioni, tranne per quella a riga 125, che non viene rilevata dalla test suite. Si tratta 
-di una mutazione che omette la riga che si occupa di ordinare la lista di file di log. \\
-
+Come si può notare dalla Figura \ref{fig:listJournalIds_pitest} vengono rilevate tutte le mutazioni tranne 1.
 Quindi possiamo calcolare la mutation coverage come segue:
 \[\frac{{Mutazioni rilevate}}{{Mutazioni totali}} = \frac{{6}}{{7}} = 0.85\]
+
+Prendiamo in considerazione quindi la mutazione a riga 125, che non viene rilevata dalla test suite. Si tratta 
+di una mutazione che omette la riga che si occupa di ordinare la lista di file di log. \\
 
 Per aumentare la coverage vado quindi a modificare la test suite per coprire anche la mutazione a riga 125.
 Siccome la copertura manca perchè nei test correnti non viene mai ritornato un log con dimensione >1, e 
@@ -288,7 +278,7 @@ Ho scelto di intraprendere la seconda strada perchè mi sembra la più manutenib
 il metodo listFiles\(\), in modo tale che una volta aver recuperato i file li vada a 
 ordinare in modo decrescente (Figura \ref{fig:code2}) \\
 
-Ora effettivamente il test non passa se commentiano la linea 125, e quindi la mutazione viene rilevata.
+Ora effettivamente la mutazione viene rilevata (Figura \ref{fig:listJournalIds_pitest}), e quindi la mutazione viene rilevata.
 Quindi tutte le mutazioni sono state rilevate e quindi la mutation coverage è del 100\% 
 
 \subsection{FileInfo}
@@ -462,8 +452,20 @@ la all-uses coverage
 si può notare che la all-uses coverage è salita al 84\% \\
 
 \subsubsection{Mutation Testing}
+Vado ora a fare un analisi delle mutazioni utilizzando il framework pitest. \\
+Come si può vedere dalla Figura \ref{fig:PitCoverageReadHeader1} la mutation coverage è del 3\% in riferimento all'intera classe.
+Se invece andiamo a vedere in dettaglio il metodo readHeader (Figura \Ref{fig:PitCoverageReadHeader2}), la mutation coverage è 
+\[\frac{{Mutazioni rilevate}}{{Mutazioni totali}} = \frac{{5}}{{17}} = 0.29\]
 
+Prendiamo in considerazione per migliorare la test suite le due mutazione non rilveate a riga 242. 
+Le due mutazioni (Figura \ref{fig:PitMutationReadHeader3}) vanno a modificare le condizioni dell'if. La prima trasforma 
+il \textgreater= in \textgreater, la seconda invece trasforma il \textgreater= in \textless.
 
+Vado quindi a modificare la test suite aggiungendo dei casi di test che coprano queste due mutazioni.
+Per indentificarle basta notare che solo nel caso in cui la versione sia >= 1 l'explicitLacBufLength
+deve essere configurato nell'header, negli altri casi no. 
+Per fare ciò ho modificato un caso di test in modo da controllare se l'eccezione chiamata avveniva solo nel caso in cui
+la condizione dell'if fosse vera, e quindi la mutazione ora viene rilevata. (Figura \ref{fig:PitMutationReadHeader4})
 
 \section{Avro}
 \subsection{Classe 1}
@@ -739,16 +741,18 @@ journalDir & JournalIdFilter & Risultato Atteso \\
   \end{figure}
 
   \begin{figure}
+    \includegraphics[width=\linewidth]{./images/journal/PitCoverageListJournalIds2.png}
+    \caption{Mutazioni rilevate da Pitest}
+    \label{fig:listJournalIds_pitest2}
+  \end{figure}
+
+  \begin{figure}
     \includegraphics[width=\linewidth]{./images/journal/PitMutation1.png}
     \caption{Mutazione inserita nel codice sorgente di Bookkeeper}
     \label{fig:PitMutation1}
   \end{figure}
 
-  \begin{figure}
-    \includegraphics[width=\linewidth]{./images/journal/PitTestFails.png}
-    \caption{Mutazione inserita nel codice sorgente di Bookkeeper}
-    \label{fig:PitMutation2}
-  \end{figure}
+
 
   \begin{figure}
     \includegraphics[width=\linewidth]{./images/journal/code2.png}

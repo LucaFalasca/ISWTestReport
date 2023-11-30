@@ -24,27 +24,27 @@
 \contentsline {paragraph}{Input:}{7}{section*.14}%
 \contentsline {subsubsection}{\numberline {2.2.2}Category Partition}{7}{subsubsection.2.2.2}%
 \contentsline {subsubsection}{\numberline {2.2.3}Boundary Analysis}{7}{subsubsection.2.2.3}%
-\contentsline {paragraph}{Magic Bytes}{8}{section*.15}%
-\contentsline {paragraph}{Master key}{8}{section*.16}%
+\contentsline {paragraph}{Magic Bytes}{7}{section*.15}%
+\contentsline {paragraph}{Master key}{7}{section*.16}%
 \contentsline {paragraph}{Len of master key}{8}{section*.17}%
 \contentsline {paragraph}{state}{8}{section*.18}%
 \contentsline {paragraph}{Version}{8}{section*.19}%
-\contentsline {subsubsection}{\numberline {2.2.4}Adequacy Control Flow}{9}{subsubsection.2.2.4}%
+\contentsline {subsubsection}{\numberline {2.2.4}Adequacy Control Flow}{8}{subsubsection.2.2.4}%
 \contentsline {paragraph}{explicitLacBufLength}{9}{section*.20}%
 \contentsline {subsubsection}{\numberline {2.2.5}Adequacy Data Flow}{9}{subsubsection.2.2.5}%
 \contentsline {subsubsection}{\numberline {2.2.6}Mutation Testing}{10}{subsubsection.2.2.6}%
-\contentsline {section}{\numberline {3}Avro}{10}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Classe 1}{10}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}Descrizione}{10}{subsubsection.3.1.1}%
-\contentsline {subsubsection}{\numberline {3.1.2}Category Partition}{10}{subsubsection.3.1.2}%
-\contentsline {subsubsection}{\numberline {3.1.3}Boundary Analysis}{10}{subsubsection.3.1.3}%
-\contentsline {subsubsection}{\numberline {3.1.4}Adequacy Control Flow}{10}{subsubsection.3.1.4}%
-\contentsline {subsubsection}{\numberline {3.1.5}Adequacy Data Flow}{10}{subsubsection.3.1.5}%
-\contentsline {subsubsection}{\numberline {3.1.6}Mutation Testing}{10}{subsubsection.3.1.6}%
-\contentsline {subsection}{\numberline {3.2}Classe 2}{10}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Descrizione}{10}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}Category Partition}{10}{subsubsection.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.3}Boundary Analysis}{10}{subsubsection.3.2.3}%
-\contentsline {subsubsection}{\numberline {3.2.4}Adequacy Control Flow}{10}{subsubsection.3.2.4}%
-\contentsline {subsubsection}{\numberline {3.2.5}Adequacy Data Flow}{10}{subsubsection.3.2.5}%
-\contentsline {subsubsection}{\numberline {3.2.6}Mutation Testing}{10}{subsubsection.3.2.6}%
+\contentsline {section}{\numberline {3}Avro}{11}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Classe 1}{11}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Descrizione}{11}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Category Partition}{11}{subsubsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.3}Boundary Analysis}{11}{subsubsection.3.1.3}%
+\contentsline {subsubsection}{\numberline {3.1.4}Adequacy Control Flow}{11}{subsubsection.3.1.4}%
+\contentsline {subsubsection}{\numberline {3.1.5}Adequacy Data Flow}{11}{subsubsection.3.1.5}%
+\contentsline {subsubsection}{\numberline {3.1.6}Mutation Testing}{11}{subsubsection.3.1.6}%
+\contentsline {subsection}{\numberline {3.2}Classe 2}{11}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Descrizione}{11}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Category Partition}{11}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Boundary Analysis}{11}{subsubsection.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.4}Adequacy Control Flow}{11}{subsubsection.3.2.4}%
+\contentsline {subsubsection}{\numberline {3.2.5}Adequacy Data Flow}{11}{subsubsection.3.2.5}%
+\contentsline {subsubsection}{\numberline {3.2.6}Mutation Testing}{11}{subsubsection.3.2.6}%
