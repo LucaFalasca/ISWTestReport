@@ -13,10 +13,9 @@
 \contentsline {figure}{\numberline {11}{\ignorespaces Mutazione inserita nel codice sorgente di Bookkeeper\relax }}{16}{figure.caption.41}%
 \contentsline {figure}{\numberline {12}{\ignorespaces Codice sorgente di JournalTest aggiornato con il mock\relax }}{16}{figure.caption.42}%
 \contentsline {figure}{\numberline {13}{\ignorespaces Jacoco coverage readHeader\relax }}{16}{figure.caption.43}%
-\contentsline {figure}{\numberline {14}{\ignorespaces Test fails on readHeader\relax }}{18}{figure.caption.44}%
-\contentsline {figure}{\numberline {15}{\ignorespaces Codice sorgente di FileInfoTest\relax }}{19}{figure.caption.45}%
-\contentsline {figure}{\numberline {16}{\ignorespaces Jacoco coverage readHeader\relax }}{20}{figure.caption.46}%
-\contentsline {figure}{\numberline {17}{\ignorespaces Badua coverage readHeader\relax }}{20}{figure.caption.47}%
-\contentsline {figure}{\numberline {18}{\ignorespaces Def-use not covered\relax }}{20}{figure.caption.48}%
-\contentsline {figure}{\numberline {19}{\ignorespaces Def-use covered\relax }}{21}{figure.caption.49}%
-\contentsline {figure}{\numberline {20}{\ignorespaces Badua coverage readHeader after test update\relax }}{21}{figure.caption.50}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Codice sorgente di FileInfoTest\relax }}{17}{figure.caption.44}%
+\contentsline {figure}{\numberline {15}{\ignorespaces Jacoco coverage readHeader\relax }}{18}{figure.caption.45}%
+\contentsline {figure}{\numberline {16}{\ignorespaces Badua coverage readHeader\relax }}{18}{figure.caption.46}%
+\contentsline {figure}{\numberline {17}{\ignorespaces Def-use not covered\relax }}{18}{figure.caption.47}%
+\contentsline {figure}{\numberline {18}{\ignorespaces Def-use covered\relax }}{19}{figure.caption.48}%
+\contentsline {figure}{\numberline {19}{\ignorespaces Badua coverage readHeader after test update\relax }}{20}{figure.caption.49}%

@@ -453,19 +453,22 @@ si può notare che la all-uses coverage è salita al 84\% \\
 
 \subsubsection{Mutation Testing}
 Vado ora a fare un analisi delle mutazioni utilizzando il framework pitest. \\
-Come si può vedere dalla Figura \ref{fig:PitCoverageReadHeader1} la mutation coverage è del 3\% in riferimento all'intera classe.
+Come si può vedere dalla Figura \ref{fig:PitCoverageReadHeader1} la mutation coverage è del 10\% in riferimento all'intera classe.
 Se invece andiamo a vedere in dettaglio il metodo readHeader (Figura \Ref{fig:PitCoverageReadHeader2}), la mutation coverage è 
-\[\frac{{Mutazioni rilevate}}{{Mutazioni totali}} = \frac{{5}}{{17}} = 0.29\]
+\[\frac{{Mutazioni rilevate}}{{Mutazioni totali}} = \frac{{15}}{{16}} = 0.93\]
 
-Prendiamo in considerazione per migliorare la test suite le due mutazione non rilveate a riga 242. 
-Le due mutazioni (Figura \ref{fig:PitMutationReadHeader3}) vanno a modificare le condizioni dell'if. La prima trasforma 
-il \textgreater= in \textgreater, la seconda invece trasforma il \textgreater= in \textless.
+Prendiamo in considerazione per migliorare la test suite la mutazione non rilveata a riga 235. 
+La mutazione (Figura \ref{fig:PitMutationReadHeader3}) trasforma il \textgreater in \textgreater=.
 
-Vado quindi a modificare la test suite aggiungendo dei casi di test che coprano queste due mutazioni.
-Per indentificarle basta notare che solo nel caso in cui la versione sia >= 1 l'explicitLacBufLength
-deve essere configurato nell'header, negli altri casi no. 
-Per fare ciò ho modificato un caso di test in modo da controllare se l'eccezione chiamata avveniva solo nel caso in cui
-la condizione dell'if fosse vera, e quindi la mutazione ora viene rilevata. (Figura \ref{fig:PitMutationReadHeader4})
+Per risolvere il problema basterebbe passare come lunghezza della master key un valore che equivale al numero di byte rimanenti
+del file. In questo modo la mutazione verrebbe rilevata perchè si riuscirebbe a distinguere il caso in cui è > da quello in cui
+è >=. Tuttavia la mutazione non viene rilevata perchè anche se la lunghezza della master key dichiarata fosse uguale alla
+lunghezza rimanente, l'header contiene degli altri campi che vengono letti dopo la master key che generano la stessa eccezione 
+che genererebbe il codice in quel caso. Quindi non è possibile rilevare la mutazione in questo modo. \\
+Inoltre il controllo a riga 235 con relativo lancio dell'eccezione è superfluo, perchè quando successivamente si tenta la lettura
+se la lunghezza dei byte che si vogliono leggere è maggiore della lunghezza rimanente del file, viene lanciata la stessa eccezione
+già dalla libreria di java. Quindi posso considerare il codice equivalente anche senza questo blocco di codice. \\
+In questo modo posso considerare la mutation coverage del 100\%.
 
 \section{Avro}
 \subsection{Classe 1}
@@ -765,13 +768,6 @@ journalDir & JournalIdFilter & Risultato Atteso \\
     \caption{Jacoco coverage readHeader}
     \label{fig:JacocoCoveragereadHeader1}
   \end{figure}
-
-  \begin{figure}
-    \includegraphics[width=\linewidth]{./images/file_info/TestCasesFails.png}
-    \caption{Test fails on readHeader}
-    \label{fig:TestFailsReadHeader}
-  \end{figure}
-
   \begin{figure}
     \includegraphics[width=\linewidth]{./images/file_info/Code1ReadHeader.png}
     \caption{Codice sorgente di FileInfoTest}
