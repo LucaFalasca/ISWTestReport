@@ -281,6 +281,13 @@ ordinare in modo decrescente (Figura \ref{fig:code2}) \\
 Ora effettivamente la mutazione viene rilevata (Figura \ref{fig:listJournalIds_pitest}), e quindi la mutazione viene rilevata.
 Quindi tutte le mutazioni sono state rilevate e quindi la mutation coverage è del 100\% 
 
+\subsubsection{Reliability}
+Considero come profili operazionali gli input della test suite sviluppata perchè essi sono derivanti dalle classi di equivalenza
+e quindi sono la migliore rappresentazione a mia disposizione dei possibili input del sistema. Inoltre non ho documentazione che
+mi permette di concludere che un caso sia più o meno probabile di un altro e quindi li considero equiprobabili. Date queste 
+assunzioni e siccome questi test non rilevano nessuna failure del sistema, la reliability in questo caso è 1. Ciò, tuttavia,
+ non significa che non siano presenti bug che la mia test suite non è stata in grado di rilevare.
+
 \subsection{FileInfo}
 \subsubsection{Descrizione}
 Path: org.apache.bookkeeper.bookie.EntryLoggerAllocator.java \\
@@ -469,6 +476,13 @@ Inoltre il controllo a riga 235 con relativo lancio dell'eccezione è superfluo,
 se la lunghezza dei byte che si vogliono leggere è maggiore della lunghezza rimanente del file, viene lanciata la stessa eccezione
 già dalla libreria di java. Quindi posso considerare il codice equivalente anche senza questo blocco di codice. \\
 In questo modo posso considerare la mutation coverage del 100\%.
+
+\subsubsection{Reliability}
+Considero come profili operazionali gli input della test suite sviluppata perchè essi sono derivanti dalle classi di equivalenza
+e quindi sono la migliore rappresentazione a mia disposizione dei possibili input del sistema. Inoltre non ho documentazione che
+mi permette di concludere che un caso sia più o meno probabile di un altro e quindi li considero equiprobabili. Date queste 
+assunzioni nella mia test suite sono risultate 4 failure su un totale di 11 profili operazionali, quindi la reliability è del 63\%.
+
 
 \section{Avro}
 \subsection{Classe 1}
