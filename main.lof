@@ -1,21 +1,21 @@
 \babel@toc {italian}{}\relax 
 \babel@toc {italian}{}\relax 
-\contentsline {figure}{\numberline {1}{\ignorespaces Diagrammi di listJournalIds\relax }}{12}{figure.caption.31}%
-\contentsline {figure}{\numberline {2}{\ignorespaces Jacoco coverage dilistJournalIds\relax }}{12}{figure.caption.32}%
-\contentsline {figure}{\numberline {3}{\ignorespaces Jacoco coverage dilistJournalIds\relax }}{13}{figure.caption.33}%
-\contentsline {figure}{\numberline {4}{\ignorespaces Jacoco coverage dilistJournalIds\relax }}{13}{figure.caption.34}%
-\contentsline {figure}{\numberline {5}{\ignorespaces Codice sorgente di JournalTest\relax }}{13}{figure.caption.35}%
-\contentsline {figure}{\numberline {6}{\ignorespaces Badua coverage dilistJournalIds\relax }}{14}{figure.caption.36}%
-\contentsline {figure}{\numberline {7}{\ignorespaces Badua coverage dilistJournalIds\relax }}{14}{figure.caption.37}%
-\contentsline {figure}{\numberline {8}{\ignorespaces Jacoco coverage dilistJournalIds\relax }}{14}{figure.caption.38}%
-\contentsline {figure}{\numberline {9}{\ignorespaces Pitest coverage dilistJournalIds\relax }}{15}{figure.caption.39}%
-\contentsline {figure}{\numberline {10}{\ignorespaces Mutazioni rilevate da Pitest\relax }}{15}{figure.caption.40}%
-\contentsline {figure}{\numberline {11}{\ignorespaces Mutazione inserita nel codice sorgente di Bookkeeper\relax }}{16}{figure.caption.41}%
-\contentsline {figure}{\numberline {12}{\ignorespaces Codice sorgente di JournalTest aggiornato con il mock\relax }}{16}{figure.caption.42}%
-\contentsline {figure}{\numberline {13}{\ignorespaces Jacoco coverage readHeader\relax }}{16}{figure.caption.43}%
-\contentsline {figure}{\numberline {14}{\ignorespaces Codice sorgente di FileInfoTest\relax }}{17}{figure.caption.44}%
-\contentsline {figure}{\numberline {15}{\ignorespaces Jacoco coverage readHeader\relax }}{18}{figure.caption.45}%
-\contentsline {figure}{\numberline {16}{\ignorespaces Badua coverage readHeader\relax }}{18}{figure.caption.46}%
-\contentsline {figure}{\numberline {17}{\ignorespaces Def-use not covered\relax }}{18}{figure.caption.47}%
-\contentsline {figure}{\numberline {18}{\ignorespaces Def-use covered\relax }}{19}{figure.caption.48}%
-\contentsline {figure}{\numberline {19}{\ignorespaces Badua coverage readHeader after test update\relax }}{20}{figure.caption.49}%
+\contentsline {figure}{\numberline {1}{\ignorespaces Diagrammi di listJournalIds\relax }}{13}{figure.caption.37}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Jacoco coverage dilistJournalIds\relax }}{13}{figure.caption.38}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Jacoco coverage dilistJournalIds\relax }}{14}{figure.caption.39}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Jacoco coverage dilistJournalIds\relax }}{14}{figure.caption.40}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Codice sorgente di JournalTest\relax }}{14}{figure.caption.41}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Badua coverage dilistJournalIds\relax }}{15}{figure.caption.42}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Badua coverage dilistJournalIds\relax }}{15}{figure.caption.43}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Jacoco coverage dilistJournalIds\relax }}{15}{figure.caption.44}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Pitest coverage dilistJournalIds\relax }}{16}{figure.caption.45}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Mutazioni rilevate da Pitest\relax }}{16}{figure.caption.46}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Mutazione inserita nel codice sorgente di Bookkeeper\relax }}{17}{figure.caption.47}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Codice sorgente di JournalTest aggiornato con il mock\relax }}{17}{figure.caption.48}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Jacoco coverage readHeader\relax }}{17}{figure.caption.49}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Codice sorgente di FileInfoTest\relax }}{18}{figure.caption.50}%
+\contentsline {figure}{\numberline {15}{\ignorespaces Jacoco coverage readHeader\relax }}{19}{figure.caption.51}%
+\contentsline {figure}{\numberline {16}{\ignorespaces Badua coverage readHeader\relax }}{19}{figure.caption.52}%
+\contentsline {figure}{\numberline {17}{\ignorespaces Def-use not covered\relax }}{19}{figure.caption.53}%
+\contentsline {figure}{\numberline {18}{\ignorespaces Def-use covered\relax }}{20}{figure.caption.54}%
+\contentsline {figure}{\numberline {19}{\ignorespaces Badua coverage readHeader after test update\relax }}{22}{figure.caption.55}%

@@ -485,10 +485,75 @@ assunzioni nella mia test suite sono risultate 4 failure su un totale di 11 prof
 
 
 \section{Avro}
-\subsection{Classe 1}
+\subsection{Schema}
 \subsubsection{Descrizione}
+Path: org/apache/avro/Schema.java
+
+La classe Schema è una classe astratta che rappresenta uno schema Avro. E' una delle classi core di Avro, e viene utilizzata
+per rappresentare i dati serializzati. \\
+
+Dalla documentazione di Avro: \\
+
+Avro is used to define the data schema for a record's value. 
+This schema describes the fields allowed in the value, along with their data types.
+You apply a schema to the value portion of an Oracle NoSQL Database record using Avro bindings.
+These bindings are used to serialize values before writing them, and to deserialize values after reading them.
+The usage of these bindings requires your applications to use the Avro data format, which means that each
+stored value is associated with a schema. 
+
+Ho deciso di prendere in considerazione il metodo createRecord() che si occupa di creare uno schema di tipo record.
+\paragraph{Input:}
+\begin{itemize}
+  \item name
+  \item doc
+  \item namespace
+  \item isError
+  \item fields
+\end{itemize}
+
+Output: Schema
+
 \subsubsection{Category Partition}
+
+\paragraph{name}
+\begin{itemize}
+  \item \{null\} : Nella documentazione è specificato che il nome è obbligatorio, quindi è importante testare il caso sia null per vedere se è correttamente gestito
+  \item \{stringa vuota\}
+  \item \{stringa non vuota\}
+\end{itemize}
+
+\paragraph{doc}
+\begin{itemize}
+  \item \{null\} : Nella documentazione è specificato che il campo è opzionale
+  \item \{stringa generica\}
+\end{itemize}
+
+\paragraph{namespace}
+\begin{itemize}
+  \item \{null\} : Nella documentazione è specificato che il campo è opzionale
+  \item \{stringa vuota\}
+  \item \{stringa non vuota\}
+\end{itemize}
+
+\paragraph{isError}
+\begin{itemize}
+  \item \{true\}
+  \item \{false\}
+\end{itemize}
+
+\paragraph{fields}
+\begin{itemize}
+  \item \{null\} : Nella documentazione è specificato che il campo è obbligatorio
+  \item \{array vuoto\}
+  \item \{array con un solo elemento\}
+  \item \{array con più elementi\}
+\end{itemize}
+
+
 \subsubsection{Boundary Analysis}
+
+
+
 \subsubsection{Adequacy Control Flow}
 \subsubsection{Adequacy Data Flow}
 \subsubsection{Mutation Testing}
@@ -627,7 +692,7 @@ journalDir & JournalIdFilter & Risultato Atteso \\
 
 \begin{table}[ht]
   \centering
-  \caption[Test Suite - Category Partition]{Test Suite derivante dalla category partition e dalla boundary analysis}
+  \caption[FileInfo: Test Suite - Category Partition]{Test Suite derivante dalla category partition e dalla boundary analysis}
   \begin{tabular}{|l|l|l|l|l|l|}
     \hline
     \textbf{Magic Bytes} & \textbf{Master key} & \textbf{Len of master key}  & \textbf{State} & \textbf{Version} & \textbf{Risultato Atteso} \\
@@ -647,7 +712,7 @@ journalDir & JournalIdFilter & Risultato Atteso \\
 
 \begin{table}[ht]
   \centering
-  \caption[Test Suite - Category Partition]{Test Suite derivante dall'incremento dopo Jacoco}
+  \caption[FileInfo: Test Suite - Adequacy Control Flow]{Test Suite derivante dall'incremento dopo Jacoco}
   \begin{tabular}{|l|l|l|l|l|l|l|}
     \hline
     \textbf{Magic Bytes} & \textbf{Master key} & \textbf{Len of master key}  & \textbf{State} & \textbf{Version} & \textbf{BufLength} & \textbf{Risultato Atteso} \\
@@ -669,7 +734,7 @@ journalDir & JournalIdFilter & Risultato Atteso \\
 
 \begin{table}[ht]
   \centering
-  \caption[Test Suite - Category Partition]{Test Suite derivante dall'incremento dopo Badua}
+  \caption[FileInfo: Test Suite - Adequacy Data Flow]{Test Suite derivante dall'incremento dopo Badua}
   \begin{tabular}{|l|l|l|l|l|l|l|}
     \hline
     \textbf{Magic Bytes} & \textbf{Master key} & \textbf{Len of master key}  & \textbf{State} & \textbf{Version} & \textbf{BufLength} & \textbf{Risultato Atteso} \\

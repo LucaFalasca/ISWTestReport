@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1701869764 "/home/luca-fedora/Documents/latex/main.tex" "main.pdf" "main" 1701869765 0
-  "/home/luca-fedora/Documents/latex/main.tex" 1701869762 36360 8019b1e08873240ccf52d61d8a473e54 ""
+["pdflatex"] 1702399621 "/home/luca-fedora/Documents/latex/main.tex" "main.pdf" "main" 1702399623 0
+  "/home/luca-fedora/Documents/latex/main.tex" 1702399620 38332 be8187e6c5d270221a5785a862979fdc ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1689984000 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/helvetic/phvb7t.tfm" 1136768653 2240 eb56c13537f4d8a0bd3fafc25572b1bd ""
@@ -135,12 +135,12 @@
   "images/journal/code1.png" 1693925385 193797 1dc0a5517f009347bd90661767dda73b ""
   "images/journal/code2.png" 1694164937 178104 89c8a41164370b23df2d94baffde2d61 ""
   "images/journal/listJournalIds.jpg" 1693403093 19958 6d68f2b2b0d55f8ae538dea20fe1a8d0 ""
-  "main.aux" 1701869765 14330 f845b67e765d0f1bdb53cd29b7f5de4e "pdflatex"
-  "main.lof" 1701869765 2320 da1628544e821310045d8d19138f457a "pdflatex"
-  "main.lot" 1701869765 1238 2b71d780b37c50c3b76921130d379f35 "pdflatex"
-  "main.out" 1701869765 4628 24a88f56fea02f8cf29ace3738a223ab "pdflatex"
-  "main.tex" 1701869762 36360 8019b1e08873240ccf52d61d8a473e54 ""
-  "main.toc" 1701869765 3890 6965b1e305600fd10fc3bcf416998047 "pdflatex"
+  "main.aux" 1702399623 14951 b7a9413b9632ee1ac5d5939c79c495d5 "pdflatex"
+  "main.lof" 1702399623 2320 3f7f997aa7768975e5b7093b193d134d "pdflatex"
+  "main.lot" 1702399623 1271 96e26a7c5b4b08226f0d1a6b41a54f8c "pdflatex"
+  "main.out" 1702399623 4615 1e16bc49960f8228fac41f922bcf4b31 "pdflatex"
+  "main.tex" 1702399620 38332 be8187e6c5d270221a5785a862979fdc ""
+  "main.toc" 1702399623 4199 a02628efbbe1af256ec9006bf85def48 "pdflatex"
   (generated)
   "main.aux"
   "main.lof"
