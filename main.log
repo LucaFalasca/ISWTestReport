@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.10)  12 DEC 2023 17:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.10)  14 DEC 2023 17:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -647,147 +647,185 @@ Underfull \hbox (badness 10000) in paragraph at lines 495--496
 
  []
 
-[11]
-Overfull \hbox (22.5258pt too wide) in paragraph at lines 585--598
+[11] [12]
+Underfull \hbox (badness 10000) in paragraph at lines 591--595
+
+ []
+
+
+LaTeX Warning: Reference `tab:ACF1CreateRecord' on page 13 undefined on input line 619.
+
+
+Overfull \hbox (22.5258pt too wide) in paragraph at lines 651--664
+ [][] 
+ []
+
+[13]
+Overfull \hbox (22.5258pt too wide) in paragraph at lines 682--696
  [][] 
  []
 
 
-Overfull \hbox (22.5258pt too wide) in paragraph at lines 616--630
+Overfull \hbox (22.5258pt too wide) in paragraph at lines 714--729
  [][] 
  []
 
 
-Overfull \hbox (22.5258pt too wide) in paragraph at lines 648--663
+Overfull \hbox (37.58574pt too wide) in paragraph at lines 734--742
  [][] 
  []
 
 
-Overfull \hbox (37.58574pt too wide) in paragraph at lines 668--676
+Overfull \hbox (5.07782pt too wide) in paragraph at lines 747--755
  [][] 
  []
 
 
-Overfull \hbox (5.07782pt too wide) in paragraph at lines 681--689
+Overfull \hbox (17.21179pt too wide) in paragraph at lines 762--776
  [][] 
  []
 
 
-Overfull \hbox (17.21179pt too wide) in paragraph at lines 696--710
+Overfull \hbox (89.19952pt too wide) in paragraph at lines 782--799
  [][] 
  []
 
 
-Overfull \hbox (89.19952pt too wide) in paragraph at lines 716--733
+Overfull \hbox (89.19952pt too wide) in paragraph at lines 804--822
  [][] 
  []
 
-
-Overfull \hbox (89.19952pt too wide) in paragraph at lines 738--756
- [][] 
- []
-
-<./images/journal/listJournalIds.jpg, id=336, 282.05376pt x 483.8075pt>
+<./images/journal/listJournalIds.jpg, id=375, 282.05376pt x 483.8075pt>
 File: ./images/journal/listJournalIds.jpg Graphic file (type jpg)
 <use ./images/journal/listJournalIds.jpg>
-Package pdftex.def Info: ./images/journal/listJournalIds.jpg  used on input line 766.
+Package pdftex.def Info: ./images/journal/listJournalIds.jpg  used on input line 873.
 (pdftex.def)             Requested size: 181.18439pt x 310.78738pt.
-<./images/journal/CFGlistJournalIds.jpg, id=337, 282.05376pt x 483.8075pt>
+<./images/journal/CFGlistJournalIds.jpg, id=376, 282.05376pt x 483.8075pt>
 File: ./images/journal/CFGlistJournalIds.jpg Graphic file (type jpg)
 <use ./images/journal/CFGlistJournalIds.jpg>
-Package pdftex.def Info: ./images/journal/CFGlistJournalIds.jpg  used on input line 770.
+Package pdftex.def Info: ./images/journal/CFGlistJournalIds.jpg  used on input line 877.
 (pdftex.def)             Requested size: 181.18439pt x 310.78738pt.
-<./images/journal/JacocoCoveragelistJournalIds1.png, id=338, 1456.44125pt x 51.19125pt>
+<./images/journal/JacocoCoveragelistJournalIds1.png, id=377, 1456.44125pt x 51.19125pt>
 File: ./images/journal/JacocoCoveragelistJournalIds1.png Graphic file (type png)
 <use ./images/journal/JacocoCoveragelistJournalIds1.png>
-Package pdftex.def Info: ./images/journal/JacocoCoveragelistJournalIds1.png  used on input line 778.
+Package pdftex.def Info: ./images/journal/JacocoCoveragelistJournalIds1.png  used on input line 885.
 (pdftex.def)             Requested size: 452.9679pt x 15.92067pt.
-<./images/journal/MissedBranchListJournalIds.png, id=340, 788.9475pt x 450.68375pt>
+<./images/journal/MissedBranchListJournalIds.png, id=379, 788.9475pt x 450.68375pt>
 File: ./images/journal/MissedBranchListJournalIds.png Graphic file (type png)
 <use ./images/journal/MissedBranchListJournalIds.png>
-Package pdftex.def Info: ./images/journal/MissedBranchListJournalIds.png  used on input line 784.
+Package pdftex.def Info: ./images/journal/MissedBranchListJournalIds.png  used on input line 891.
 (pdftex.def)             Requested size: 452.9679pt x 258.75603pt.
-<./images/journal/JacocoCoveragelistJournalIds2.png, id=341, 1458.44875pt x 45.16875pt>
+<./images/journal/JacocoCoveragelistJournalIds2.png, id=380, 1458.44875pt x 45.16875pt>
 File: ./images/journal/JacocoCoveragelistJournalIds2.png Graphic file (type png)
 <use ./images/journal/JacocoCoveragelistJournalIds2.png>
-Package pdftex.def Info: ./images/journal/JacocoCoveragelistJournalIds2.png  used on input line 790.
+Package pdftex.def Info: ./images/journal/JacocoCoveragelistJournalIds2.png  used on input line 897.
 (pdftex.def)             Requested size: 452.9679pt x 14.02835pt.
-<./images/journal/code1.png, id=342, 1611.01875pt x 1056.94875pt>
+<./images/journal/code1.png, id=381, 1611.01875pt x 1056.94875pt>
 File: ./images/journal/code1.png Graphic file (type png)
 <use ./images/journal/code1.png>
-Package pdftex.def Info: ./images/journal/code1.png  used on input line 796.
+Package pdftex.def Info: ./images/journal/code1.png  used on input line 903.
 (pdftex.def)             Requested size: 452.9679pt x 297.16934pt.
-<./images/journal/BaduaCoveragelistJournalIds1.png, id=343, 1035.87pt x 556.0775pt>
+<./images/journal/BaduaCoveragelistJournalIds1.png, id=382, 1035.87pt x 556.0775pt>
 File: ./images/journal/BaduaCoveragelistJournalIds1.png Graphic file (type png)
 <use ./images/journal/BaduaCoveragelistJournalIds1.png>
-Package pdftex.def Info: ./images/journal/BaduaCoveragelistJournalIds1.png  used on input line 802.
+Package pdftex.def Info: ./images/journal/BaduaCoveragelistJournalIds1.png  used on input line 909.
 (pdftex.def)             Requested size: 452.9679pt x 243.16452pt.
-<./images/journal/BaduaCoveragelistJournalIds2.png, id=344, 1025.8325pt x 529.98pt>
+<./images/journal/BaduaCoveragelistJournalIds2.png, id=383, 1025.8325pt x 529.98pt>
 File: ./images/journal/BaduaCoveragelistJournalIds2.png Graphic file (type png)
 <use ./images/journal/BaduaCoveragelistJournalIds2.png>
-Package pdftex.def Info: ./images/journal/BaduaCoveragelistJournalIds2.png  used on input line 808.
+Package pdftex.def Info: ./images/journal/BaduaCoveragelistJournalIds2.png  used on input line 915.
 (pdftex.def)             Requested size: 452.9679pt x 234.01677pt.
-<./images/journal/JacocoCoveragelistJournalIds3.png, id=345, 1470.49374pt x 93.34875pt>
+<./images/journal/JacocoCoveragelistJournalIds3.png, id=384, 1470.49374pt x 93.34875pt>
 File: ./images/journal/JacocoCoveragelistJournalIds3.png Graphic file (type png)
 <use ./images/journal/JacocoCoveragelistJournalIds3.png>
-Package pdftex.def Info: ./images/journal/JacocoCoveragelistJournalIds3.png  used on input line 814.
+Package pdftex.def Info: ./images/journal/JacocoCoveragelistJournalIds3.png  used on input line 921.
 (pdftex.def)             Requested size: 452.9679pt x 28.75406pt.
-<./images/journal/PitCoverageListJournalIds1.png, id=346, 1312.905pt x 479.7925pt>
+<./images/journal/PitCoverageListJournalIds1.png, id=385, 1312.905pt x 479.7925pt>
 File: ./images/journal/PitCoverageListJournalIds1.png Graphic file (type png)
 <use ./images/journal/PitCoverageListJournalIds1.png>
-Package pdftex.def Info: ./images/journal/PitCoverageListJournalIds1.png  used on input line 820.
+Package pdftex.def Info: ./images/journal/PitCoverageListJournalIds1.png  used on input line 927.
 (pdftex.def)             Requested size: 452.9679pt x 165.5359pt.
-<./images/journal/PitCoverageListJournalIds2.png, id=347, 1312.905pt x 479.7925pt>
+<./images/journal/PitCoverageListJournalIds2.png, id=386, 1312.905pt x 479.7925pt>
 File: ./images/journal/PitCoverageListJournalIds2.png Graphic file (type png)
 <use ./images/journal/PitCoverageListJournalIds2.png>
-Package pdftex.def Info: ./images/journal/PitCoverageListJournalIds2.png  used on input line 826.
+Package pdftex.def Info: ./images/journal/PitCoverageListJournalIds2.png  used on input line 933.
 (pdftex.def)             Requested size: 452.9679pt x 165.5359pt.
-<./images/journal/PitMutation1.png, id=348, 714.67pt x 537.00626pt>
+<./images/journal/PitMutation1.png, id=387, 714.67pt x 537.00626pt>
 File: ./images/journal/PitMutation1.png Graphic file (type png)
 <use ./images/journal/PitMutation1.png>
-Package pdftex.def Info: ./images/journal/PitMutation1.png  used on input line 832.
+Package pdftex.def Info: ./images/journal/PitMutation1.png  used on input line 939.
 (pdftex.def)             Requested size: 452.9679pt x 340.36424pt.
-<./images/journal/code2.png, id=349, 1633.10126pt x 851.18pt>
+<./images/journal/code2.png, id=388, 1633.10126pt x 851.18pt>
 File: ./images/journal/code2.png Graphic file (type png)
 <use ./images/journal/code2.png>
-Package pdftex.def Info: ./images/journal/code2.png  used on input line 840.
+Package pdftex.def Info: ./images/journal/code2.png  used on input line 947.
 (pdftex.def)             Requested size: 452.9679pt x 236.08185pt.
-<./images/file_info/JacocoCoveragereadHeader1.png, id=350, 1071.00125pt x 44.165pt>
+<./images/file_info/JacocoCoveragereadHeader1.png, id=389, 1071.00125pt x 44.165pt>
 File: ./images/file_info/JacocoCoveragereadHeader1.png Graphic file (type png)
 <use ./images/file_info/JacocoCoveragereadHeader1.png>
-Package pdftex.def Info: ./images/file_info/JacocoCoveragereadHeader1.png  used on input line 846.
+Package pdftex.def Info: ./images/file_info/JacocoCoveragereadHeader1.png  used on input line 953.
 (pdftex.def)             Requested size: 452.9679pt x 18.67921pt.
-<./images/file_info/Code1ReadHeader.png, id=351, 917.4275pt x 1288.815pt>
+<./images/file_info/Code1ReadHeader.png, id=390, 917.4275pt x 1288.815pt>
 File: ./images/file_info/Code1ReadHeader.png Graphic file (type png)
 <use ./images/file_info/Code1ReadHeader.png>
-Package pdftex.def Info: ./images/file_info/Code1ReadHeader.png  used on input line 851.
+Package pdftex.def Info: ./images/file_info/Code1ReadHeader.png  used on input line 958.
 (pdftex.def)             Requested size: 452.9679pt x 636.34299pt.
-<./images/file_info/JacocoCoveragereadHeader2.png, id=352, 947.54pt x 944.52875pt>
+<./images/file_info/JacocoCoveragereadHeader2.png, id=391, 947.54pt x 944.52875pt>
 File: ./images/file_info/JacocoCoveragereadHeader2.png Graphic file (type png)
 <use ./images/file_info/JacocoCoveragereadHeader2.png>
-Package pdftex.def Info: ./images/file_info/JacocoCoveragereadHeader2.png  used on input line 857.
+Package pdftex.def Info: ./images/file_info/JacocoCoveragereadHeader2.png  used on input line 964.
 (pdftex.def)             Requested size: 452.9679pt x 451.52386pt.
-<./images/file_info/BaduaCoverageReadHeader1.png, id=353, 431.6125pt x 44.165pt>
+<./images/file_info/BaduaCoverageReadHeader1.png, id=392, 431.6125pt x 44.165pt>
 File: ./images/file_info/BaduaCoverageReadHeader1.png Graphic file (type png)
 <use ./images/file_info/BaduaCoverageReadHeader1.png>
-Package pdftex.def Info: ./images/file_info/BaduaCoverageReadHeader1.png  used on input line 863.
+Package pdftex.def Info: ./images/file_info/BaduaCoverageReadHeader1.png  used on input line 970.
 (pdftex.def)             Requested size: 452.9679pt x 46.35168pt.
-<./images/file_info/BaduaCoverageReadHeader2.png, id=354, 519.9425pt x 89.33376pt>
+<./images/file_info/BaduaCoverageReadHeader2.png, id=393, 519.9425pt x 89.33376pt>
 File: ./images/file_info/BaduaCoverageReadHeader2.png Graphic file (type png)
 <use ./images/file_info/BaduaCoverageReadHeader2.png>
-Package pdftex.def Info: ./images/file_info/BaduaCoverageReadHeader2.png  used on input line 869.
+Package pdftex.def Info: ./images/file_info/BaduaCoverageReadHeader2.png  used on input line 976.
 (pdftex.def)             Requested size: 452.9679pt x 77.82605pt.
-<./images/file_info/BaduaCoverageReadHeader3.png, id=355, 531.9875pt x 97.36375pt>
+<./images/file_info/BaduaCoverageReadHeader3.png, id=394, 531.9875pt x 97.36375pt>
 File: ./images/file_info/BaduaCoverageReadHeader3.png Graphic file (type png)
 <use ./images/file_info/BaduaCoverageReadHeader3.png>
-Package pdftex.def Info: ./images/file_info/BaduaCoverageReadHeader3.png  used on input line 875.
+Package pdftex.def Info: ./images/file_info/BaduaCoverageReadHeader3.png  used on input line 982.
 (pdftex.def)             Requested size: 452.9679pt x 82.90367pt.
-<./images/file_info/BaduaCoverageReadHeader4.png, id=356, 431.6125pt x 70.2625pt>
+<./images/file_info/BaduaCoverageReadHeader4.png, id=395, 431.6125pt x 70.2625pt>
 File: ./images/file_info/BaduaCoverageReadHeader4.png Graphic file (type png)
 <use ./images/file_info/BaduaCoverageReadHeader4.png>
-Package pdftex.def Info: ./images/file_info/BaduaCoverageReadHeader4.png  used on input line 881.
+Package pdftex.def Info: ./images/file_info/BaduaCoverageReadHeader4.png  used on input line 988.
 (pdftex.def)             Requested size: 452.9679pt x 73.74133pt.
-[12] [13 <./images/journal/listJournalIds.jpg> <./images/journal/CFGlistJournalIds.jpg> <./images/journal/JacocoCoveragelistJournalIds1.png>] [14 <./images/journal/MissedBranchListJournalIds.png> <./images/journal/JacocoCoveragelistJournalIds2.png> <./images/journal/code1.png>] [15 <./images/journal/BaduaCoveragelistJournalIds1.png> <./images/journal/BaduaCoveragelistJournalIds2.png> <./images/journal/JacocoCoveragelistJournalIds3.png>] [16 <./images/journal/PitCoverageListJournalIds1.png> <./images/journal/PitCoverageListJournalIds2.png>] [17 <./images/journal/PitMutation1.png> <./images/journal/code2.png> <./images/file_info/JacocoCoveragereadHeader1.png>] [18 <./images/file_info/Code1ReadHeader.png>] [19 <./images/file_info/JacocoCoveragereadHeader2.png> <./images/file_info/BaduaCoverageReadHeader1.png> <./images/file_info/BaduaCoverageReadHeader2.png>] [20 <./images/file_info/BaduaCoverageReadHeader3.png>] [21] [22 <./images/file_info/BaduaCOverageReadHeader4.png>] (./main.aux)
+<./images/create_record/TestFailsCreateRecord.png, id=396, 346.29375pt x 145.54375pt>
+File: ./images/create_record/TestFailsCreateRecord.png Graphic file (type png)
+<use ./images/create_record/TestFailsCreateRecord.png>
+Package pdftex.def Info: ./images/create_record/TestFailsCreateRecord.png  used on input line 994.
+(pdftex.def)             Requested size: 452.9679pt x 190.38387pt.
+<./images/create_record/JacocoCoverage1.png, id=397, 1624.0675pt x 61.22874pt>
+File: ./images/create_record/JacocoCoverage1.png Graphic file (type png)
+<use ./images/create_record/JacocoCoverage1.png>
+Package pdftex.def Info: ./images/create_record/JacocoCoverage1.png  used on input line 1000.
+(pdftex.def)             Requested size: 452.9679pt x 17.07664pt.
+<./images/create_record/JacocoCoverage2.png, id=398, 1618.045pt x 34.1275pt>
+File: ./images/create_record/JacocoCoverage2.png Graphic file (type png)
+<use ./images/create_record/JacocoCoverage2.png>
+Package pdftex.def Info: ./images/create_record/JacocoCoverage2.png  used on input line 1006.
+(pdftex.def)             Requested size: 452.9679pt x 9.55354pt.
+<./images/create_record/JacocoCoverage3.png, id=399, 1461.46pt x 145.54375pt>
+File: ./images/create_record/JacocoCoverage3.png Graphic file (type png)
+<use ./images/create_record/JacocoCoverage3.png>
+Package pdftex.def Info: ./images/create_record/JacocoCoverage3.png  used on input line 1012.
+(pdftex.def)             Requested size: 452.9679pt x 45.1092pt.
+<./images/create_record/JacocoCoverage4.png, id=400, 1249.66875pt x 496.85625pt>
+File: ./images/create_record/JacocoCoverage4.png Graphic file (type png)
+<use ./images/create_record/JacocoCoverage4.png>
+Package pdftex.def Info: ./images/create_record/JacocoCoverage4.png  used on input line 1018.
+(pdftex.def)             Requested size: 452.9679pt x 180.0963pt.
+<./images/create_record/JacocoCoverage5.png, id=401, 1465.475pt x 168.63pt>
+File: ./images/create_record/JacocoCoverage5.png Graphic file (type png)
+<use ./images/create_record/JacocoCoverage5.png>
+Package pdftex.def Info: ./images/create_record/JacocoCoverage5.png  used on input line 1024.
+(pdftex.def)             Requested size: 452.9679pt x 52.12036pt.
+[14] [15 <./images/journal/listJournalIds.jpg> <./images/journal/CFGlistJournalIds.jpg> <./images/journal/JacocoCoveragelistJournalIds1.png>] [16 <./images/journal/MissedBranchListJournalIds.png> <./images/journal/JacocoCoveragelistJournalIds2.png> <./images/journal/code1.png>] [17 <./images/journal/BaduaCoveragelistJournalIds1.png> <./images/journal/BaduaCoveragelistJournalIds2.png> <./images/journal/JacocoCoveragelistJournalIds3.png>] [18 <./images/journal/PitCoverageListJournalIds1.png> <./images/journal/PitCoverageListJournalIds2.png>] [19 <./images/journal/PitMutation1.png> <./images/journal/code2.png> <./images/file_info/JacocoCoveragereadHeader1.png>] [20 <./images/file_info/Code1ReadHeader.png>] [21 <./images/file_info/JacocoCoveragereadHeader2.png> <./images/file_info/BaduaCoverageReadHeader1.png> <./images/file_info/BaduaCoverageReadHeader2.png>] [22 <./images/file_info/BaduaCoverageReadHeader3.png> <./images/file_info/BaduaCOverageReadHeader4.png> <./images/create_record/TestFailsCreateRecord.png> <./images/create_record/JacocoCoverage1.png> <./images/create_record/JacocoCoverage2.png> <./images/create_record/JacocoCoverage3.png>] [23 <./images/create_record/JacocoCoverage4.png> <./images/create_record/JacocoCoverage5.png>] [24] [25] (./main.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -798,18 +836,18 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 1E16BC49960F8228FAC41F922BCF4B31;4615.
  ) 
 Here is how much of TeX's memory you used:
- 15053 strings out of 477136
- 247598 string characters out of 5813391
- 1893388 words of memory out of 6000000
- 34985 multiletter control sequences out of 15000+600000
+ 15121 strings out of 477136
+ 249960 string characters out of 5813391
+ 1904388 words of memory out of 6000000
+ 35030 multiletter control sequences out of 15000+600000
  534924 words of font info for 81 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
  75i,8n,77p,332b,603s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on main.pdf (24 pages, 1236521 bytes).
+Output written on main.pdf (27 pages, 1410779 bytes).
 PDF statistics:
- 482 PDF objects out of 1000 (max. 8388607)
- 400 compressed objects within 4 object streams
- 111 named destinations out of 1000 (max. 500000)
- 365 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 539 PDF objects out of 1000 (max. 8388607)
+ 441 compressed objects within 5 object streams
+ 127 named destinations out of 1000 (max. 500000)
+ 395 words of extra memory for PDF output out of 10000 (max. 10000000)
 

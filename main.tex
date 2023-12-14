@@ -552,9 +552,75 @@ Output: Schema
 
 \subsubsection{Boundary Analysis}
 
+\paragraph{name}
+\begin{itemize}
+  \item \{null\} 
+  \item \{""\}
+  \item \{"test"\}
+\end{itemize}
 
+\paragraph{doc}
+\begin{itemize}
+  \item \{null\} 
+  \item \{"test"\}
+\end{itemize}
+
+\paragraph{namespace}
+\begin{itemize}
+  \item \{null\} 
+  \item \{""\}
+  \item \{"test"\}
+\end{itemize}
+
+\paragraph{isError}
+\begin{itemize}
+  \item \{true\}
+  \item \{false\}
+\end{itemize}
+
+\paragraph{fields}
+\begin{itemize}
+  \item \{null\} 
+  \item \{[]\}
+  \item \{[field]\}
+  \item \{[field1, field2]\}
+\end{itemize}
+
+Test suite Tabella \ref{tab:categoryPartition1CreateRecord}.
+
+Il motivo per cui il 3 e 4 test devono restituire una eccezione è perchè nella documentazione è specificato che
+il campo name è obbligatorio, e quindi se non viene specificato deve essere lanciata una eccezione.
+Invece il motivo per cui il 5 e 6 test devono restituire una eccezione è perchè nella documentazione è specificato che
+fields è obbligatorio, e quindi se non viene specificato deve essere lanciata una eccezione. \\
+
+Come si vede dall'immagine \ref{fig:TestFailsCreateRecord} i test 4 e 6 falliscono. Significa che il metodo non si accorge
+che il campo name e fields non sono stati specificati. 
+
+Vado a modificare i due metodi facendoli passare (anche se non dovrebbero) per poter andare avanti con l'analisi e 
+per non falsare i dati di coverage calcolati dai framework.
 
 \subsubsection{Adequacy Control Flow}
+
+Andiamo ora a valutare la coverage ottenuta con jacoco con i casi di test definiti. Per farlo consideriamo il fatto
+che in realtà il metodo createRecord() è solo un wrapper di una new della classe interna RecordSchema, quindi per calcolare
+la coverage dobbiamo prendere in considerazione il costruttore della classe RecordSchema. \\ Però la vera logica del metodo
+è contenuta nel metodo privato setField(). Quindi per fare considerazioni sulla coverage dobbiamo prendiamo in considerazione 
+l'insieme di questi metodi. \\
+Dalla Figura \ref{fig:JacocoCoverageCreateRecord1} si può vedere che la statement coverage della classe è del 12\%. Tuttavia come 
+spiegato in precedenza il metodo createRecord() è solo un wrapper di una new della classe interna RecordSchema che invece ha una
+statement coverage del 17\% (Figura \ref{fig:JacocoCoverageCreateRecord2}). Inoltre il costrutture e il metodo setField() 
+che rappresenta la vera logica del metodo preso in esame hanno rispettivamente una coverage del 100\% e del 59\% 
+(Figura \ref{fig:JacocoCoverageCreateRecord3}).
+
+Quindi per migliorare i miei casi di test andrò ad analizzare principalemente il metodo setFied() con un approccio white box.
+Data la situazione in Figura \ref{fig:JacocoCoverageCreateRecord4} vado ad incrementare l'adeguatezza dei casi di test
+andando a coprire il caso in cui il field ha il campo position = -1. Per farlo dato che per farlo controllava questo branch 
+tramite un attributo privato ho fatto in modo di settare questo attributo a -1 tramite reflection.
+Quindi ho aggiunto un caso di test che copre questo caso nella test suite (Tabella \ref{tab:ACF1CreateRecord}).
+
+Con questo incremento ho ottenuto una coverage del 70\% (Figura \ref{fig:JacocoCoverageCreateRecord5}).
+
+
 \subsubsection{Adequacy Data Flow}
 \subsubsection{Mutation Testing}
 
@@ -756,6 +822,47 @@ journalDir & JournalIdFilter & Risultato Atteso \\
 \end{table}
 
 
+%Tabelle CreateRecord --------------------------------------------------------
+\begin{table}[ht]
+  \centering
+  \caption[CreateRecord: Test Suite - Category partition]{Test Suite derivante dalla category partition e dalla boundary analysis}
+  \begin{tabular}{|l|l|l|l|l|l|}
+    \hline
+    \textbf{Name} & \textbf{Doc} & \textbf{Namespace}  & \textbf{IsError} & \textbf{Fields} & \textbf{Risultato Atteso} \\
+    \hline
+    "test" & "test" & "test" & False & [Field1] & Success \\
+    "test" & "test" & "test" & False & [Field1, Field2] & Success \\
+    "" & "" & "" & True & [Field1, Field2] & Exception \\
+    null & null & null & False & [Field1] & Exception \\
+    "test" & "test" & "test" & False & null & Exception \\
+    "test" & "test" & "test" & False & [] & Excpetion \\
+
+    \hline
+  \end{tabular}
+  \label{tab:categoryPartition1CreateRecord}
+\end{table}
+
+
+\begin{table}[ht]
+  \centering
+  \caption[CreateRecord: Test Suite - Adequacy Control Flow]{Test Suite derivante dall'incremento dopo Jacoco}
+  \begin{tabular}{|l|l|l|l|l|l|}
+    \hline
+    \textbf{Name} & \textbf{Doc} & \textbf{Namespace}  & \textbf{IsError} & \textbf{Fields} & \textbf{Risultato Atteso} \\
+    \hline
+    "test" & "test" & "test" & False & [Field1] & Success \\
+    "test" & "test" & "test" & False & [Field1, Field2] & Success \\
+    "" & "" & "" & True & [Field1, Field2] & Exception \\
+    null & null & null & False & [Field1] & Exception \\
+    "test" & "test" & "test" & False & null & Exception \\
+    "test" & "test" & "test" & False & [] & Excpetion \\
+    "test" & "test" & "test" & False & [Field3*] & Excpetion \\
+    \hline
+  \end{tabular}
+   \\$\ast$Field3 è un field con position = -1
+  \label{tab:Jacoco1CreateRecord}
+\end{table}
+  
 
 
 %Figure Journal --------------------------------------------------------
@@ -883,4 +990,39 @@ journalDir & JournalIdFilter & Risultato Atteso \\
     \label{fig:BaduaCoverageReadHeader4}
   \end{figure}
 
+  \begin{figure}
+    \includegraphics[width=\linewidth]{./images/create_record/TestFailsCreateRecord.png}
+    \caption{Fallimento del 4 e 6 test}
+    \label{fig:TestFailsCreateRecord}
+  \end{figure}
+
+  \begin{figure}
+    \includegraphics[width=\linewidth]{./images/create_record/JacocoCoverage1.png}
+    \caption{Jacoco coverage createRecord}
+    \label{fig:JacocoCoverageCreateRecord1}
+  \end{figure}
+
+  \begin{figure}
+    \includegraphics[width=\linewidth]{./images/create_record/JacocoCoverage2.png}
+    \caption{Jacoco coverage Record Schema}
+    \label{fig:JacocoCoverageCreateRecord2}
+  \end{figure}
+
+  \begin{figure}
+    \includegraphics[width=\linewidth]{./images/create_record/JacocoCoverage3.png}
+    \caption{Jacoco coverage Costruttore Record Schema e setField}
+    \label{fig:JacocoCoverageCreateRecord3}
+  \end{figure}
+
+  \begin{figure}
+    \includegraphics[width=\linewidth]{./images/create_record/JacocoCoverage4.png}
+    \caption{Jacoco copertura setField}
+    \label{fig:JacocoCoverageCreateRecord4}
+  \end{figure}
+
+  \begin{figure}
+    \includegraphics[width=\linewidth]{./images/create_record/JacocoCoverage5.png}
+    \caption{Jacoco coverage dopo incremento}
+    \label{fig:JacocoCoverageCreateRecord5}
+  \end{figure}
 \end{document}
