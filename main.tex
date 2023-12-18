@@ -622,7 +622,37 @@ Con questo incremento ho ottenuto una coverage del 70\% (Figura \ref{fig:JacocoC
 
 
 \subsubsection{Adequacy Data Flow}
+Vado ora a fare un lavoro di adeguatezza del dataflow utilizzando il framework badua per calcolare la all-uses coverage. \\
+Dalla Figura \ref{fig:BaduaCoverageCreateRecord1} possiamo calcolare la all uses coverage. \\
+
+\(CU_c + PU_c = 25\) \\
+\( (CU + PU) - (CU\textsubscript{f} + PU\textsubscript{f}) = 33\) \\ \\
+\[\frac{{CU\textsubscript{c} + PU\textsubscript{c}}}{{(CU + PU) - (CU\textsubscript{f} + PU\textsubscript{f})}} = \frac{{25}}{{33}} = 0.75\]
+
+Per migliorare la all-uses coverage andiamo a coprire la coppia def-use (956, 959) della variabile existingField che non 
+è stata coperta dai precedenti test. Questa coppia indica la mancanza del caso in cui due field uguali vengono inseriti, 
+quindi per coprire la coppia def-use andiamo ad aggiungere un test che manda in input due field uguali 
+(Tabella \ref{tab:Badua1CreateRecord}).
+
+Con questo incremento la all-uses coverage è salita al 93\% (Figura \ref{fig:BaduaCoverageCreateRecord2}).
 \subsubsection{Mutation Testing}
+
+Vado ora a fare un analisi delle mutazioni utilizzando il framework pitest. \\
+Come si può vedere dalla Figura \ref{fig:PitCoverageCreateRecord1} la mutation coverage è del 4\% in riferimento 
+all'intera classe. Se invece andiamo a vedere in dettaglio il metodo, possiamo lavorare con una mutation coverage 
+più a grana fine (Figura \ref{fig:PitMutationCreateRecord2}, \ref{fig:PitMutationCreateRecord3}, \ref{fig:PitMutationCreateRecord4}).
+In particolare posso calcolare questa mutation coverage come segue:
+\[\frac{{Mutazioni rilevate}}{{Mutazioni totali}} = \frac{{4}}{{6}} = 0.66\]
+
+Prendiamo in considerazione per migliorare la test suite la mutazione non rilveata a riga 224 
+(Figura \ref{fig:PitMutationCreateRecord2}, Figura \ref{fig:PitMutationCreateRecord5}).
+Questa mutazione non viene rilevata perchè fino ad adesso nella test suite ho considerato come expected value o un eccezione
+o un successo (che indica semplicemente una non eccezione), quindi il caso in cui viene ritornato null non viene rilevato.
+Per risolvere il problema basta modificare la test suite aspettando come valore di ritorno un oggetto di tipo Schema nei casi 
+di successo (Tabella \ref{tab:PitCreateRecord1})
+
+Con questo incremento la mutazione viene rilevata (Figura \ref{fig:PitMutationCreateRecord6}), e quindi 
+la mutation coverage diventa dell' 83\%. 
 
 \subsection{Classe 2}
 \subsubsection{Descrizione}
@@ -862,8 +892,49 @@ journalDir & JournalIdFilter & Risultato Atteso \\
    \\$\ast$Field3 è un field con position = -1
   \label{tab:Jacoco1CreateRecord}
 \end{table}
-  
 
+\begin{table}[ht]
+  \centering
+  \caption[CreateRecord: Test Suite - Adequacy Control Flow]{Test Suite derivante dall'incremento dopo Badua}
+  \begin{tabular}{|l|l|l|l|l|l|}
+    \hline
+    \textbf{Name} & \textbf{Doc} & \textbf{Namespace}  & \textbf{IsError} & \textbf{Fields} & \textbf{Risultato Atteso} \\
+    \hline
+    "test" & "test" & "test" & False & [Field1] & Success \\
+    "test" & "test" & "test" & False & [Field1, Field2] & Success \\
+    "" & "" & "" & True & [Field1, Field2] & Exception \\
+    null & null & null & False & [Field1] & Exception \\
+    "test" & "test" & "test" & False & null & Exception \\
+    "test" & "test" & "test" & False & [] & Excpetion \\
+    "test" & "test" & "test" & False & [Field3*] & Excpetion \\
+    "test" & "test" & "test" & False & [Field1, Field1] & Excpetion \\
+    \hline
+  \end{tabular}
+   \\$\ast$Field3 è un field con position = -1
+  \label{tab:Badua1CreateRecord}
+\end{table}
+  
+\begin{table}[ht]
+  \centering
+  \caption[CreateRecord: Test Suite - Mutation Testing]{Test Suite derivante dall'incremento dopo Pit}
+  \begin{tabular}{|l|l|l|l|l|l|}
+    \hline
+    \textbf{Name} & \textbf{Doc} & \textbf{Namespace}  & \textbf{IsError} & \textbf{Fields} & \textbf{Risultato Atteso} \\
+    \hline
+    "test" & "test" & "test" & False & [Field1] & Object(Schema) \\
+    "test" & "test" & "test" & False & [Field1, Field2] & Object(Schema) \\
+    "" & "" & "" & True & [Field1, Field2] & Exception \\
+    null & null & null & False & [Field1] & Exception \\
+    "test" & "test" & "test" & False & null & Exception \\
+    "test" & "test" & "test" & False & [] & Excpetion \\
+    "test" & "test" & "test" & False & [Field3*] & Excpetion \\
+    "test" & "test" & "test" & False & [Field1, Field1] & Excpetion \\
+    \hline
+  \end{tabular}
+   \\$\ast$Field3 è un field con position = -1
+  \label{tab:PitCreateRecord1}
+\end{table}
+  
 
 %Figure Journal --------------------------------------------------------
 
@@ -1024,5 +1095,53 @@ journalDir & JournalIdFilter & Risultato Atteso \\
     \includegraphics[width=\linewidth]{./images/create_record/JacocoCoverage5.png}
     \caption{Jacoco coverage dopo incremento}
     \label{fig:JacocoCoverageCreateRecord5}
+  \end{figure}
+
+  \begin{figure}
+    \includegraphics[width=\linewidth]{./images/create_record/BaduaCoverage1.png}
+    \caption{Badua coverage createRecord}
+    \label{fig:BaduaCoverageCreateRecord1}
+  \end{figure}
+
+  \begin{figure}
+    \includegraphics[width=\linewidth]{./images/create_record/BaduaCoverage2.png}
+    \caption{Badua coverage createRecord}
+    \label{fig:BaduaCoverageCreateRecord2}
+  \end{figure}
+
+  \begin{figure}
+    \includegraphics[width=\linewidth]{./images/create_record/PitCoverage1.png}
+    \caption{PitCoverage}
+    \label{fig:PitCoverageCreateRecord1}
+  \end{figure}
+
+  \begin{figure}
+    \includegraphics[width=\linewidth]{./images/create_record/PitCoverage2.png}
+    \caption{Mutazioni rilevate da Pitest}
+    \label{fig:PitCoverageCreateRecord2}
+  \end{figure}
+
+  \begin{figure}
+    \includegraphics[width=\linewidth]{./images/create_record/PitCoverage3.png}
+    \caption{Mutazioni rilevate da Pitest}
+    \label{fig:PitMutationCreateRecord3}
+  \end{figure}
+
+  \begin{figure}
+    \includegraphics[width=\linewidth]{./images/create_record/PitCoverage4.png}
+    \caption{Mutazioni rilevate da Pitest}
+    \label{fig:PitMutationCreateRecord4}
+  \end{figure}
+
+  \begin{figure}
+    \includegraphics[width=\linewidth]{./images/create_record/PitCoverage5.png}
+    \caption{Mutazione in considerazione}
+    \label{fig:PitMutationCreateRecord5}
+  \end{figure}
+
+  \begin{figure}
+    \includegraphics[width=\linewidth]{./images/create_record/PitCoverage6.png}
+    \caption{Mutazione in considerazione coperta}
+    \label{fig:PitMutationCreateRecord6}
   \end{figure}
 \end{document}
