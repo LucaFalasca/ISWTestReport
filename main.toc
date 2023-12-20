@@ -54,10 +54,11 @@
 \contentsline {subsubsection}{\numberline {3.1.4}Adequacy Control Flow}{13}{subsubsection.3.1.4}%
 \contentsline {subsubsection}{\numberline {3.1.5}Adequacy Data Flow}{13}{subsubsection.3.1.5}%
 \contentsline {subsubsection}{\numberline {3.1.6}Mutation Testing}{14}{subsubsection.3.1.6}%
-\contentsline {subsection}{\numberline {3.2}Classe 2}{14}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Descrizione}{14}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}Category Partition}{14}{subsubsection.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.3}Boundary Analysis}{14}{subsubsection.3.2.3}%
-\contentsline {subsubsection}{\numberline {3.2.4}Adequacy Control Flow}{14}{subsubsection.3.2.4}%
-\contentsline {subsubsection}{\numberline {3.2.5}Adequacy Data Flow}{14}{subsubsection.3.2.5}%
-\contentsline {subsubsection}{\numberline {3.2.6}Mutation Testing}{14}{subsubsection.3.2.6}%
+\contentsline {subsubsection}{\numberline {3.1.7}Reliability}{14}{subsubsection.3.1.7}%
+\contentsline {subsection}{\numberline {3.2}Classe 2}{15}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Descrizione}{15}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Category Partition}{15}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Boundary Analysis}{15}{subsubsection.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.4}Adequacy Control Flow}{15}{subsubsection.3.2.4}%
+\contentsline {subsubsection}{\numberline {3.2.5}Adequacy Data Flow}{15}{subsubsection.3.2.5}%
+\contentsline {subsubsection}{\numberline {3.2.6}Mutation Testing}{15}{subsubsection.3.2.6}%
