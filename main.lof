@@ -5,36 +5,36 @@
 \contentsline {figure}{\numberline {3}{\ignorespaces Pit coverage\relax }}{11}{figure.caption.23}%
 \contentsline {figure}{\numberline {4}{\ignorespaces Pit coverage\relax }}{11}{figure.caption.24}%
 \contentsline {figure}{\numberline {5}{\ignorespaces Pit coverage\relax }}{11}{figure.caption.25}%
-\contentsline {figure}{\numberline {6}{\ignorespaces Diagrammi di listJournalIds\relax }}{16}{figure.caption.44}%
-\contentsline {figure}{\numberline {7}{\ignorespaces Jacoco coverage dilistJournalIds\relax }}{16}{figure.caption.45}%
-\contentsline {figure}{\numberline {8}{\ignorespaces Jacoco coverage dilistJournalIds\relax }}{17}{figure.caption.46}%
-\contentsline {figure}{\numberline {9}{\ignorespaces Jacoco coverage dilistJournalIds\relax }}{17}{figure.caption.47}%
-\contentsline {figure}{\numberline {10}{\ignorespaces Codice sorgente di JournalTest\relax }}{17}{figure.caption.48}%
-\contentsline {figure}{\numberline {11}{\ignorespaces Badua coverage dilistJournalIds\relax }}{18}{figure.caption.49}%
-\contentsline {figure}{\numberline {12}{\ignorespaces Badua coverage dilistJournalIds\relax }}{18}{figure.caption.50}%
-\contentsline {figure}{\numberline {13}{\ignorespaces Jacoco coverage dilistJournalIds\relax }}{18}{figure.caption.51}%
-\contentsline {figure}{\numberline {14}{\ignorespaces Pitest coverage dilistJournalIds\relax }}{19}{figure.caption.52}%
-\contentsline {figure}{\numberline {15}{\ignorespaces Mutazioni rilevate da Pitest\relax }}{19}{figure.caption.53}%
-\contentsline {figure}{\numberline {16}{\ignorespaces Mutazione inserita nel codice sorgente di Bookkeeper\relax }}{20}{figure.caption.54}%
-\contentsline {figure}{\numberline {17}{\ignorespaces Codice sorgente di JournalTest aggiornato con il mock\relax }}{20}{figure.caption.55}%
-\contentsline {figure}{\numberline {18}{\ignorespaces Jacoco coverage readHeader\relax }}{20}{figure.caption.56}%
-\contentsline {figure}{\numberline {19}{\ignorespaces Codice sorgente di FileInfoTest\relax }}{21}{figure.caption.57}%
-\contentsline {figure}{\numberline {20}{\ignorespaces Jacoco coverage readHeader\relax }}{22}{figure.caption.58}%
-\contentsline {figure}{\numberline {21}{\ignorespaces Badua coverage readHeader\relax }}{22}{figure.caption.59}%
-\contentsline {figure}{\numberline {22}{\ignorespaces Def-use not covered\relax }}{22}{figure.caption.60}%
-\contentsline {figure}{\numberline {23}{\ignorespaces Def-use covered\relax }}{23}{figure.caption.61}%
-\contentsline {figure}{\numberline {24}{\ignorespaces Badua coverage readHeader after test update\relax }}{23}{figure.caption.62}%
-\contentsline {figure}{\numberline {25}{\ignorespaces Fallimento del 4 e 6 test\relax }}{23}{figure.caption.63}%
-\contentsline {figure}{\numberline {26}{\ignorespaces Jacoco coverage createRecord\relax }}{23}{figure.caption.64}%
-\contentsline {figure}{\numberline {27}{\ignorespaces Jacoco coverage Record Schema\relax }}{23}{figure.caption.65}%
-\contentsline {figure}{\numberline {28}{\ignorespaces Jacoco coverage Costruttore Record Schema e setField\relax }}{23}{figure.caption.66}%
-\contentsline {figure}{\numberline {29}{\ignorespaces Jacoco copertura setField\relax }}{24}{figure.caption.67}%
-\contentsline {figure}{\numberline {30}{\ignorespaces Jacoco coverage dopo incremento\relax }}{26}{figure.caption.68}%
-\contentsline {figure}{\numberline {31}{\ignorespaces Badua coverage createRecord\relax }}{28}{figure.caption.69}%
-\contentsline {figure}{\numberline {32}{\ignorespaces Badua coverage createRecord\relax }}{29}{figure.caption.70}%
-\contentsline {figure}{\numberline {33}{\ignorespaces PitCoverage\relax }}{29}{figure.caption.71}%
-\contentsline {figure}{\numberline {34}{\ignorespaces Mutazioni rilevate da Pitest\relax }}{29}{figure.caption.72}%
-\contentsline {figure}{\numberline {35}{\ignorespaces Mutazioni rilevate da Pitest\relax }}{30}{figure.caption.73}%
-\contentsline {figure}{\numberline {36}{\ignorespaces Mutazioni rilevate da Pitest\relax }}{30}{figure.caption.74}%
-\contentsline {figure}{\numberline {37}{\ignorespaces Mutazione in considerazione\relax }}{30}{figure.caption.75}%
-\contentsline {figure}{\numberline {38}{\ignorespaces Mutazione in considerazione coperta\relax }}{30}{figure.caption.76}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Diagrammi di listJournalIds\relax }}{17}{figure.caption.44}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Jacoco coverage dilistJournalIds\relax }}{17}{figure.caption.45}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Jacoco coverage dilistJournalIds\relax }}{18}{figure.caption.46}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Jacoco coverage dilistJournalIds\relax }}{18}{figure.caption.47}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Codice sorgente di JournalTest\relax }}{18}{figure.caption.48}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Badua coverage dilistJournalIds\relax }}{19}{figure.caption.49}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Badua coverage dilistJournalIds\relax }}{19}{figure.caption.50}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Jacoco coverage dilistJournalIds\relax }}{19}{figure.caption.51}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Pitest coverage dilistJournalIds\relax }}{20}{figure.caption.52}%
+\contentsline {figure}{\numberline {15}{\ignorespaces Mutazioni rilevate da Pitest\relax }}{20}{figure.caption.53}%
+\contentsline {figure}{\numberline {16}{\ignorespaces Mutazione inserita nel codice sorgente di Bookkeeper\relax }}{21}{figure.caption.54}%
+\contentsline {figure}{\numberline {17}{\ignorespaces Codice sorgente di JournalTest aggiornato con il mock\relax }}{21}{figure.caption.55}%
+\contentsline {figure}{\numberline {18}{\ignorespaces Jacoco coverage readHeader\relax }}{21}{figure.caption.56}%
+\contentsline {figure}{\numberline {19}{\ignorespaces Codice sorgente di FileInfoTest\relax }}{22}{figure.caption.57}%
+\contentsline {figure}{\numberline {20}{\ignorespaces Jacoco coverage readHeader\relax }}{23}{figure.caption.58}%
+\contentsline {figure}{\numberline {21}{\ignorespaces Badua coverage readHeader\relax }}{23}{figure.caption.59}%
+\contentsline {figure}{\numberline {22}{\ignorespaces Def-use not covered\relax }}{23}{figure.caption.60}%
+\contentsline {figure}{\numberline {23}{\ignorespaces Def-use covered\relax }}{24}{figure.caption.61}%
+\contentsline {figure}{\numberline {24}{\ignorespaces Badua coverage readHeader after test update\relax }}{24}{figure.caption.62}%
+\contentsline {figure}{\numberline {25}{\ignorespaces Fallimento del 4 e 6 test\relax }}{24}{figure.caption.63}%
+\contentsline {figure}{\numberline {26}{\ignorespaces Jacoco coverage createRecord\relax }}{24}{figure.caption.64}%
+\contentsline {figure}{\numberline {27}{\ignorespaces Jacoco coverage Record Schema\relax }}{24}{figure.caption.65}%
+\contentsline {figure}{\numberline {28}{\ignorespaces Jacoco coverage Costruttore Record Schema e setField\relax }}{24}{figure.caption.66}%
+\contentsline {figure}{\numberline {29}{\ignorespaces Jacoco copertura setField\relax }}{25}{figure.caption.67}%
+\contentsline {figure}{\numberline {30}{\ignorespaces Jacoco coverage dopo incremento\relax }}{27}{figure.caption.68}%
+\contentsline {figure}{\numberline {31}{\ignorespaces Badua coverage createRecord\relax }}{29}{figure.caption.69}%
+\contentsline {figure}{\numberline {32}{\ignorespaces Badua coverage createRecord\relax }}{30}{figure.caption.70}%
+\contentsline {figure}{\numberline {33}{\ignorespaces PitCoverage\relax }}{30}{figure.caption.71}%
+\contentsline {figure}{\numberline {34}{\ignorespaces Mutazioni rilevate da Pitest\relax }}{30}{figure.caption.72}%
+\contentsline {figure}{\numberline {35}{\ignorespaces Mutazioni rilevate da Pitest\relax }}{31}{figure.caption.73}%
+\contentsline {figure}{\numberline {36}{\ignorespaces Mutazioni rilevate da Pitest\relax }}{31}{figure.caption.74}%
+\contentsline {figure}{\numberline {37}{\ignorespaces Mutazione in considerazione\relax }}{31}{figure.caption.75}%
+\contentsline {figure}{\numberline {38}{\ignorespaces Mutazione in considerazione coperta\relax }}{31}{figure.caption.76}%
