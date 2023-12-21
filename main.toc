@@ -4,9 +4,8 @@
 \contentsline {section}{\numberline {2}Bookkeeper}{1}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Journal}{1}{subsection.2.1}%
 \contentsline {subsubsection}{\numberline {2.1.1}Descrizione}{1}{subsubsection.2.1.1}%
-\contentsline {paragraph}{listJournalIds}{1}{section*.4}%
-\contentsline {paragraph}{Input:}{1}{section*.5}%
-\contentsline {paragraph}{Output:}{1}{section*.6}%
+\contentsline {paragraph}{Input:}{1}{section*.4}%
+\contentsline {paragraph}{Output:}{1}{section*.5}%
 \contentsline {subsubsection}{\numberline {2.1.2}Category Partition}{1}{subsubsection.2.1.2}%
 \contentsline {paragraph}{journalDir}{1}{section*.7}%
 \contentsline {paragraph}{JournalIdFilter}{2}{section*.8}%
@@ -31,31 +30,22 @@
 \contentsline {paragraph}{state}{8}{section*.18}%
 \contentsline {paragraph}{Version}{8}{section*.19}%
 \contentsline {subsubsection}{\numberline {2.2.4}Adequacy Control Flow}{9}{subsubsection.2.2.4}%
-\contentsline {paragraph}{explicitLacBufLength}{9}{section*.20}%
-\contentsline {subsubsection}{\numberline {2.2.5}Adequacy Data Flow}{9}{subsubsection.2.2.5}%
+\contentsline {paragraph}{explicitLacBufLength}{9}{section*.21}%
+\contentsline {subsubsection}{\numberline {2.2.5}Adequacy Data Flow}{10}{subsubsection.2.2.5}%
 \contentsline {subsubsection}{\numberline {2.2.6}Mutation Testing}{10}{subsubsection.2.2.6}%
-\contentsline {subsubsection}{\numberline {2.2.7}Reliability}{10}{subsubsection.2.2.7}%
-\contentsline {section}{\numberline {3}Avro}{11}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Schema}{11}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}Descrizione}{11}{subsubsection.3.1.1}%
-\contentsline {paragraph}{Input:}{11}{section*.21}%
-\contentsline {subsubsection}{\numberline {3.1.2}Category Partition}{11}{subsubsection.3.1.2}%
-\contentsline {paragraph}{name}{11}{section*.22}%
-\contentsline {paragraph}{doc}{11}{section*.23}%
-\contentsline {paragraph}{namespace}{12}{section*.24}%
-\contentsline {paragraph}{isError}{12}{section*.25}%
-\contentsline {paragraph}{fields}{12}{section*.26}%
-\contentsline {subsubsection}{\numberline {3.1.3}Boundary Analysis}{12}{subsubsection.3.1.3}%
-\contentsline {paragraph}{name}{12}{section*.27}%
-\contentsline {paragraph}{doc}{12}{section*.28}%
-\contentsline {paragraph}{namespace}{12}{section*.29}%
-\contentsline {paragraph}{isError}{12}{section*.30}%
-\contentsline {paragraph}{fields}{13}{section*.31}%
+\contentsline {subsubsection}{\numberline {2.2.7}Reliability}{12}{subsubsection.2.2.7}%
+\contentsline {section}{\numberline {3}Avro}{12}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Schema}{12}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Descrizione}{12}{subsubsection.3.1.1}%
+\contentsline {paragraph}{Input:}{12}{section*.26}%
+\contentsline {paragraph}{Output:}{12}{section*.27}%
+\contentsline {subsubsection}{\numberline {3.1.2}Category Partition}{13}{subsubsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.3}Boundary Analysis}{13}{subsubsection.3.1.3}%
 \contentsline {subsubsection}{\numberline {3.1.4}Adequacy Control Flow}{13}{subsubsection.3.1.4}%
-\contentsline {subsubsection}{\numberline {3.1.5}Adequacy Data Flow}{13}{subsubsection.3.1.5}%
+\contentsline {subsubsection}{\numberline {3.1.5}Adequacy Data Flow}{14}{subsubsection.3.1.5}%
 \contentsline {subsubsection}{\numberline {3.1.6}Mutation Testing}{14}{subsubsection.3.1.6}%
 \contentsline {subsubsection}{\numberline {3.1.7}Reliability}{14}{subsubsection.3.1.7}%
-\contentsline {subsection}{\numberline {3.2}Classe 2}{15}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.2}SchemaCompatibility}{15}{subsection.3.2}%
 \contentsline {subsubsection}{\numberline {3.2.1}Descrizione}{15}{subsubsection.3.2.1}%
 \contentsline {subsubsection}{\numberline {3.2.2}Category Partition}{15}{subsubsection.3.2.2}%
 \contentsline {subsubsection}{\numberline {3.2.3}Boundary Analysis}{15}{subsubsection.3.2.3}%

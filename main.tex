@@ -11,6 +11,8 @@
 \usepackage{listings}
 \usepackage{hyperref}
 \usepackage{amsmath, amssymb}
+\usepackage{multirow}
+\usepackage{arydshln}
 \hypersetup{
     colorlinks=true,     % Abilita i collegamenti colorati
     linkcolor=black,      % Colore dei collegamenti interni
@@ -39,10 +41,10 @@
 
 \section{Bookkeeper}
 \subsection{Journal}
+
 \subsubsection{Descrizione}
 Path: org.apache.bookkeeper.bookie.Journal.java \\
-
-\paragraph{listJournalIds}
+\textbf{listJournalIds}
 Lists all journal IDs filtered by a specified journal ID filter.
 
 This method scans the given directory containing journal log files and extracts
@@ -59,6 +61,27 @@ IDs present in the directory are returned.
     list of filtered ids
 
 \subsubsection{Category Partition}
+
+La category partition del metodo listJournalIds è descritta nella tabella \ref{tab:categoryPartitionListJournalIds}.
+
+\begin{table}[ht]
+  \centering
+  \caption[Journal: Category Partition]{Category Partition metodo listJournalIds}
+  \begin{tabular}{|l|l|}
+  \hline
+  \multicolumn{1}{|c|}{journalDir} & \multicolumn{1}{|c|}{JournalIdFilter} \\
+  \hline
+  \{Directory contenente file di log\} & Filtro esistente \\
+  \{Directory contenente file di log e altri file\} & Filtro sempre True \\
+  \{Directory contenente file non di log\} & Filtro sempre False \\
+  \{path non esistente\} & Filtro inesistente \\
+  \{Path di un file\} & null \\
+  null & \\
+  \hline
+  \end{tabular}
+  \label{tab:categoryPartitionListJournalIds}
+\end{table}
+
 \paragraph{journalDir}
 \begin{itemize}
   \item \{Directory contenente file di log\}
@@ -80,6 +103,8 @@ una conseguenza del fatto che il metodo lavora su file di log.
     \item Filtro inesistente
     \item null
 \end{itemize}
+
+
 
 \subsubsection{Boundary Analysis}
 Andiamo a definire per ogni partizione i Boundary values
@@ -120,7 +145,7 @@ si finirebbe probabilemente per avere molti test non rilevanti e vanno a coprire
 Codice sorgente di JournalTest (Figura \ref{fig:code1})
 
 \subsubsection{Adequacy Control Flow}
-Ora per verificare l'adeguatezza dei casi di test, vado a definire dei critedi di adeguatezza. \\ \\
+Ora per verificare l'adeguatezza dei casi di test, vado a definire dei critedi di adeguatezza. \\
 \textbf{Criteri di adeguatezza black box}
 \paragraph{} 
 documentazione a disposizione:  \\
@@ -133,10 +158,9 @@ javadoc:
 * @param filter journal id filter
 * @return list of filtered ids
 */
-\end{verbatim}
-
- documentazione apache:
- Journals
+\end{verbatim} 
+Documentazione apache: \\
+Journals
 A journal file contains BookKeeper transaction logs. 
 Before any update to a ledger takes place, the bookie ensures that a transaction describing 
 the update is written to non-volatile storage. A new journal file is created once the bookie 
@@ -189,14 +213,14 @@ Arco (3,4)  -\> Tutti i test che hanno almeno un file di log e un filtro non nul
 
 
 Ora andiamo a valutare la coverage ottenuta con jacoco con i casi di test definiti
-fino ad ora (Figura \ref{fig:JacocoCoveragelistJournalIds1.png})
+fino ad ora (Figura \ref{fig:listJournalIds_jacoco})
 
-Come si può vedere dalla figura \ref{fig:JacocoCoveragelistJournalIds1.png},
+Come si può vedere dalla figura \ref{fig:listJournalIds_jacoco},
 la statement coverage è del 100\% (colonna missed instruction), 
 e quindi tutte le linee di codice del metodo sono state eseguite. \\
 Invece la condition coverage (colonna missed branches) e del 83\%, ed è quindi migliorabile.
 Andando a vedere in dettaglio il report, si può notare che una condizione che non è stata coperta
-è una delle 4 combinazioni dell'if a riga 106 come si vede dalla figura \ref{fig:MissedBranchListJournalIds.png}
+è una delle 4 combinazioni dell'if a riga 106 come si vede dalla figura \ref{fig:listJournalIds_jacoco2}
 \\
 La condizione presa in esame è la seguente:
 \begin{verbatim}
@@ -211,7 +235,7 @@ Per farlo andiamo semplicemente basta aggiungere un category partition che copre
 (Tabella \ref{tab:ACF3ListJournalIds})
 
 Ora quindi l'insieme dei test è quello mostrato nella tabella \ref{tab:ACF4ListJournalIds}, 
-e grazie a questo test la condition coverage è salita al 91\% (Figura \ref{fig:JacocoCoveragelistJournalIds2.png}),
+e grazie a questo test la condition coverage è salita al 91\% (Figura \ref{fig:listJournalIds_jacoco3}),
 con un aumento del 8%.
 
  \subsubsection{Adequacy Data Flow}
@@ -388,12 +412,17 @@ Codice implementato Figura \ref{fig:Code1ReadHeader}
 
 Andando ad eseguire questi test molti di questi falliscono (Figura \Ref{fig:TestFailsReadHeader}), andiamo a documentare perchè reputo 
 dei bug i fallimenti di questi test.
+\begin{figure}
+  \includegraphics[width=\linewidth]{./images/file_info/TestFailsReadHeader.png}
+  \caption{Fallimento test readHeader}
+  \label{fig:TestFailsReadHeader}
+\end{figure}
 
-Il primo test che fallisce è il secondo. Fallisce perchè ho ritenuto opportuno che se il campo dell'header 
+Il primo test che fallisce è il numero 1. Fallisce perchè ho ritenuto opportuno che se il campo dell'header 
 che indica la lunghezza della master key mandi un eccezione nel caso in cui non coincida con la lunghezza effettiva 
 della masterkey inserita, invece il metodo non si accorge di niente.
-Anche il terzo e il quinto test falliscono per la stessa motivazione. 
-Invece per quanto riguarda il quarto test, questo fallisce perchè ritorna un eccezione anche se non dovrebbe. 
+Anche i test 2 e 5 falliscono per la stessa motivazione. 
+Invece per quanto riguarda il test 3, questo fallisce perchè ritorna un eccezione anche se non dovrebbe. 
 L'eccezione descrive il fatto che -1 non è una lunghezza accettata per la masterkey, tuttavia nella documentazione è
 esplecitamente specificato che -1 indica il fatto che non viene specificata nessuna master key, esattamente come viene 
 fatto nel caso di test considerato.
@@ -430,11 +459,16 @@ analysis su questo parametro ottengo i seguenti valori:
   \item \{ \textless 0 \} = -1
 \end{itemize}
 
-La test suite ora è composta in questo modo: (Tabella \ref{tab:ACF1ReadHeader2})
+La test suite ora è composta in questo modo: (Tabella \ref{tab:TestSuiteReadHeader2})
 
 Grazie a questo incremento la statement coverage è salita al 82\%
 e la condition coverage al 77\% (Figura \ref{fig:JacocoCoveragereadHeader3})
 
+\begin{figure}
+  \includegraphics[width=\linewidth]{./images/file_info/JacocoCoveragereadHeader3.png}
+  \caption{Jacoco coverage readHeader}
+  \label{fig:JacocoCoveragereadHeader3}
+\end{figure}
 
 \subsubsection{Adequacy Data Flow}
 
@@ -464,8 +498,26 @@ Come si può vedere dalla Figura \ref{fig:PitCoverageReadHeader1} la mutation co
 Se invece andiamo a vedere in dettaglio il metodo readHeader (Figura \Ref{fig:PitCoverageReadHeader2}), la mutation coverage è 
 \[\frac{{Mutazioni rilevate}}{{Mutazioni totali}} = \frac{{15}}{{16}} = 0.93\]
 
+\begin{figure}
+  \includegraphics[width=\linewidth]{./images/file_info/PitCoverageReadHeader1.png}
+  \caption{Pit coverage}
+  \label{fig:PitCoverageReadHeader1}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{./images/file_info/PitCoverageReadHeader2.png}
+  \caption{Pit coverage}
+  \label{fig:PitCoverageReadHeader2}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{./images/file_info/PitCoverageReadHeader3.png}
+  \caption{Pit coverage}
+  \label{fig:PitCoverageReadHeader3}
+\end{figure}
+
 Prendiamo in considerazione per migliorare la test suite la mutazione non rilveata a riga 235. 
-La mutazione (Figura \ref{fig:PitMutationReadHeader3}) trasforma il \textgreater in \textgreater=.
+La mutazione (Figura \ref{fig:PitCoverageReadHeader3}) trasforma il \textgreater in \textgreater=.
 
 Per risolvere il problema basterebbe passare come lunghezza della master key un valore che equivale al numero di byte rimanenti
 del file. In questo modo la mutazione verrebbe rilevata perchè si riuscirebbe a distinguere il caso in cui è > da quello in cui
@@ -502,100 +554,34 @@ The usage of these bindings requires your applications to use the Avro data form
 stored value is associated with a schema. 
 
 Ho deciso di prendere in considerazione il metodo createRecord() che si occupa di creare uno schema di tipo record.
-\paragraph{Input:}
-\begin{itemize}
-  \item name
-  \item doc
-  \item namespace
-  \item isError
-  \item fields
-\end{itemize}
+\paragraph{Input:} name, doc, namespace, isError, fields
 
-Output: Schema
+\paragraph{Output:} Schema
 
 \subsubsection{Category Partition}
 
-\paragraph{name}
-\begin{itemize}
-  \item \{null\} : Nella documentazione è specificato che il nome è obbligatorio, quindi è importante testare il caso sia null per vedere se è correttamente gestito
-  \item \{stringa vuota\}
-  \item \{stringa non vuota\}
-\end{itemize}
-
-\paragraph{doc}
-\begin{itemize}
-  \item \{null\} : Nella documentazione è specificato che il campo è opzionale
-  \item \{stringa generica\}
-\end{itemize}
-
-\paragraph{namespace}
-\begin{itemize}
-  \item \{null\} : Nella documentazione è specificato che il campo è opzionale
-  \item \{stringa vuota\}
-  \item \{stringa non vuota\}
-\end{itemize}
-
-\paragraph{isError}
-\begin{itemize}
-  \item \{true\}
-  \item \{false\}
-\end{itemize}
-
-\paragraph{fields}
-\begin{itemize}
-  \item \{null\} : Nella documentazione è specificato che il campo è obbligatorio
-  \item \{array vuoto\}
-  \item \{array con un solo elemento\}
-  \item \{array con più elementi\}
-\end{itemize}
 
 
+La category partition del metood createRecord è descritta nella tabella \ref{tab:categoryPartitionCreateRecord}.
+Il campo name rappresenta il nome dello schema e siccome è obbligatorio ho partizionato in modo da testare questa caratteristica.
+Stessa discorso ma speculare vale per il campo doc e namespace, dato che sono descritti come opzionali 
+quindi andranno testati in maniera differente.
+Per quanto riguarda il campo isError, esso non è descritto nella documentazione, quindi essendo un campo booleano
+ho deciso di partizionarlo in modo da testare entrambi i valori.
+
+Il campo fields essendo un vettore di elementi, ho deciso di partizionarlo in modo da testare i casi in cui il vettore
+è vuoto, contiene un solo elemento e contiene più di un elemento. Ho deciso di non addentrarmi nella specifica di 
+questi elementi, in quanto sarebbe fuori contesto nell'analisi di questo unit test.
 \subsubsection{Boundary Analysis}
 
-\paragraph{name}
-\begin{itemize}
-  \item \{null\} 
-  \item \{""\}
-  \item \{"test"\}
-\end{itemize}
-
-\paragraph{doc}
-\begin{itemize}
-  \item \{null\} 
-  \item \{"test"\}
-\end{itemize}
-
-\paragraph{namespace}
-\begin{itemize}
-  \item \{null\} 
-  \item \{""\}
-  \item \{"test"\}
-\end{itemize}
-
-\paragraph{isError}
-\begin{itemize}
-  \item \{true\}
-  \item \{false\}
-\end{itemize}
-
-\paragraph{fields}
-\begin{itemize}
-  \item \{null\} 
-  \item \{[]\}
-  \item \{[field]\}
-  \item \{[field1, field2]\}
-\end{itemize}
-
-Test suite Tabella \ref{tab:categoryPartition1CreateRecord}.
-
-Il motivo per cui il 3 e 4 test devono restituire una eccezione è perchè nella documentazione è specificato che
+La Boundary Analysis è descritta nella tabella \ref{tab:BoundaryAnalysisCreateRecord}. 
+Da essa ricavo la test suite (Tabella \ref{tab:categoryPartition1CreateRecord}).
+Il motivo per cui i test 3 e 4 devono restituire una eccezione è perchè nella documentazione è specificato che
 il campo name è obbligatorio, e quindi se non viene specificato deve essere lanciata una eccezione.
 Invece il motivo per cui il 5 e 6 test devono restituire una eccezione è perchè nella documentazione è specificato che
 fields è obbligatorio, e quindi se non viene specificato deve essere lanciata una eccezione. \\
-
 Come si vede dall'immagine \ref{fig:TestFailsCreateRecord} i test 4 e 6 falliscono. Significa che il metodo non si accorge
 che il campo name e fields non sono stati specificati. 
-
 Vado a modificare i due metodi facendoli passare (anche se non dovrebbero) per poter andare avanti con l'analisi e 
 per non falsare i dati di coverage calcolati dai framework.
 
@@ -616,12 +602,13 @@ Quindi per migliorare i miei casi di test andrò ad analizzare principalemente i
 Data la situazione in Figura \ref{fig:JacocoCoverageCreateRecord4} vado ad incrementare l'adeguatezza dei casi di test
 andando a coprire il caso in cui il field ha il campo position = -1. Per farlo dato che per farlo controllava questo branch 
 tramite un attributo privato ho fatto in modo di settare questo attributo a -1 tramite reflection.
-Quindi ho aggiunto un caso di test che copre questo caso nella test suite (Tabella \ref{tab:ACF1CreateRecord}).
+Quindi ho aggiunto un caso di test che copre questo caso nella test suite (Tabella \ref{tab:Jacoco1CreateRecord}).
 
 Con questo incremento ho ottenuto una coverage del 70\% (Figura \ref{fig:JacocoCoverageCreateRecord5}).
 
 
 \subsubsection{Adequacy Data Flow}
+
 Vado ora a fare un lavoro di adeguatezza del dataflow utilizzando il framework badua per calcolare la all-uses coverage. \\
 Dalla Figura \ref{fig:BaduaCoverageCreateRecord1} possiamo calcolare la all uses coverage. \\
 
@@ -638,7 +625,7 @@ Con questo incremento la all-uses coverage è salita al 93\% (Figura \ref{fig:Ba
 \subsubsection{Mutation Testing}
 
 Vado ora a fare un analisi delle mutazioni utilizzando il framework pitest. \\
-Come si può vedere dalla Figura \ref{fig:PitCoverageCreateRecord1} la mutation coverage è del 4\% in riferimento 
+Come si può vedere dalla Figura \ref{fig:PitMutationCreateRecord1} la mutation coverage è del 4\% in riferimento 
 all'intera classe. Se invece andiamo a vedere in dettaglio il metodo, possiamo lavorare con una mutation coverage 
 più a grana fine (Figura \ref{fig:PitMutationCreateRecord2}, \ref{fig:PitMutationCreateRecord3}, \ref{fig:PitMutationCreateRecord4}).
 In particolare posso calcolare questa mutation coverage come segue:
@@ -659,29 +646,67 @@ Considero come profili operazionali gli input della test suite sviluppata perch�
 e quindi sono la migliore rappresentazione a mia disposizione dei possibili input del sistema. Inoltre non ho documentazione che
 mi permette di concludere che un caso sia più o meno probabile di un altro e quindi li considero equiprobabili. Date queste 
 assunzioni nella mia test suite sono risultate 2 failure su un totale di 8 profili operazionali, quindi la reliability è del 75\%.
+\subsection{SchemaCompatibility}
 
-
-\subsection{Classe 2}
 \subsubsection{Descrizione}
+
+SchemaCompatibility \\
+Path: org.apache.avro.SchemaCompatibility.java \\
+
+Per testare questa classe mi concentrerò sul metodo esposto checkReaderWriterCompatibility che
+si occupa di verificare la compatibilità tra due schemi. \\
+Partiamo dalla definizione di compatibilità descritta dalla documentazione:
+
+
+/** * Evaluate the compatibility between a reader schema and a writer schema. A
+* reader and a writer schema are declared compatible if all datum instances of *
+the writer schema can be successfully decoded using the specified reader *
+schema. */
+
+Input: reader, writer
+Output: boolean. 
+
+
+In realtà il metodo java effettivo non ritorna un boolean ma un oggetto con una descrizione che segnala se è 
+compatibile o meno. Ma dato che il metodo in questione ha lo scopo semplicemente di identificare se due schemi sono compatibili
+ho deciso di interpretare il risultato come un booleano.
+
+
+
 \subsubsection{Category Partition}
+
+
+Data la descrizione di compatibilità data dalla documentazione ho interpretato che essa dipenda necessariamente dal tipo 
+associato allo schema. Quindi ho deciso di partizionare gli input basandomi su questo criterio. \\
+
+Nella documentazione è specificato che i tipi possono essere di due categorie, o primitivi o derivati.
+
+Reader: \{schema con tipo primitivo\}, \{Schema con tipo derivato\}
+
+Dato che il metodo confronta due schemi per controllare la loro compatibilità, ho ritenuto necessario che la category partition
+di uno dipenda dall'altro. In questo modo do importanza alla loro combinazione che ha più rilevanza ai fini del testing.
+
+Writer: \{Schema con tipo uguale al reader\}, \{Schema con tipo diverso dal reader\}
+
+
 \subsubsection{Boundary Analysis}
+
+Reader: \{Schema tipo int\}, \{Schema tipo record\}
+
+Writer: \{Schema stesso tipo di Reader\}, \{Schema diverso di Reader ma stessa categoria\}, \{Schema diverso da Reader ma categoria diversa\}
+  
+Test suite
+
+
 \subsubsection{Adequacy Control Flow}
+
 \subsubsection{Adequacy Data Flow}
+
 \subsubsection{Mutation Testing}
 
 
-
-
-
-
-
-
-
-
-
-
-
 %Tabelle Journal --------------------------------------------------------
+
 \begin{table}[ht]
   \centering
   \caption[Journal: Test Suite - Category Partition]{Test Suite derivante dalla category partition e dalla boundary analysis}
@@ -699,6 +724,8 @@ assunzioni nella mia test suite sono risultate 2 failure su un totale di 8 profi
   \end{tabular}
   \label{tab:categoryPartition1ListJournalIds}
 \end{table}
+
+
 
 \begin{table}[ht]
   \centering
@@ -788,7 +815,7 @@ journalDir & JournalIdFilter & Risultato Atteso \\
       {Directory con un log con id 2 e un log con id 1} & {Filtro sempre true} & [1, 2] \\
       \hline
     \end{tabular}
-    \label{tab:ADF1ListJournalIds}
+    \label{tab:ADF2ListJournalIds}
   \end{table}
 
 %Tabelle FileInfo --------------------------------------------------------
@@ -832,7 +859,7 @@ journalDir & JournalIdFilter & Risultato Atteso \\
     BKLE & new byte[1] & 1 & 0 & 1 & -1 & Exception \\
     \hline
   \end{tabular}
-  \label{tab:categoryPartition1ReadHeader2}
+  \label{tab:TestSuiteReadHeader2}
 \end{table}
 
 \begin{table}[ht]
@@ -860,6 +887,46 @@ journalDir & JournalIdFilter & Risultato Atteso \\
 
 
 %Tabelle CreateRecord --------------------------------------------------------
+
+\begin{table}[ht]
+  \centering
+  \caption[Schema - Category Partition]{Category Partition metodo createRecord}
+  \begin{tabular}{|l|l|l|l|l|}
+  \hline
+  \multicolumn{5}{|c|}{Category Partition CreateRecord}\\
+  \hline
+  \multicolumn{1}{|c|}{name} & \multicolumn{1}{|c|}{doc} & \multicolumn{1}{|c|}{namespace} & 
+  \multicolumn{1}{|c|}{isError} & \multicolumn{1}{|c|}{fields} \\
+  \hline
+  \{null\} & \{null\} & \{null\} & \{true\} & \{null\} \\
+  \{stringa vuota\} & \{stringa vuota\} & \{stringa vuota\} & \{false\} & \{array vuoto\} \\
+  \{stringa non vuota\} & \{stringa non vuota\} & \{stringa non vuota\} & & \{array 1 elemento\} \\
+  & & & & \{array \textgreater 1 elementi\} \\
+  \hline
+  \end{tabular}
+  \label{tab:categoryPartitionCreateRecord}
+\end{table}
+
+\begin{table}[ht]
+  \centering
+  \caption[Schema - Category Partition]{Category Partition metodo createRecord}
+  \begin{tabular}{|l|l|l|l|l|}
+  \hline
+  \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{doc}} & \multicolumn{1}{|c|}{\textbf{namespace}} & 
+  \multicolumn{1}{|c|}{\textbf{isError}} & \multicolumn{1}{|c|}{\textbf{fields}} \\
+  \hline
+  null & null & null & true & null \\
+  \hdashline[4pt/2pt]
+  " " & " " & " " & false & [] \\
+  \hdashline[4pt/2pt]
+  "test" & "test" & "test" & & [field] \\
+  \hdashline[4pt/2pt]
+  & & & & [field1, field2] \\
+  \hline
+  \end{tabular}
+  \label{tab:BoundaryAnalysisCreateRecord}
+\end{table}
+
 \begin{table}[ht]
   \centering
   \caption[CreateRecord: Test Suite - Category partition]{Test Suite derivante dalla category partition e dalla boundary analysis}
@@ -1037,12 +1104,16 @@ journalDir & JournalIdFilter & Risultato Atteso \\
     \caption{Codice sorgente di FileInfoTest}
     \label{fig:Code1ReadHeader}
   \end{figure}
+  
+  
 
   \begin{figure}
     \includegraphics[width=\linewidth]{./images/file_info/JacocoCoveragereadHeader2.png}
     \caption{Jacoco coverage readHeader}
     \label{fig:JacocoCoveragereadHeader2}
   \end{figure}
+
+  
 
   \begin{figure}
     \includegraphics[width=\linewidth]{./images/file_info/BaduaCoverageReadHeader1.png}
@@ -1067,6 +1138,8 @@ journalDir & JournalIdFilter & Risultato Atteso \\
     \caption{Badua coverage readHeader after test update}
     \label{fig:BaduaCoverageReadHeader4}
   \end{figure}
+
+
 
   \begin{figure}
     \includegraphics[width=\linewidth]{./images/create_record/TestFailsCreateRecord.png}
@@ -1119,13 +1192,13 @@ journalDir & JournalIdFilter & Risultato Atteso \\
   \begin{figure}
     \includegraphics[width=\linewidth]{./images/create_record/PitCoverage1.png}
     \caption{PitCoverage}
-    \label{fig:PitCoverageCreateRecord1}
+    \label{fig:PitMutationCreateRecord1}
   \end{figure}
 
   \begin{figure}
     \includegraphics[width=\linewidth]{./images/create_record/PitCoverage2.png}
     \caption{Mutazioni rilevate da Pitest}
-    \label{fig:PitCoverageCreateRecord2}
+    \label{fig:PitMutationCreateRecord2}
   \end{figure}
 
   \begin{figure}
