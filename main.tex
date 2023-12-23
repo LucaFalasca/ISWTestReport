@@ -32,7 +32,7 @@
 
 \listoffigures
 \listoftables
-\maxdeadcycles=200
+\maxdeadcycles=600
 
 \thispagestyle{empty}
 \newpage
@@ -64,23 +64,7 @@ IDs present in the directory are returned.
 
 La category partition del metodo listJournalIds è descritta nella tabella \ref{tab:categoryPartitionListJournalIds}.
 
-\begin{table}[ht]
-  \centering
-  \caption[Journal: Category Partition]{Category Partition metodo listJournalIds}
-  \begin{tabular}{|l|l|}
-  \hline
-  \multicolumn{1}{|c|}{journalDir} & \multicolumn{1}{|c|}{JournalIdFilter} \\
-  \hline
-  \{Directory contenente file di log\} & Filtro esistente \\
-  \{Directory contenente file di log e altri file\} & Filtro sempre True \\
-  \{Directory contenente file non di log\} & Filtro sempre False \\
-  \{path non esistente\} & Filtro inesistente \\
-  \{Path di un file\} & null \\
-  null & \\
-  \hline
-  \end{tabular}
-  \label{tab:categoryPartitionListJournalIds}
-\end{table}
+
 
 \paragraph{journalDir}
 \begin{itemize}
@@ -412,11 +396,7 @@ Codice implementato Figura \ref{fig:Code1ReadHeader}
 
 Andando ad eseguire questi test molti di questi falliscono (Figura \Ref{fig:TestFailsReadHeader}), andiamo a documentare perchè reputo 
 dei bug i fallimenti di questi test.
-\begin{figure}
-  \includegraphics[width=\linewidth]{./images/file_info/TestFailsReadHeader.png}
-  \caption{Fallimento test readHeader}
-  \label{fig:TestFailsReadHeader}
-\end{figure}
+
 
 Il primo test che fallisce è il numero 1. Fallisce perchè ho ritenuto opportuno che se il campo dell'header 
 che indica la lunghezza della master key mandi un eccezione nel caso in cui non coincida con la lunghezza effettiva 
@@ -464,11 +444,7 @@ La test suite ora è composta in questo modo: (Tabella \ref{tab:TestSuiteReadHea
 Grazie a questo incremento la statement coverage è salita al 82\%
 e la condition coverage al 77\% (Figura \ref{fig:JacocoCoveragereadHeader3})
 
-\begin{figure}
-  \includegraphics[width=\linewidth]{./images/file_info/JacocoCoveragereadHeader3.png}
-  \caption{Jacoco coverage readHeader}
-  \label{fig:JacocoCoveragereadHeader3}
-\end{figure}
+
 
 \subsubsection{Adequacy Data Flow}
 
@@ -498,23 +474,7 @@ Come si può vedere dalla Figura \ref{fig:PitCoverageReadHeader1} la mutation co
 Se invece andiamo a vedere in dettaglio il metodo readHeader (Figura \Ref{fig:PitCoverageReadHeader2}), la mutation coverage è 
 \[\frac{{Mutazioni rilevate}}{{Mutazioni totali}} = \frac{{15}}{{16}} = 0.93\]
 
-\begin{figure}
-  \includegraphics[width=\linewidth]{./images/file_info/PitCoverageReadHeader1.png}
-  \caption{Pit coverage}
-  \label{fig:PitCoverageReadHeader1}
-\end{figure}
 
-\begin{figure}
-  \includegraphics[width=\linewidth]{./images/file_info/PitCoverageReadHeader2.png}
-  \caption{Pit coverage}
-  \label{fig:PitCoverageReadHeader2}
-\end{figure}
-
-\begin{figure}
-  \includegraphics[width=\linewidth]{./images/file_info/PitCoverageReadHeader3.png}
-  \caption{Pit coverage}
-  \label{fig:PitCoverageReadHeader3}
-\end{figure}
 
 Prendiamo in considerazione per migliorare la test suite la mutazione non rilveata a riga 235. 
 La mutazione (Figura \ref{fig:PitCoverageReadHeader3}) trasforma il \textgreater in \textgreater=.
@@ -695,7 +655,7 @@ Reader: \{Schema tipo int\}, \{Schema tipo record\}
 
 Writer: \{Schema stesso tipo di Reader\}, \{Schema diverso di Reader ma stessa categoria\}, \{Schema diverso da Reader ma categoria diversa\}
   
-Test suite
+Test suite (Tabella \ref{tab:TestSuiteSchemaCompatibility})
 
 
 \subsubsection{Adequacy Control Flow}
@@ -703,9 +663,27 @@ Test suite
 \subsubsection{Adequacy Data Flow}
 
 \subsubsection{Mutation Testing}
-
+\newpage
 
 %Tabelle Journal --------------------------------------------------------
+
+\begin{table}[ht]
+  \centering
+  \caption[Journal: Category Partition]{Category Partition metodo listJournalIds}
+  \begin{tabular}{|l|l|}
+  \hline
+  \multicolumn{1}{|c|}{journalDir} & \multicolumn{1}{|c|}{JournalIdFilter} \\
+  \hline
+  \{Directory contenente file di log\} & Filtro esistente \\
+  \{Directory contenente file di log e altri file\} & Filtro sempre True \\
+  \{Directory contenente file non di log\} & Filtro sempre False \\
+  \{path non esistente\} & Filtro inesistente \\
+  \{Path di un file\} & null \\
+  null & \\
+  \hline
+  \end{tabular}
+  \label{tab:categoryPartitionListJournalIds}
+\end{table}
 
 \begin{table}[ht]
   \centering
@@ -1008,10 +986,28 @@ journalDir & JournalIdFilter & Risultato Atteso \\
    \\$\ast$Field3 è un field con position = -1
   \label{tab:PitCreateRecord1}
 \end{table}
+
+
+%Tabelle SchemaCompatibility --------------------------------------------------------
+
+\begin{table}[ht]
+  \centering
+  \caption[SchemaCompatibility: Test Suite - Category Partition]{Test Suite derivante dalla category partition e dalla boundary analysis}
+  \begin{tabular}{|c|c|c|}
+    \hline
+    Reader & Writer & Valore atteso \\
+    \hline
+    Schema tipo int & Schema tipo int & True \\
+    Schema tipo Record & Schema tipo int & False \\
+    Schema tipo int & Schema tipo String & False \\
+    \hline
+  \end{tabular}
+  \label{tab:TestSuiteSchemaCompatibility}
+\end{table}
   
 
 %Figure Journal --------------------------------------------------------
-
+  \clearpage
   \begin{figure}
     \centering
     \begin{subfigure}[a]{0.4\linewidth}
@@ -1086,8 +1082,6 @@ journalDir & JournalIdFilter & Risultato Atteso \\
     \label{fig:PitMutation1}
   \end{figure}
 
-
-
   \begin{figure}
     \includegraphics[width=\linewidth]{./images/journal/code2.png}
     \caption{Codice sorgente di JournalTest aggiornato con il mock}
@@ -1104,8 +1098,12 @@ journalDir & JournalIdFilter & Risultato Atteso \\
     \caption{Codice sorgente di FileInfoTest}
     \label{fig:Code1ReadHeader}
   \end{figure}
-  
-  
+
+  \begin{figure}
+    \includegraphics[width=\linewidth]{./images/file_info/TestFailsReadHeader.png}
+    \caption{Fallimento test readHeader}
+    \label{fig:TestFailsReadHeader}
+  \end{figure}  
 
   \begin{figure}
     \includegraphics[width=\linewidth]{./images/file_info/JacocoCoveragereadHeader2.png}
@@ -1113,7 +1111,11 @@ journalDir & JournalIdFilter & Risultato Atteso \\
     \label{fig:JacocoCoveragereadHeader2}
   \end{figure}
 
-  
+  \begin{figure}
+    \includegraphics[width=\linewidth]{./images/file_info/JacocoCoveragereadHeader3.png}
+    \caption{Jacoco coverage readHeader}
+    \label{fig:JacocoCoveragereadHeader3}
+  \end{figure}
 
   \begin{figure}
     \includegraphics[width=\linewidth]{./images/file_info/BaduaCoverageReadHeader1.png}
@@ -1139,7 +1141,23 @@ journalDir & JournalIdFilter & Risultato Atteso \\
     \label{fig:BaduaCoverageReadHeader4}
   \end{figure}
 
-
+  \begin{figure}
+    \includegraphics[width=\linewidth]{./images/file_info/PitCoverageReadHeader1.png}
+    \caption{Pit coverage}
+    \label{fig:PitCoverageReadHeader1}
+  \end{figure}
+  
+  \begin{figure}
+    \includegraphics[width=\linewidth]{./images/file_info/PitCoverageReadHeader2.png}
+    \caption{Pit coverage}
+    \label{fig:PitCoverageReadHeader2}
+  \end{figure}
+  
+  \begin{figure}
+    \includegraphics[width=\linewidth]{./images/file_info/PitCoverageReadHeader3.png}
+    \caption{Pit coverage}
+    \label{fig:PitCoverageReadHeader3}
+  \end{figure}
 
   \begin{figure}
     \includegraphics[width=\linewidth]{./images/create_record/TestFailsCreateRecord.png}
@@ -1212,7 +1230,7 @@ journalDir & JournalIdFilter & Risultato Atteso \\
     \caption{Mutazioni rilevate da Pitest}
     \label{fig:PitMutationCreateRecord4}
   \end{figure}
-
+  \clearpage
   \begin{figure}
     \includegraphics[width=\linewidth]{./images/create_record/PitCoverage5.png}
     \caption{Mutazione in considerazione}
