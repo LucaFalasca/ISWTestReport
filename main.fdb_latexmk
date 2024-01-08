@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1703176977 "/home/luca-fedora/Documents/latex/main.tex" "main.pdf" "main" 1703176979 0
-  "/home/luca-fedora/Documents/latex/main.tex" 1703176974 55883 085c44912ee98769db40562346a5d6e0 ""
+["pdflatex"] 1704726869 "/home/luca-fedora/Documents/latex/main.tex" "main.pdf" "main" 1704726871 0
+  "/home/luca-fedora/Documents/latex/main.tex" 1704726866 59445 7bf64af8b021613c555323006a9be4cc ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1689984000 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/helvetic/phvb7t.tfm" 1136768653 2240 eb56c13537f4d8a0bd3fafc25572b1bd ""
@@ -156,12 +156,16 @@
   "images/journal/code1.png" 1693925385 193797 1dc0a5517f009347bd90661767dda73b ""
   "images/journal/code2.png" 1694164937 178104 89c8a41164370b23df2d94baffde2d61 ""
   "images/journal/listJournalIds.jpg" 1693403093 19958 6d68f2b2b0d55f8ae538dea20fe1a8d0 ""
-  "main.aux" 1703176979 21744 6b30a85f4df8130fb9c45f1921fa8f5c "pdflatex"
-  "main.lof" 1703176979 4481 b645d51a205567effa1212f466c45648 "pdflatex"
-  "main.lot" 1703176979 2220 8ff8f7acbc2d07a485037a1bc69e20c8 "pdflatex"
-  "main.out" 1703176979 4790 3a21b057b03122ece2172f9a88875052 "pdflatex"
-  "main.tex" 1703176974 55883 085c44912ee98769db40562346a5d6e0 ""
-  "main.toc" 1703176979 4033 31c01408517cc980415644d0a6de54d8 "pdflatex"
+  "images/schema_compatibiity/BaduaCoverage1.png" 1704726852 144087 9d3e1ce90d8de0338a5f606af8769fc4 ""
+  "images/schema_compatibiity/JacocoCoverage1.png" 1703687793 71808 b171fadc90e7fc7b4cfc6d3ee5c41c10 ""
+  "images/schema_compatibiity/JacocoCoverage2.png" 1703687981 113201 69ce81e8c26048cd5fff2e4df598d02f ""
+  "images/schema_compatibiity/PitCoverage1.png" 1704726432 125416 3f81d73e49e7c2c7a04b8fef69975659 ""
+  "main.aux" 1704726871 22857 0076abd445f02dfb128f910cd846e540 "pdflatex"
+  "main.lof" 1704726871 4889 c80d2685d148d4eb328c34c63c194bbf "pdflatex"
+  "main.lot" 1704726871 2220 04dd02bbabf90b367099fb090472624d "pdflatex"
+  "main.out" 1704726871 4913 dddfdd4532e836b84b47a4847fc7f2f0 "pdflatex"
+  "main.tex" 1704726866 59445 7bf64af8b021613c555323006a9be4cc ""
+  "main.toc" 1704726871 4121 ca87c3a3c90a5896a1849e646b11dd68 "pdflatex"
   (generated)
   "main.aux"
   "main.lof"

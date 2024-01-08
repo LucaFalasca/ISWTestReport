@@ -657,13 +657,40 @@ Writer: \{Schema stesso tipo di Reader\}, \{Schema diverso di Reader ma stessa c
   
 Test suite (Tabella \ref{tab:TestSuiteSchemaCompatibility})
 
-
 \subsubsection{Adequacy Control Flow}
+Vado ora a valutare la coverage ottenuta con jacoco con i casi di test definiti.
+Dalla Figura \ref{fig:JacocoCoverageSchemaCompatibility1} si può vedere che la statement coverage della classe è del 37\%.
+Se osserviamo solo il metodo considerato la statement coverage è del 78\% e la condition coverage è del 66\%.
+Andando a vedere in maniera più specifica quali sono le parti non coperte (Figura \ref{fig:JacocoCoverageSchemaCompatibility2}),
+si può osservare che la parte non coperta è semplicemente il caso di default del costrutto switch.
+Tuttavia non è possibile scaturire nessun caso di test che copra questo caso, in quanto non è possibile che il metodo
+ritorni un valore diverso nell'implementazione corrente. Quindi sarebbe opportuno mockare qualche parte per permettere
+di esplorare questo scenario, tuttavia non è possibile mockare nulla perchè questo comportamento è descritto solamente
+tramite l'uso di variabili locali che non sono raggiungibili con i mock. Quindi non è possibile aumentare la coverage
+di questo metodo. \\
 
+Vado quindi a considerare la coverage senza la parte non raggiungibile dai casi di test, e quindi entrambe vanno a 100\%
 \subsubsection{Adequacy Data Flow}
+Andiamo ora a fare un lavoro di adeguatezza del dataflow utilizzando il framework badua per calcolare la all-uses coverage. \\
+Dalla Figura \ref{fig:BaduaCoverageSchemaCompatibility1} possiamo calcolare la all uses coverage. \\
+\(CU_c + PU_c = 12\) \\
+\( (CU + PU) - (CU\textsubscript{f} + PU\textsubscript{f}) = 12 + 3 = 15\) \\ \\
+\[\frac{{CU\textsubscript{c} + PU\textsubscript{c}}}{{(CU + PU) - (CU\textsubscript{f} + PU\textsubscript{f})}} = \frac{{11}}{{14}} = 0.8\]
 
+Tutte le coppie use-def non coperte fanno riferimento allo stessa riga non coperta dalla statement coverage, quindi
+per gli stessi motivi spiegati precedentemente anche la all-uses coverage è considerabile al 100\%
 \subsubsection{Mutation Testing}
+Vado ora a fare un analisi delle mutazioni utilizzando il framework pitest. \\
+Dalla Figura \ref{fig:PitMutationSchemaCompatibility1} si può vedere che la mutation coverage è del 100\% perchè
+pit ha generato una sola mutazione e questa è stata rilevata. \\
 \newpage
+
+\subsubsection{Reliability}
+Considero come profili operazionali gli input della test suite sviluppata perchè essi sono derivanti dalle classi di equivalenza
+e quindi sono la migliore rappresentazione a mia disposizione dei possibili input del sistema. Inoltre non ho documentazione che
+mi permette di concludere che un caso sia più o meno probabile di un altro e quindi li considero equiprobabili. Date queste 
+assunzioni e siccome questi test non rilevano nessuna failure del sistema, la reliability in questo caso è 1. Ciò, tuttavia,
+ non significa che non siano presenti bug che la mia test suite non è stata in grado di rilevare.
 
 %Tabelle Journal --------------------------------------------------------
 
@@ -1242,5 +1269,31 @@ journalDir & JournalIdFilter & Risultato Atteso \\
     \caption{Mutazione in considerazione coperta}
     \label{fig:PitMutationCreateRecord6}
   \end{figure}
+
+  \begin{figure}
+    \includegraphics[width=\linewidth]{./images/schema_compatibiity/JacocoCoverage1.png}
+    \caption{Coverage Jacoco}
+    \label{fig:JacocoCoverageSchemaCompatibility1}
+  \end{figure}
+
+  \begin{figure}
+    \includegraphics[width=\linewidth]{./images/schema_compatibiity/JacocoCoverage2.png}
+    \caption{Coverage Jacoco}
+    \label{fig:JacocoCoverageSchemaCompatibility2}
+  \end{figure}
+
+  \begin{figure}
+    \includegraphics[width=\linewidth]{./images/schema_compatibiity/BaduaCoverage1.png}
+    \caption{Coverage Badua}
+    \label{fig:BaduaCoverageSchemaCompatibility1}
+  \end{figure}
+
+  \begin{figure}
+    \includegraphics[width=\linewidth]{./images/schema_compatibiity/PitCoverage1.png}
+    \caption{Coverage Pit}
+    \label{fig:PitMutationSchemaCompatibility1}
+  \end{figure}
+
+
   
 \end{document}
