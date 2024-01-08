@@ -1029,6 +1029,16 @@ INPUT ./images/schema_compatibiity/PitCoverage1.png
 INPUT ./images/schema_compatibiity/PitCoverage1.png
 INPUT ./images/schema_compatibiity/PitCoverage1.png
 INPUT ./images/schema_compatibiity/PitCoverage1.png
+INPUT ./images/integration_test/IntegrationTest.png
+INPUT ./images/integration_test/IntegrationTest.png
+INPUT ./images/integration_test/IntegrationTest.png
+INPUT ./images/integration_test/IntegrationTest.png
+INPUT ./images/integration_test/IntegrationTest.png
+INPUT ./images/integration_test/FailsafeReport.png
+INPUT ./images/integration_test/FailsafeReport.png
+INPUT ./images/integration_test/FailsafeReport.png
+INPUT ./images/integration_test/FailsafeReport.png
+INPUT ./images/integration_test/FailsafeReport.png
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out

@@ -683,7 +683,7 @@ per gli stessi motivi spiegati precedentemente anche la all-uses coverage è con
 Vado ora a fare un analisi delle mutazioni utilizzando il framework pitest. \\
 Dalla Figura \ref{fig:PitMutationSchemaCompatibility1} si può vedere che la mutation coverage è del 100\% perchè
 pit ha generato una sola mutazione e questa è stata rilevata. \\
-\newpage
+
 
 \subsubsection{Reliability}
 Considero come profili operazionali gli input della test suite sviluppata perchè essi sono derivanti dalle classi di equivalenza
@@ -692,6 +692,15 @@ mi permette di concludere che un caso sia più o meno probabile di un altro e qu
 assunzioni e siccome questi test non rilevano nessuna failure del sistema, la reliability in questo caso è 1. Ciò, tuttavia,
  non significa che non siano presenti bug che la mia test suite non è stata in grado di rilevare.
 
+\subsection{IT Schema-SchemaResolver}
+Questa sezione descrive l'implementazione di un test di integrazione che utilizza le classi Schema e SchemaResolver.
+Il test in questione si occupa di verificare l'integrazione tra il metodo createRecord() della classe Schema (metodo già
+analizzato in precedenza) e il metodo unresolvedSchema() della classe SchemaResolver. \\
+Il test in questione va semplicemente ad utilizzare il metodo unresolvedSchema() che usa createRecord() per creare uno schema
+con delle caratteristiche particolarie e verifica che lo schema ritornato abbia effettivamente
+Codice implementato Figura \ref{fig:CodeIntegrationTest}.
+Il report di Failsafe mostra che l'integration test è andato a buon fine (Figura \ref{fig:ReportIntegrationTest}).
+\newpage
 %Tabelle Journal --------------------------------------------------------
 
 \begin{table}[ht]
@@ -1294,6 +1303,17 @@ journalDir & JournalIdFilter & Risultato Atteso \\
     \label{fig:PitMutationSchemaCompatibility1}
   \end{figure}
 
+  \begin{figure}
+    \includegraphics[width=\linewidth]{./images/integration_test/IntegrationTest.png}
+    \caption{Codice Integration Test}
+    \label{fig:CodeIntegrationTest}
+  \end{figure}
+
+  \begin{figure}
+    \includegraphics[width=\linewidth]{./images/integration_test/FailsafeReport.png}
+    \caption{Report Integration Test}
+    \label{fig:ReportIntegrationTest}
+  \end{figure}
 
   
 \end{document}
