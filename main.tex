@@ -38,13 +38,30 @@
 \newpage
 \setcounter{page}{1}
 \section{Introduction}
-
+Questa relazione descrive il lavoro di testing e di analisi di metriche di coverage
+ effettuati sui due progetti open source BookKeeper e Avro.
+Per ogni progetto sono state prese in considerazione due classi, e per ognuna di esse
+si è fatto un lavoro di stesura di casi di test per poi andare a valutare l'adeguatezza
+tramite diverse metriche di coverage. \\
+La struttura di ogni analisi è formata dai seguenti punti: 
+\begin{itemize}
+  \item Descrizione della classe e del metodo preso in considerazione
+  \item Category Partition
+  \item Boundary Analysis
+  \item Adequacy Control Flow
+  \item Adequacy Data Flow
+  \item Mutation Testing
+  \item Reliability
+\end{itemize} 
+Per ognuna delle fasi (ad eccezioni delle prime due), se ritenuto necessario, sono state effettuate delle modifiche
+alla test suite basate sulle metriche di coverage calcolate, in modo da migliorare l'adeguatezza dei casi di test.
 \section{Bookkeeper}
 \subsection{Journal}
 
 \subsubsection{Descrizione}
-Path: org.apache.bookkeeper.bookie.Journal.java \\
-\textbf{listJournalIds}
+\textbf{Path:} org.apache.bookkeeper.bookie.Journal.java \\
+\textbf{Metodo considerato:} listJournalIds \\ \\
+\textbf{Documentazione a disposizione:} \\
 Lists all journal IDs filtered by a specified journal ID filter.
 
 This method scans the given directory containing journal log files and extracts
