@@ -79,98 +79,34 @@ IDs present in the directory are returned.
 
 \subsubsection{Category Partition}
 
-La category partition del metodo listJournalIds è descritta nella tabella \ref{tab:categoryPartitionListJournalIds}.
-
-
-
-\paragraph{journalDir}
-\begin{itemize}
-  \item \{Directory contenente file di log\}
-  \item \{Directory contenente file di log e altri file\}
-  \item \{Directory contenente file non di log\}
-  \item \{path non esistente\}
-  \item \{Path di un file\}
-  \item null
-\end{itemize}
+La category partition del metodo listJournalIds è descritta nella tabella \ref{tab:categoryPartitionListJournalIds}. \\
 Siccome la variabile journalDir è il path di una directory, ho partizionato 
 il dominio in base al contenuto della directory e al suo effettivo utilizzo, rendendo la scelta delle partizioni 
 una conseguenza del fatto che il metodo lavora su file di log.
 
-\paragraph{JournalIdFilter}
-\begin{itemize}
-    \item Filtro esistente
-    \item Filtro sempre True
-    \item Filtro sempre False
-    \item Filtro inesistente
-    \item null
-\end{itemize}
-
-
-
 \subsubsection{Boundary Analysis}
-Andiamo a definire per ogni partizione i Boundary values
-
-\paragraph{journalDir}
-\begin{itemize}
-  \item \{Directory contenente 1 file di log\}
-  \item \{Directory contenente 1 file di log e 1 file di testo\}
-  \item \{Directory contenente 1 file di testo\}
-  \item \{path non esistente\}
-  \item \{Path di un file di log\}
-  \item null
-\end{itemize}
-
-\paragraph{JournalIdFilter}
-\begin{itemize}
-    \item JournalRollingFilter  -- Questo filtro è l'unico filtro esistente utilizzato nell'applicazione, 
-    tuttavia siccome viene utilizzato in un contesto molto specifico dell'applicazione e non è un filtro generico, l'ho rimpiazzato
-    con una sua versione semplificata più generale. Altrimenti non sarebbe stato adatto ad un test di unità, ma sarebbe stato 
-    più un test di integrazione
-    \item Filtro sempre True
-    \item Filtro sempre False
-    \item MyFilter -- Questo filtro è un filtro personalizzato creato appositamente per questo test che va a filtrare i journal
-    in base al loro nome, in particolare se il journalId è > 0 viene accettato, altrimenti no. 
-    Questo filtro ha lo scopo di testare come si comporta il sistema in caso di definizione di un nuovo filtro non già esistente 
-    nel sistema e quindi non è importante il tipo di filtraggio che fa.
-    \item null
-\end{itemize}
-
-\paragraph{}
-
+Andiamo a definire per ogni partizione i Boundary values. I valori scelti sono 
+descritti nella tabella \ref{tab:boundaryAnalyisListJournalIds}. \\ \\
+Per quanto riguarda il valore JournalRollingFilter, esso è l'unico filtro esistente utilizzato nell'applicazione, 
+tuttavia siccome viene utilizzato in un contesto molto specifico dell'applicazione e non è un filtro generico, l'ho rimpiazzato
+con una sua versione semplificata più generale. Altrimenti non sarebbe stato adatto ad un test di unità, ma sarebbe stato 
+più un test di integrazione. \\ \\
+Per quanto riguarda il valore MyFilter, esso è un filtro personalizzato creato appositamente per questo test che va a filtrare i journal
+in base al loro nome, in particolare se il journalId è \textgreater 0 viene accettato, altrimenti no. 
+Questo filtro ha lo scopo di testare come si comporta il sistema in caso di definizione di un nuovo filtro non già esistente 
+nel sistema e quindi non è importante il tipo di filtraggio che fa. \\ \\
 Siccome i due parametri di input sono abbastanza scorrelati tra loro ha più senso adottare un approccio 
 unidimensionale piuttosto che uno multidimensionale che sarebbe più adatto quando ci sono delle interazioni forti
 e che portano alla necessità di testare tutte le combinazioni tra i parametri. Inoltre avendo un approccio multidimensionale
 si finirebbe probabilemente per avere molti test non rilevanti e vanno a coprire scenari già coperti, e quindi sarebbero inutili.
-\\ Enumeriano ora i casi di test derivanti da quest prima analisi (Tabella \ref{tab:categoryPartition1ListJournalIds})
-
+\\ Enumeriano ora i casi di test derivanti da quest prima analisi (Tabella \ref{tab:categoryPartition1ListJournalIds}) \\ \\
 Codice sorgente di JournalTest (Figura \ref{fig:code1})
 
 \subsubsection{Adequacy Control Flow}
-Ora per verificare l'adeguatezza dei casi di test, vado a definire dei critedi di adeguatezza. \\
-\textbf{Criteri di adeguatezza black box}
-\paragraph{} 
-documentazione a disposizione:  \\
-javadoc:
-\begin{verbatim}
-/**
-* List all journal ids by a specified journal id filer.
-*
-* @param journalDir journal dir
-* @param filter journal id filter
-* @return list of filtered ids
-*/
-\end{verbatim} 
-Documentazione apache: \\
-Journals
-A journal file contains BookKeeper transaction logs. 
-Before any update to a ledger takes place, the bookie ensures that a transaction describing 
-the update is written to non-volatile storage. A new journal file is created once the bookie 
-starts or the older journal file reaches the journal file size threshold. \\
-
-Possiamo dedurre da queste documentazioni che questo metodo ricava gli id dei journal in una 
+Ora per verificare l'adeguatezza dei casi di test, vado a definire dei criteri di adeguatezza. 
+Dalla documentazione sappiamo che questo metodo ricava gli id dei journal in una 
 determinata cartella, filtrandoli in base ad un filtro specificato, se non viene specificato 
-nessun filtro, allora vengono restituiti tutti gli id dei journal presenti nella cartella.
-
+nessun filtro, allora vengono restituiti tutti gli id dei journal presenti nella cartella. \\
 La Figura \ref{fig:listJournalIdsCFG} mostra un diagrammma 
 funzionale del metodo listJournalIds.
 A partire da questo definisco i seguenti criteri di adeguatezza:
@@ -181,63 +117,44 @@ A partire da questo definisco i seguenti criteri di adeguatezza:
   \item almeno un test con almeno un journal nella cartella
 \end{itemize}
 In questo caso i criteri di adeguatezza sono già stati soddisfatti 
-dai casi di test precedentemente descritti. \\
-
-
-
+dai casi di test precedentemente descritti. \\ \\
 Dal diagramma precedente possiamo 
 ricavare un control flow graph (Figura \ref{fig:listJournalIdsCFG}), per poi
-utilizzare dei criteri di copertura basati sul control flow
-
-Dato che ho un approccio black box e quindi non sto utilizzando il codice sorgente per verificare l'adeguatezza dei casi di test,
-ipotizzo in base agli input se un caso di test andrà a coprire un certo arco del CFG o meno.
-Dato che in questa fase sto avendo un approccio black box, e quindi basato sulla funzionalità del metodo, 
-eviterò di utilizzare la coverage come parametro di adeguatezza, in quanto non è possibile ricavare
+utilizzare dei criteri di copertura basati sul control flow. \\
+Dato che in questa fase sto adottando un approccio black box e quindi non sto utilizzando il codice sorgente
+per verificare l'adeguatezza dei casi di test, ipotizzo in base agli input se un caso di test andrà a coprire
+un certo arco del CFG o meno. Per lo stesso motivo sto quindi basando questa parte dell'analisi esclusivamente sulla funzionalità del metodo, 
+e dunque eviterò di utilizzare la coverage come parametro di adeguatezza, in quanto non è possibile ricavare
 dall'output del metodo se un certo arco è stato coperto o meno, ma solo se il risultato è corretto oppure no.
 Quindi valuterò la copertura del CFG solo in una fase successiva, quando prenderò in considerazione
 anche il codice sorgente (approccio whitebox), utilizzando la coverage come parametro di adeguatezza.
 Quello che farò in questa fase è quindi valutare se i casi di test che ho definito in precedenza
 coprono tutti gli archi del CFG, in base alla mia conoscenza del metodo e dei suoi input, e nel caso
-aggiungere quelli mancanti.
-
-Arco (1,2)  $\rightarrow$ textgreater Tutti i test che hanno almeno un file di log coprono questo caso, quindi non è necessario aggiungere ulteriori test
-Arco (2,3)  - \> Tutti i test che hanno almeno un file di log e un filtro non null coprono questo caso, quindi non è necessario aggiungere ulteriori test
-Arco (2,4)  -\> 
-Questo arco non è coperto perchè manca un test che abbia almeno un file di log e il filtro null. Basta quindi aggiungere il 
-test necessario (Figura \ref{tab:ACF1ListJournalIds})
-
-
-Arco (3,4)  -\> Tutti i test che hanno almeno un file di log e un filtro non null coprono questo caso, quindi non è necessario aggiungere ulteriori test
-
-
-è stato necessario quindi aggiungere un caso di test e quindi la attuale test suite è descritta nella Tabella \Ref{tab:ACF2ListJournalIds}
-
-
-Ora andiamo a valutare la coverage ottenuta con jacoco con i casi di test definiti
-fino ad ora (Figura \ref{fig:listJournalIds_jacoco})
-
+aggiungere quelli mancanti. \\
+Arco (1,2)  $\rightarrow$  Tutti i test che hanno almeno un file di log coprono questo caso, quindi non è necessario aggiungere ulteriori test. \\
+Arco (2,3)  $\rightarrow$ Tutti i test che hanno almeno un file di log e un filtro non null coprono questo caso, quindi non è necessario aggiungere ulteriori test. \\
+Arco (2,4)  $\rightarrow$ Questo arco non è coperto perchè manca un test che abbia almeno un file di log e il filtro null. Basta quindi aggiungere il 
+test necessario (Figura \ref{tab:ACF1ListJournalIds}). \\
+Arco (3,4)  $\rightarrow$ Tutti i test che hanno almeno un file di log e un filtro non null coprono questo caso, quindi non è necessario aggiungere ulteriori test. \\ 
+È stato necessario quindi aggiungere un caso di test e quindi la attuale test suite è descritta nella Tabella \Ref{tab:ACF2ListJournalIds} \\ \\
+Ora andiamo a valutare la coverage ottenuta con jacoco con i casi di test definiti fino ad ora (Figura \ref{fig:listJournalIds_jacoco}). 
 Come si può vedere dalla figura \ref{fig:listJournalIds_jacoco},
 la statement coverage è del 100\% (colonna missed instruction), 
 e quindi tutte le linee di codice del metodo sono state eseguite. \\
 Invece la condition coverage (colonna missed branches) e del 83\%, ed è quindi migliorabile.
 Andando a vedere in dettaglio il report, si può notare che una condizione che non è stata coperta
-è una delle 4 combinazioni dell'if a riga 106 come si vede dalla figura \ref{fig:listJournalIds_jacoco2}
-\\
+è una delle 4 combinazioni dell'if a riga 106 come si vede dalla Figura \ref{fig:listJournalIds_jacoco2}.
 La condizione presa in esame è la seguente:
 \begin{verbatim}
 logFiles == null || logFiles.length == 0
 \end{verbatim}
-
-il branch mancato è quello dove logFiles == null, questo perchè se il parametro di input journalDir
- è null non esegue proprio il metodo listFiles().
-questo è dovuto al fatto che il path non era esistente e quindi il metodo tornava null.
+il branch mancato è quello dove logFiles == null, questo perchè se il parametro di input journalDir è null non esegue proprio il metodo listFiles().
+Questo è dovuto al fatto che il path non era esistente e quindi il metodo tornava null.
 Andiamo quindi a definire un caso di test che copra questo branch
 Per farlo andiamo semplicemente basta aggiungere un category partition che copre il caso di una cartella esistente ma vuota
-(Tabella \ref{tab:ACF3ListJournalIds})
-
-Ora quindi l'insieme dei test è quello mostrato nella tabella \ref{tab:ACF4ListJournalIds}, 
+(Tabella \ref{tab:ACF3ListJournalIds}). Ora quindi l'insieme dei test è quello mostrato nella tabella \ref{tab:ACF4ListJournalIds}, 
 e grazie a questo test la condition coverage è salita al 91\% (Figura \ref{fig:listJournalIds_jacoco3}),
-con un aumento del 8%.
+con un aumento del 8\%.
 
  \subsubsection{Adequacy Data Flow}
 
@@ -257,33 +174,28 @@ l'espressione booleana in cui è contentuto il comando. Per fare ciò basta aggi
 un altro id di journal dopo averne rifiutato uno. Effettivamente badua è servito a migliorare la qualità dei 
 test perchè nonostante la coverage
 coprisse già queste righe di codice non era stata in grado di intercettare la mancanza
-di test su questo comportamento. \\W
+di test su questo comportamento. \\
 Il caso di test è descritto nella Tabella \ref{tab:ADF1ListJournalIds}. Quello che ho fatto è creare una nuova
-cartella che contiene due file di log e un filtro con condizione >1, il primo dei due file viene rifiutato 
+cartella che contiene due file di log e un filtro con condizione \textgreater1, il primo dei due file viene rifiutato 
 e il secondo invece viene accettato. In questo modo il metodo dopo aver scartato il primo file di log, continua
 con la sua ricerca e trova il secondo file di log che viene accettato. In questo modo la coppia
-def-use sulla variabile filter viene coperta e la all uses coverage sale (Figura \Ref{fig:listJournalIds_badua2})
-
+def-use sulla variabile filter viene coperta e la all uses coverage sale (Figura \Ref{fig:listJournalIds_badua2}).
 Con questo caso di test vado a coprire anche l'altra coppia def-use che non era stata coperta.
 Questo succede perchè anche a lei mancava il caso in cui una volta che il filtro rifiutava un id il
 metodo continuava la sua ricerca e trovava un id successivo.
-
-Così la all-use coverage riesce a raggiungere il 100\% \\ 
-
-Inoltre come effetto secondario si può notare che anche
+Così la all-use coverage riesce a raggiungere il 100\%. Inoltre come effetto secondario si può notare che anche
 la condition coverage è salita al 100\% (Figura \ref{fig:listJournalIds_jacoco4})
 
 \subsubsection{Mutation Testing}
-Andiamo ora a fare un lavoro di adeguatezza utilizzando il framework pitest per calcolare la mutation coverage. \\
+Andiamo ora a fare un lavoro di adeguatezza utilizzando il framework pitest per calcolare la mutation coverage. 
 Come si può notare dalla Figura \ref{fig:listJournalIds_pitest} vengono rilevate tutte le mutazioni tranne 1.
 Quindi possiamo calcolare la mutation coverage come segue:
 \[\frac{{Mutazioni rilevate}}{{Mutazioni totali}} = \frac{{6}}{{7}} = 0.85\]
-
 Prendiamo in considerazione quindi la mutazione a riga 125, che non viene rilevata dalla test suite. Si tratta 
 di una mutazione che omette la riga che si occupa di ordinare la lista di file di log. \\
 
 Per aumentare la coverage vado quindi a modificare la test suite per coprire anche la mutazione a riga 125.
-Siccome la copertura manca perchè nei test correnti non viene mai ritornato un log con dimensione >1, e 
+Siccome la copertura manca perchè nei test correnti non viene mai ritornato un log con dimensione \textgreater1, e 
 quindi non c'è niente da ordinare. In particolare nel test che andrò ad aggiungere andrò a creare una cartella con 2 file
 di log che hanno id descrescente, in questo modo il metodo ordina i file di log e quindi la mutazione viene rilevata.
 Tuttavia ciò non è possibile perchè quando si vanno ad inserire dei file in una cartella essi vengono ordinati già in ordinare
@@ -297,12 +209,10 @@ Quindi ci sono due strade da poter percorrere:
   \item Ipotizzare che in futuro possa esserci un caso in cui la lista non è ordinata, dovuto ad un cambiamento del codice
   della libreria, oppure ad un sistema operativo diverso. Quindi andare a creare una situazione impossibile tramite mock per
   verificare questa eventualità.
-\end{itemize}
-
+\end{itemize} 
 Ho scelto di intraprendere la seconda strada perchè mi sembra la più manutenibile, vado quindi a mockare 
 il metodo listFiles\(\), in modo tale che una volta aver recuperato i file li vada a 
-ordinare in modo decrescente (Figura \ref{fig:code2}) \\
-
+ordinare in modo decrescente (Figura \ref{fig:code2}), in modo da simulare il comportamento non altrimenti possibile nelle condizioni attuali. \\
 Ora effettivamente la mutazione viene rilevata (Figura \ref{fig:listJournalIds_pitest}), e quindi la mutazione viene rilevata.
 Quindi tutte le mutazioni sono state rilevate e quindi la mutation coverage è del 100\% 
 
@@ -315,34 +225,10 @@ assunzioni e siccome questi test non rilevano nessuna failure del sistema, la re
 
 \subsection{FileInfo}
 \subsubsection{Descrizione}
-Path: org.apache.bookkeeper.bookie.EntryLoggerAllocator.java \\
-\begin{verbatim}
-/**
- * This is the file handle for a ledger's index file that maps entry ids to location.
- * It is used by LedgerCache.
- *
- * <p>
- * Ledger index file is made of a header and several fixed-length index pages, which records the offsets of data stored
- * in entry loggers
- * <pre>&lt;header&gt;&lt;index pages&gt;</pre>
- * <b>Header</b> is formated as below:
- * <pre>&lt;magic bytes&gt;&lt;len of master key&gt;&lt;master key&gt;</pre>
- * <ul>
- * <li>magic bytes: 4 bytes, 'BKLE', version: 4 bytes
- * <li>len of master key: indicates length of master key. -1 means no master key stored in header.
- * <li>master key: master key
- * <li>state: bit map to indicate the state, 32 bits.
- * </ul>
- * <b>Index page</b> is a fixed-length page, which contains serveral entries which point to the offsets of data stored
- * in entry loggers.
- * </p>
- */
-\end{verbatim}
-
-\paragraph{readHeader}
-Legge l'header di un ledger index file per verificarne la correttezza.
-Lancia una eccezione se l'header non è corretto, altrimenti non ritorna nulla.
-
+\textbf{Path:} org.apache.bookkeeper.bookie.EntryLoggerAllocator.java \\
+\textbf{Metodo considerato:} readHeader \\ 
+\textbf{Descrizione metodo:} Legge l'header di un ledger index file per verificarne la correttezza.
+Lancia una eccezione se l'header non è corretto, altrimenti non ritorna nulla.\\ \\
 Come input prende ovviamente il file di cui deve leggere l'header. Tuttavia per rendere la category partition più sensata
 vado a considerare l'input come le componenti di cui è formato l'header, ovvero:
 \paragraph{Input:}
@@ -353,68 +239,30 @@ vado a considerare l'input come le componenti di cui è formato l'header, ovvero
 \end{itemize}
 
 \subsubsection{Category Partition}
-Magic Bytes: {valido}, {non valido}, {null}
-Master key: {null}, {master key di 0 byte}, {master key di > 0 byte}
-Len of master key: { = len master key} {< len master key} {> len master key} {null}
-state: {null} {fenced} {non fenced}
-Siccome in documentazione non c'è scritto niente su questo stato dell'header, ho lasciato 
+\textbf{Magic Bytes:} \{valido\}, \{non valido\}, \{null\} \\
+\textbf{Master key:} \{null\}, \{master key di 0 byte\}, \{master key di \textgreater 0 byte\} \\
+\textbf{Len of master key:} \{ = len master key\} \{\textless len master key\} \{\textgreater len master key\} \{null\} \\ \\
+Siccome in documentazione non c'è scritto niente su questo stato dell'header, ho abbandonato momentaneamente
 l'approccio black box sulla category partition di questo parametro, e andando a controllare nel codice
 ho scoperto che nella classe viene solamente controllato se lo stato è fenced o non fenced, quindi ho descritto 
-la category partition in questo modo
+la category partition in questo modo: \\
+\textbf{state:} \{null\} \{fenced\} \{non fenced\} \\
 
 
 \subsubsection{Boundary Analysis}
-Andiamo a definire per ogni partizione i Boundary values
-
-\paragraph{Magic Bytes}
-\begin{itemize}
-  \item \{valido\} = BKLE
-  \item \{non valido\} = BKLU 
-\end{itemize}
-
-\paragraph{Master key}
-\begin{itemize}
-  \item \{master key di 0 byte\} = new byte[]
-  \item \{master key di > 0 byte\} = new byte[1]
-\end{itemize}
-
-\paragraph{Len of master key}
-\begin{itemize}
-  \item \{= len effettiva \} = len effettiva
-  \item \{\textless len effettiva\} = len effettiva - 1
-  \item \{\textgreater len effettiva\} = len effettiva + 1
-\end{itemize}
-
-\paragraph{state}
-\begin{itemize}
-  \item \{fenced\} = 1
-  \item \{non fenced\} = 0
-\end{itemize}
-
-Inoltre nell'header c'è un campo che indica la versione, non specificato nella documentazione, ma
+Andiamo a definire per ogni partizione i Boundary values (Figura \ref{tab:boundaryAnalyisReadHeader1} e Figura \ref{tab:boundaryAnalyisReadHeader2}). 
+Nell'header c'è un campo che indica la versione, non specificato nella documentazione, ma
 analizzando il codice si può notare che ne esistono due tipi, la versione 0 e la versione 1. Per questo motivo
-vado a specificare una category partition per questo campo, in modo tale da poter testare entrambe le versioni.
-
-\paragraph{Version}
-\begin{itemize}
-  \item \{versione 0\} = 0
-  \item \{versione 1\} = 1
-\end{itemize}
+vado a specificare anche una category partition e boundary analisys per questo campo, in modo tale da poter testare entrambe le versioni. \\
 
 Andrò ad utilizzare un approccio unidimensionale nella stesura dei casi 
 di test, tranne per le coppie di parametri master key e len of master key,
 che essendo strettamente correlate ho ritenuto opportuno testare tutte le 
 combinazioni tra loro.
-
-I casi di test sono specificati nella Tabella \ref{tab:categoryPartition1ReadHeader}
-
-Codice implementato Figura \ref{fig:Code1ReadHeader}
-
-
+I casi di test sono specificati nella Tabella \ref{tab:categoryPartition1ReadHeader}.
+Codice implementato Figura \ref{fig:Code1ReadHeader}. \\ \\
 Andando ad eseguire questi test molti di questi falliscono (Figura \Ref{fig:TestFailsReadHeader}), andiamo a documentare perchè reputo 
-dei bug i fallimenti di questi test.
-
-
+dei bug i fallimenti di questi test. \\
 Il primo test che fallisce è il numero 1. Fallisce perchè ho ritenuto opportuno che se il campo dell'header 
 che indica la lunghezza della master key mandi un eccezione nel caso in cui non coincida con la lunghezza effettiva 
 della masterkey inserita, invece il metodo non si accorge di niente.
@@ -422,27 +270,22 @@ Anche i test 2 e 5 falliscono per la stessa motivazione.
 Invece per quanto riguarda il test 3, questo fallisce perchè ritorna un eccezione anche se non dovrebbe. 
 L'eccezione descrive il fatto che -1 non è una lunghezza accettata per la masterkey, tuttavia nella documentazione è
 esplecitamente specificato che -1 indica il fatto che non viene specificata nessuna master key, esattamente come viene 
-fatto nel caso di test considerato.
-
+fatto nel caso di test considerato. 
 Nonostante questi casi falliscano per andare avanti con l'analisi e per non falsare i dati di coverage calcolati
 dai framework li andrò a modificare facendoli passare (anche se non dovrebbero).
 
 
 \subsubsection{Adequacy Control Flow}
 Ora per verificare l'adeguatezza dei casi di test, vado ad utilizzare
-Jacoco per calcolare la coverage.
-
-Come si può vedere della figura \ref{fig:JacocoCoveragereadHeader1} con questa test suite otteniao
-una statement coverage del 61\% e una condition coverage del 59\%.
-
-Andando a vedere in maniera più specifica quali sono le parti non coperte (Figura \ref{fig:JacocoCoveragereadHeader2})
+Jacoco per calcolare la coverage. Come si può vedere della figura \ref{fig:JacocoCoveragereadHeader1} con questa test suite otteniamo
+una statement coverage del 61\% e una condition coverage del 59\%. \\
+Andando ad analizzare in maniera più specifica quali sono le parti non coperte (Figura \ref{fig:JacocoCoveragereadHeader2})
 si può notare a riga 243 che se si usa la versione V1 dell'header è possibile specificare una parte aggiuntiva dell'header
-chiamata explicitLacBufLength.
-
-Sono andato quindi ad aggiungere un valore di input ai test e due casi di test per coprire questo input aggiuntivo \\
-Category Partition explicitLacBufLength $\rightarrow.
-\{ >= \text{LAC\_METADATA\_LENGTH} \},
-\{ <  \text{LAC\_METADATA\_LENGTH} AND >= 0\}, 
+chiamata explicitLacBufLength. \\
+Sono andato quindi ad aggiungere un valore di input ai test e due casi di test per coprire questo input aggiuntivo. \\
+Category Partition explicitLacBufLength $\rightarrow
+\{ >= \text{LAC\_METADATA\_LENGTH} \}, \\
+\{ <  \text{LAC\_METADATA\_LENGTH}\quad \textrm{AND} \quad >= 0\}, 
 \{ < 0 \}$ 
 
 Essendo il campo specificato come length, mi è sembrato opportuno descrivere anhe il caso in cui la lunghezza è negativa.
@@ -455,9 +298,7 @@ analysis su questo parametro ottengo i seguenti valori:
   \item \{ \textless 16 AND \textgreater= 0 \} = 15, 0
   \item \{ \textless 0 \} = -1
 \end{itemize}
-
-La test suite ora è composta in questo modo: (Tabella \ref{tab:TestSuiteReadHeader2})
-
+La test suite ora è composta in questo modo: (Tabella \ref{tab:TestSuiteReadHeader2}). \\
 Grazie a questo incremento la statement coverage è salita al 82\%
 e la condition coverage al 77\% (Figura \ref{fig:JacocoCoveragereadHeader3})
 
@@ -471,11 +312,9 @@ Dalla Figura \ref{fig:BaduaCoverageReadHeader1} possiamo calcolare la all uses c
 \(CU_c + PU_c = 66\) \\
 \( (CU + PU) - (CU\textsubscript{f} + PU\textsubscript{f}) = 66 + 16 = 82\) \\ \\
 \[\frac{{CU\textsubscript{c} + PU\textsubscript{c}}}{{(CU + PU) - (CU\textsubscript{f} + PU\textsubscript{f})}} = \frac{{66}}{{82}} = 0.8\]
-
 Prendendo in considerazione le coppie def-use in Figura \ref{fig:BaduaCoverageReadHeader2} possiamo notare che
 effettivamente la test suite non copre la coppia def-use sulla variabile version dalla riga 226 alla riga 228.
-Andiamo quindi a generare un caso di test che copra questa coppia def-use. \\
-
+Andiamo quindi a generare un caso di test che copra questa coppia def-use. \\ \\
 Per fare ciò andiamo a modificare il test che copre la versione 0 dell'header, aggiungendo un caso in cui la versione
 è 2 (Tabella \ref{tab:ADF1ReadHeader}).  Rifacendo la build con Badua si può notare che la coppia def-use ora risulta coperta (Figura \ref{fig:BaduaCoverageReadHeader3})
 e c'è stato un incremento delle coppie def-use coperte (Figura \ref{fig:BaduaCoverageReadHeader4}). Ricalcolando
@@ -497,8 +336,8 @@ Prendiamo in considerazione per migliorare la test suite la mutazione non rilvea
 La mutazione (Figura \ref{fig:PitCoverageReadHeader3}) trasforma il \textgreater in \textgreater=.
 
 Per risolvere il problema basterebbe passare come lunghezza della master key un valore che equivale al numero di byte rimanenti
-del file. In questo modo la mutazione verrebbe rilevata perchè si riuscirebbe a distinguere il caso in cui è > da quello in cui
-è >=. Tuttavia la mutazione non viene rilevata perchè anche se la lunghezza della master key dichiarata fosse uguale alla
+del file. In questo modo la mutazione verrebbe rilevata perchè si riuscirebbe a distinguere il caso in cui è \textgreater da quello in cui
+è \textgreater=. Tuttavia la mutazione non viene rilevata perchè anche se la lunghezza della master key dichiarata fosse uguale alla
 lunghezza rimanente, l'header contiene degli altri campi che vengono letti dopo la master key che generano la stessa eccezione 
 che genererebbe il codice in quel caso. Quindi non è possibile rilevare la mutazione in questo modo. \\
 Inoltre il controllo a riga 235 con relativo lancio dell'eccezione è superfluo, perchè quando successivamente si tenta la lettura
@@ -740,6 +579,24 @@ Il report di Failsafe mostra che l'integration test è andato a buon fine (Figur
 
 \begin{table}[ht]
   \centering
+  \caption[Journal: Boundary Analysis]{Boundary Analysis metodo listJournalIds}
+  \begin{tabular}{|l|l|}
+  \hline
+  \multicolumn{1}{|c|}{journalDir} & \multicolumn{1}{|c|}{JournalIdFilter} \\
+  \hline
+  \{Directory contenente 1 file di log\} & JournalRollingFilter \\
+  \{Directory contenente 1 file di log e 1 file di testo\} & Filtro sempre True \\
+  \{Directory contenente 1 file di testo\} & Filtro sempre False \\
+  \{path non esistente\} & MyFilter \\
+  \{Path di un file di log\} & null \\
+  null & \\
+  \hline
+  \end{tabular}
+  \label{tab:boundaryAnalyisListJournalIds}
+\end{table}
+
+\begin{table}[ht]
+  \centering
   \caption[Journal: Test Suite - Category Partition]{Test Suite derivante dalla category partition e dalla boundary analysis}
   \begin{tabular}{|c|c|c|}
   \hline
@@ -853,6 +710,35 @@ journalDir & JournalIdFilter & Risultato Atteso \\
 
 \begin{table}[ht]
   \centering
+  \caption[FileInfo: Boundary Analysis 1]{Boundary Analysis metodo readHeader}
+  \begin{tabular}{|l|l|l|}
+  \hline
+  \multicolumn{1}{|c|}{Magic Bytes} & \multicolumn{1}{|c|}{Master Key} & \multicolumn{1}{|c|}{Len of the master key}\\
+  \hline
+  \{valido\} = BKLE & \{master key di 0 byte\} = new byte[] & \{= len effettiva \} = len effettiva \\
+  \{non valido\} = BKLU  & \{master key di \textgreater 0 byte\} = new byte[1] & \{\textless len effettiva\} = len effettiva - 1 \\
+   & & \{\textgreater len effettiva\} = len effettiva + 1 \\
+  \hline
+  \end{tabular}
+  \label{tab:boundaryAnalyisReadHeader1}
+\end{table}
+
+\begin{table}[ht]
+  \centering
+  \caption[FileInfo: Boundary Analysis 2]{Boundary Analysis metodo readHeader}
+  \begin{tabular}{|l|l|}
+  \hline
+  \multicolumn{1}{|c|}{State} & \multicolumn{1}{|c|}{Version} \\
+  \hline
+  \{fenced\} = 1 & \{versione 0\} = 0 \\
+  \{non fenced\} = 0 & \{versione 1\} = 1\\
+  \hline
+  \end{tabular}
+  \label{tab:boundaryAnalyisReadHeader2}
+\end{table}
+
+\begin{table}[ht]
+  \centering
   \caption[FileInfo: Test Suite - Category Partition]{Test Suite derivante dalla category partition e dalla boundary analysis}
   \begin{tabular}{|l|l|l|l|l|l|}
     \hline
@@ -869,6 +755,8 @@ journalDir & JournalIdFilter & Risultato Atteso \\
   \end{tabular}
   \label{tab:categoryPartition1ReadHeader}
 \end{table}
+
+
 
 
 \begin{table}[ht]
