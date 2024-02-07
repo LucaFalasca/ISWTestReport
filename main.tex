@@ -1,4 +1,4 @@
-\documentclass[12pt, a4paper]{article}
+\documentclass[10pt, a4paper]{article}
 \usepackage[italian]{babel}
 \usepackage{helvet}
 \renewcommand{\familydefault}{\sfdefault}
@@ -20,12 +20,13 @@
     urlcolor=magenta     % Colore dei collegamenti URL
 }
 
-\title{Bookkepper test}
-\author{Luca Falasca}
+\title{Relazione Software Testing}
+\author{Luca Falasca 0334722}
 
 \begin{document}
-
+\date{}
 \maketitle
+
 
 \thispagestyle{empty}
 \tableofcontents
@@ -52,9 +53,17 @@ La struttura di ogni analisi è formata dai seguenti punti:
   \item Adequacy Data Flow
   \item Mutation Testing
   \item Reliability
-\end{itemize} 
+\end{itemize}
 Per ognuna delle fasi (ad eccezioni delle prime due), se ritenuto necessario, sono state effettuate delle modifiche
-alla test suite basate sulle metriche di coverage calcolate, in modo da migliorare l'adeguatezza dei casi di test.
+alla test suite basate sulle metriche di coverage calcolate, in modo da migliorare l'adeguatezza dei casi di test.\\ \\
+I framework utilizzati per calcolare la coverage sono Jacoco, Badua e Pitest. Essi sono stati
+implementati anche come CI sul repository github utilizzando le github actions. \\ 
+I fork dei repository su cui è stato effettuato il lavoro di testing sono:
+\begin{itemize}
+  \item \href{https://github.com/LucaFalasca/bookkeeper}{Bookkeeper}
+  \item \href{https://github.com/LucaFalasca/avro}{Avro}
+\end{itemize} 
+
 \section{Bookkeeper}
 \subsection{Journal}
 
@@ -225,7 +234,7 @@ assunzioni e siccome questi test non rilevano nessuna failure del sistema, la re
 
 \subsection{FileInfo}
 \subsubsection{Descrizione}
-\textbf{Path:} org.apache.bookkeeper.bookie.EntryLoggerAllocator.java \\
+\textbf{Path:} org.apache.bookkeeper.bookie.FileInfo.java \\
 \textbf{Metodo considerato:} readHeader \\ 
 \textbf{Descrizione metodo:} Legge l'header di un ledger index file per verificarne la correttezza.
 Lancia una eccezione se l'header non è corretto, altrimenti non ritorna nulla.\\ \\
@@ -357,7 +366,7 @@ assunzioni nella mia test suite sono risultate 4 failure su un totale di 11 prof
 \subsubsection{Descrizione}
 La classe Schema è una classe astratta che rappresenta uno schema Avro. E' una delle classi core di Avro, e viene utilizzata
 per rappresentare i dati serializzati. \\ \\
-\textbf{Path:} org/apache/avro/Schema.java \\
+\textbf{Path:} org.apache.avro.Schema.java \\
 \textbf{Metodo considerato:} createRecord() \\
 \textbf{Descrizione metodo:} che si occupa di creare uno schema di tipo record 
 \paragraph{Input:} name, doc, namespace, isError, fields
@@ -656,7 +665,7 @@ journalDir & JournalIdFilter & Risultato Atteso \\
       \hline
       journalDir & JournalIdFilter & Risultato Atteso \\
       \hline
-      {Directory con un log con id 2 e un file con id 1} & {Filtro con condizione >1} & [2] \\
+      {Directory con un log con id 2 e un file con id 1} & {Filtro con condizione \textgreater1} & [2] \\
       \hline
     \end{tabular}
     \label{tab:ADF1ListJournalIds}
