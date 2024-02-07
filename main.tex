@@ -29,9 +29,9 @@
 
 \thispagestyle{empty}
 \tableofcontents
-
-\listoffigures
 \listoftables
+\listoffigures
+
 \maxdeadcycles=600
 
 \thispagestyle{empty}
@@ -355,36 +355,23 @@ assunzioni nella mia test suite sono risultate 4 failure su un totale di 11 prof
 \section{Avro}
 \subsection{Schema}
 \subsubsection{Descrizione}
-Path: org/apache/avro/Schema.java
-
 La classe Schema è una classe astratta che rappresenta uno schema Avro. E' una delle classi core di Avro, e viene utilizzata
-per rappresentare i dati serializzati. \\
-
-Dalla documentazione di Avro: \\
-
-Avro is used to define the data schema for a record's value. 
-This schema describes the fields allowed in the value, along with their data types.
-You apply a schema to the value portion of an Oracle NoSQL Database record using Avro bindings.
-These bindings are used to serialize values before writing them, and to deserialize values after reading them.
-The usage of these bindings requires your applications to use the Avro data format, which means that each
-stored value is associated with a schema. 
-
-Ho deciso di prendere in considerazione il metodo createRecord() che si occupa di creare uno schema di tipo record.
+per rappresentare i dati serializzati. \\ \\
+\textbf{Path:} org/apache/avro/Schema.java \\
+\textbf{Metodo considerato:} createRecord() \\
+\textbf{Descrizione metodo:} che si occupa di creare uno schema di tipo record 
 \paragraph{Input:} name, doc, namespace, isError, fields
 
-\paragraph{Output:} Schema
+\paragraph{Output:} Schema \\ \\
+La documentazione è in Figura \ref{fig:Documentation}.
 
 \subsubsection{Category Partition}
-
-
-
-La category partition del metood createRecord è descritta nella tabella \ref{tab:categoryPartitionCreateRecord}.
+La category partition del metodo createRecord è descritta nella tabella \ref{tab:categoryPartitionCreateRecord}.
 Il campo name rappresenta il nome dello schema e siccome è obbligatorio ho partizionato in modo da testare questa caratteristica.
 Stessa discorso ma speculare vale per il campo doc e namespace, dato che sono descritti come opzionali 
 quindi andranno testati in maniera differente.
 Per quanto riguarda il campo isError, esso non è descritto nella documentazione, quindi essendo un campo booleano
-ho deciso di partizionarlo in modo da testare entrambi i valori.
-
+ho deciso di partizionarlo in modo da testare entrambi i valori.\\
 Il campo fields essendo un vettore di elementi, ho deciso di partizionarlo in modo da testare i casi in cui il vettore
 è vuoto, contiene un solo elemento e contiene più di un elemento. Ho deciso di non addentrarmi nella specifica di 
 questi elementi, in quanto sarebbe fuori contesto nell'analisi di questo unit test.
@@ -396,8 +383,8 @@ Il motivo per cui i test 3 e 4 devono restituire una eccezione è perchè nella 
 il campo name è obbligatorio, e quindi se non viene specificato deve essere lanciata una eccezione.
 Invece il motivo per cui il 5 e 6 test devono restituire una eccezione è perchè nella documentazione è specificato che
 fields è obbligatorio, e quindi se non viene specificato deve essere lanciata una eccezione. \\
-Come si vede dall'immagine \ref{fig:TestFailsCreateRecord} i test 4 e 6 falliscono. Significa che il metodo non si accorge
-che il campo name e fields non sono stati specificati. 
+Come si vede dalla Figura \ref{fig:TestFailsCreateRecord} i test 4 e 6 falliscono. Significa che il metodo non si accorge
+che il campo name e fields non sono stati specificati. \\
 Vado a modificare i due metodi facendoli passare (anche se non dovrebbero) per poter andare avanti con l'analisi e 
 per non falsare i dati di coverage calcolati dai framework.
 
@@ -407,19 +394,17 @@ Andiamo ora a valutare la coverage ottenuta con jacoco con i casi di test defini
 che in realtà il metodo createRecord() è solo un wrapper di una new della classe interna RecordSchema, quindi per calcolare
 la coverage dobbiamo prendere in considerazione il costruttore della classe RecordSchema. \\ Però la vera logica del metodo
 è contenuta nel metodo privato setField(). Quindi per fare considerazioni sulla coverage dobbiamo prendiamo in considerazione 
-l'insieme di questi metodi. \\
+l'insieme di questi metodi. \\ \\
 Dalla Figura \ref{fig:JacocoCoverageCreateRecord1} si può vedere che la statement coverage della classe è del 12\%. Tuttavia come 
 spiegato in precedenza il metodo createRecord() è solo un wrapper di una new della classe interna RecordSchema che invece ha una
 statement coverage del 17\% (Figura \ref{fig:JacocoCoverageCreateRecord2}). Inoltre il costrutture e il metodo setField() 
 che rappresenta la vera logica del metodo preso in esame hanno rispettivamente una coverage del 100\% e del 59\% 
-(Figura \ref{fig:JacocoCoverageCreateRecord3}).
-
+(Figura \ref{fig:JacocoCoverageCreateRecord3}). \\ \\
 Quindi per migliorare i miei casi di test andrò ad analizzare principalemente il metodo setFied() con un approccio white box.
 Data la situazione in Figura \ref{fig:JacocoCoverageCreateRecord4} vado ad incrementare l'adeguatezza dei casi di test
 andando a coprire il caso in cui il field ha il campo position = -1. Per farlo dato che per farlo controllava questo branch 
 tramite un attributo privato ho fatto in modo di settare questo attributo a -1 tramite reflection.
 Quindi ho aggiunto un caso di test che copre questo caso nella test suite (Tabella \ref{tab:Jacoco1CreateRecord}).
-
 Con questo incremento ho ottenuto una coverage del 70\% (Figura \ref{fig:JacocoCoverageCreateRecord5}).
 
 
@@ -427,16 +412,13 @@ Con questo incremento ho ottenuto una coverage del 70\% (Figura \ref{fig:JacocoC
 
 Vado ora a fare un lavoro di adeguatezza del dataflow utilizzando il framework badua per calcolare la all-uses coverage. \\
 Dalla Figura \ref{fig:BaduaCoverageCreateRecord1} possiamo calcolare la all uses coverage. \\
-
 \(CU_c + PU_c = 25\) \\
 \( (CU + PU) - (CU\textsubscript{f} + PU\textsubscript{f}) = 33\) \\ \\
-\[\frac{{CU\textsubscript{c} + PU\textsubscript{c}}}{{(CU + PU) - (CU\textsubscript{f} + PU\textsubscript{f})}} = \frac{{25}}{{33}} = 0.75\]
-
+\[\frac{{CU\textsubscript{c} + PU\textsubscript{c}}}{{(CU + PU) - (CU\textsubscript{f} + PU\textsubscript{f})}} = \frac{{25}}{{33}} = 0.75\] \\ 
 Per migliorare la all-uses coverage andiamo a coprire la coppia def-use (956, 959) della variabile existingField che non 
 è stata coperta dai precedenti test. Questa coppia indica la mancanza del caso in cui due field uguali vengono inseriti, 
 quindi per coprire la coppia def-use andiamo ad aggiungere un test che manda in input due field uguali 
 (Tabella \ref{tab:Badua1CreateRecord}).
-
 Con questo incremento la all-uses coverage è salita al 93\% (Figura \ref{fig:BaduaCoverageCreateRecord2}).
 \subsubsection{Mutation Testing}
 
@@ -445,15 +427,13 @@ Come si può vedere dalla Figura \ref{fig:PitMutationCreateRecord1} la mutation 
 all'intera classe. Se invece andiamo a vedere in dettaglio il metodo, possiamo lavorare con una mutation coverage 
 più a grana fine (Figura \ref{fig:PitMutationCreateRecord2}, \ref{fig:PitMutationCreateRecord3}, \ref{fig:PitMutationCreateRecord4}).
 In particolare posso calcolare questa mutation coverage come segue:
-\[\frac{{Mutazioni rilevate}}{{Mutazioni totali}} = \frac{{4}}{{6}} = 0.66\]
-
-Prendiamo in considerazione per migliorare la test suite la mutazione non rilveata a riga 224 
+\[\frac{{Mutazioni rilevate}}{{Mutazioni totali}} = \frac{{4}}{{6}} = 0.66\] \\
+Prendiamo in considerazione per migliorare la test suite la mutazione non rilevata a riga 224 
 (Figura \ref{fig:PitMutationCreateRecord2}, Figura \ref{fig:PitMutationCreateRecord5}).
 Questa mutazione non viene rilevata perchè fino ad adesso nella test suite ho considerato come expected value o un eccezione
 o un successo (che indica semplicemente una non eccezione), quindi il caso in cui viene ritornato null non viene rilevato.
 Per risolvere il problema basta modificare la test suite aspettando come valore di ritorno un oggetto di tipo Schema nei casi 
-di successo (Tabella \ref{tab:PitCreateRecord1})
-
+di successo (Tabella \ref{tab:PitCreateRecord1}). \\
 Con questo incremento la mutazione viene rilevata (Figura \ref{fig:PitMutationCreateRecord6}), e quindi 
 la mutation coverage diventa dell' 83\%. 
 
@@ -467,22 +447,18 @@ assunzioni nella mia test suite sono risultate 2 failure su un totale di 8 profi
 \subsubsection{Descrizione}
 
 SchemaCompatibility \\
-Path: org.apache.avro.SchemaCompatibility.java \\
+\textbf{Path:} org.apache.avro.SchemaCompatibility.java \\
+\textbf{Metodo considerato:} checkReaderWriterCompatibility \\
 
 Per testare questa classe mi concentrerò sul metodo esposto checkReaderWriterCompatibility che
 si occupa di verificare la compatibilità tra due schemi. \\
-Partiamo dalla definizione di compatibilità descritta dalla documentazione:
-
-
-/** * Evaluate the compatibility between a reader schema and a writer schema. A
-* reader and a writer schema are declared compatible if all datum instances of *
-the writer schema can be successfully decoded using the specified reader *
-schema. */
-
-Input: reader, writer
-Output: boolean. 
-
-
+Partiamo dalla definizione di compatibilità descritta dalla documentazione: \\\\
+\textit{Evaluate the compatibility between a reader schema and a writer schema. A
+reader and a writer schema are declared compatible if all datum instances of
+the writer schema can be successfully decoded using the specified reader 
+schema.} \\ \\
+\textbf{Input:} reader, writer \\
+\textbf{Output:} boolean. \\
 In realtà il metodo java effettivo non ritorna un boolean ma un oggetto con una descrizione che segnala se è 
 compatibile o meno. Ma dato che il metodo in questione ha lo scopo semplicemente di identificare se due schemi sono compatibili
 ho deciso di interpretare il risultato come un booleano.
@@ -494,23 +470,17 @@ ho deciso di interpretare il risultato come un booleano.
 
 Data la descrizione di compatibilità data dalla documentazione ho interpretato che essa dipenda necessariamente dal tipo 
 associato allo schema. Quindi ho deciso di partizionare gli input basandomi su questo criterio. \\
-
-Nella documentazione è specificato che i tipi possono essere di due categorie, o primitivi o derivati.
-
-Reader: \{schema con tipo primitivo\}, \{Schema con tipo derivato\}
-
+Nella documentazione è specificato che i tipi possono essere di due categorie, o primitivi o derivati.\\ \\
+Reader: \{Schema con tipo primitivo\}, \{Schema con tipo derivato\} \\
 Dato che il metodo confronta due schemi per controllare la loro compatibilità, ho ritenuto necessario che la category partition
-di uno dipenda dall'altro. In questo modo do importanza alla loro combinazione che ha più rilevanza ai fini del testing.
-
+di uno dipendesse dall'altro. In questo modo do importanza alla loro combinazione che ha più rilevanza ai fini del testing.\\ \\
 Writer: \{Schema con tipo uguale al reader\}, \{Schema con tipo diverso dal reader\}
 
 
 \subsubsection{Boundary Analysis}
 
-Reader: \{Schema tipo int\}, \{Schema tipo record\}
-
-Writer: \{Schema stesso tipo di Reader\}, \{Schema diverso di Reader ma stessa categoria\}, \{Schema diverso da Reader ma categoria diversa\}
-  
+Reader: \{Schema tipo int\}, \{Schema tipo record\} \\
+Writer: \{Schema stesso tipo di Reader\}, \{Schema di tipo diverso da Reader ma stessa categoria\}, \{Schema di tipo diverso da Reader ma categoria diversa\} \\ \\
 Test suite (Tabella \ref{tab:TestSuiteSchemaCompatibility})
 
 \subsubsection{Adequacy Control Flow}
@@ -524,8 +494,7 @@ ritorni un valore diverso nell'implementazione corrente. Quindi sarebbe opportun
 di esplorare questo scenario, tuttavia non è possibile mockare nulla perchè questo comportamento è descritto solamente
 tramite l'uso di variabili locali che non sono raggiungibili con i mock. Quindi non è possibile aumentare la coverage
 di questo metodo. \\
-
-Vado quindi a considerare la coverage senza la parte non raggiungibile dai casi di test, e quindi entrambe vanno a 100\%
+Vado quindi a considerare la coverage senza la parte non raggiungibile dai casi di test, e quindi entrambe diventano del 100\%
 \subsubsection{Adequacy Data Flow}
 Andiamo ora a fare un lavoro di adeguatezza del dataflow utilizzando il framework badua per calcolare la all-uses coverage. \\
 Dalla Figura \ref{fig:BaduaCoverageSchemaCompatibility1} possiamo calcolare la all uses coverage. \\
@@ -553,8 +522,8 @@ Questa sezione descrive l'implementazione di un test di integrazione che utilizz
 Il test in questione si occupa di verificare l'integrazione tra il metodo createRecord() della classe Schema (metodo già
 analizzato in precedenza) e il metodo unresolvedSchema() della classe SchemaResolver. \\
 Il test in questione va semplicemente ad utilizzare il metodo unresolvedSchema() che usa createRecord() per creare uno schema
-con delle caratteristiche particolarie e verifica che lo schema ritornato abbia effettivamente
-Codice implementato Figura \ref{fig:CodeIntegrationTest}.
+con delle caratteristiche particolari e verifica che lo schema ritornato abbia effettivamente le caratteristiche richieste. \\
+Codice implementato in Figura \ref{fig:CodeIntegrationTest}. \\
 Il report di Failsafe mostra che l'integration test è andato a buon fine (Figura \ref{fig:ReportIntegrationTest}).
 \newpage
 %Tabelle Journal --------------------------------------------------------
@@ -1098,6 +1067,12 @@ journalDir & JournalIdFilter & Risultato Atteso \\
     \includegraphics[width=\linewidth]{./images/file_info/PitCoverageReadHeader3.png}
     \caption{Pit coverage}
     \label{fig:PitCoverageReadHeader3}
+  \end{figure}
+
+  \begin{figure}
+    \includegraphics[width=\linewidth]{./images/create_record/Documentation.png}
+    \caption{Documentazione Record}
+    \label{fig:Documentation}
   \end{figure}
 
   \begin{figure}
